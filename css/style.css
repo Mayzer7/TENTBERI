@@ -341,3 +341,118 @@ body {
 .free-measurent-banner-icon {
     padding-bottom: 148px;
 }
+
+/* Секция "Статистика" */
+
+.statistics {
+    color: var(--dark-blue);
+    margin-bottom: 120px;
+}
+
+.statistic-cards {
+    display: grid;
+    grid-template-columns: minmax(420px, 568px) minmax(420px, 568px) minmax(420px, 568px);
+    gap: 0px;
+}
+
+.statistic-card {
+    border: 2px dashed #CDD4DD;
+    padding: 32px 40px;
+}
+
+/* убираем левую границу у всех карточек, которые идут после первой */
+.statistic-card + .statistic-card {
+  border-left: none;
+}
+
+.statistic-up-title {
+    color: var(--blue);
+    font-size: 24px;
+    line-height: 110%;
+    margin-bottom: 12px;
+}
+
+.statistic-number {
+    font-size: 120px;
+    line-height: 100%;
+    font-family: 'Helvetica Neue Bold', sans-serif;
+}
+
+.statistic-number span {
+    font-size: 70px;
+}
+
+.statistic-text {
+    font-family: 'Helvetica Neue Regular', sans-serif;
+    font-size: 20px;
+    line-height: 110%;
+}
+
+/* Секция "ТентБери в деле" */
+
+.tentberi-cases-section {
+    color: var(--dark-blue);
+    padding: 70px 0px;
+}
+
+.tentberi-cases-header {
+    display: flex;
+    gap: 290px;
+    margin-bottom: 40px;
+    padding: 0px 40px;
+}
+
+.tentberi-cases-title h2 {
+    font-size: 70px;
+    line-height: 100%;
+}
+
+.tentberi-cases-subtitle p {
+    max-width: 528px;
+    width: 100%;
+    font-size: 24px;
+    line-height: 110%;
+}
+
+/* Кейсы */
+
+.tentberi-cases {
+    display: grid;
+    grid-template-columns: minmax(0px, 425px) minmax(0px, 425px) minmax(0px, 425px) minmax(0px, 425px);
+    gap: 20px;
+    row-gap: 40px;
+}
+
+.tenberi-case-image {
+    padding-bottom: 16px;
+}
+
+.tenberi-case-image img {
+    border-radius: 20px;
+    max-width: 425px;
+    width: 100%;
+}
+
+
+.tentberi-case-name {
+    min-height: 68px;
+}
+
+.tentberi-case-name p {
+    font-size: 28px;
+    font-family: 'Helvetica Neue Bold', sans-serif;
+    line-height: 100%;
+    display: -webkit-box;          
+  -webkit-box-orient: vertical;  
+  -webkit-line-clamp: 2;        
+  overflow: hidden;              
+  text-overflow: ellipsis;
+}
+
+.tentberi-case-data p {
+    font-family: 'Helvetica Neue Regular', sans-serif;
+    font-size: 20px;
+    line-height: 110%;
+    color: #8A93A6;
+}
+
