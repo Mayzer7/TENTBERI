@@ -1,8 +1,16 @@
+/* 300 - Light */
+@font-face {
+    font-family: 'Helvetica Neue Light';
+    src: url('../fonts/HelveticaNeue-Light.otf');
+    font-weight: 300;
+    font-style: normal;
+}
+
 /* 400 - Regular */
 @font-face {
     font-family: 'Helvetica Neue Regular';
     src: url('../fonts/HelveticaNeue-Roman.otf');
-    font-weight: 400;
+    font-weight: 300;
     font-style: normal;
 }
 
@@ -14,11 +22,19 @@
     font-style: normal;
 }
 
-
 /* 700 - Bold */
 @font-face {
     font-family: 'Helvetica Neue Bold';
     src: url('../fonts/HelveticaNeue-Bold.otf');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Condensed Bold */
+
+@font-face {
+    font-family: 'Helvetica Neue Condensed Bold';
+    src: url('../fonts/HelveticaNeue-Condensed-Bold.ttf');
     font-weight: 700;
     font-style: normal;
 }
@@ -52,7 +68,7 @@ a {
 }
 
 a:hover {
-    color: #AE9877;
+    color: var(--white-80);
 }
 
 ul {
@@ -81,6 +97,8 @@ body {
   --blue: #2F5CB7;
   --gray-bg: #F8F8F8;
   --light-blue: #DAE7FC;
+  --white-80: rgba(255, 255, 255, 0.8);
+  --border-button: #CDD4DD;
 }
 
 .container {
@@ -93,13 +111,143 @@ body {
 
 /* Страница "main.html" */
 
+/* HEADER */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    padding: 20px 0px;
+    background-color: transparent;
+    transition: transform 0.5s ease;
+    transform: translateY(0);
+}
+
+.header-hidden {
+  transform: translateY(-100%);
+}
+
+.header-container {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+}
+
+.header-logo {
+    font-family: 'Helvetica Neue Condensed Bold', sans-serif;
+    font-stretch: condensed;
+    letter-spacing: -0.04em;
+    font-size: 40px;
+    line-height: 110%;
+    padding: 4px 40px;
+    
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.header-logo-scroll-up {
+    border: 1px solid var(--border-button);
+    background-color: #fff;
+    color: var(--blue);
+}
+
+.header-logo-scroll-up:hover {
+    background-color: var(--light-blue);
+    color: var(--blue);
+}
+
+.header-nav ul  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.header-nav ul li a {
+    border-radius: 16px;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.header-nav-scroll-up {
+    border: 1px solid var(--border-button);
+    background-color: #fff;
+    color: var(--blue);
+    padding: 16px 32px;
+}
+
+.header-nav-scroll-up:hover {
+    background-color: var(--light-blue);
+    color: var(--blue);
+}
+
+.header-contact {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.get-request-btn {
+    background-color: #fff;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    line-height: 0;
+    padding: 15px;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+.get-request-btn:hover {
+    background-color: var(--light-blue);
+}
+
+.get-request-btn svg rect {
+  transition: fill 0.3s ease;
+}
+
+.get-request-btn:hover svg rect {
+  fill: var(--light-blue);
+}
+
+.header-phone {
+    white-space: nowrap;
+    color: var(--blue);
+    font-size: 18px;
+    line-height: 110%;
+    font-family: 'Helvetica Neue Bold', sans-serif;
+    background-color: #fff;
+    padding: 18px 32px;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+}
+
+.header-phone:hover {
+    color: var(--blue);   
+    background-color: var(--light-blue);
+}
+
+.add-border-scoll-up {
+    border: 1px solid var(--border-button);
+}
+
+
 /* Главный баннер */
 
 .welcome-banner {
+    width: 100%;
+    max-width: 1920px;
+    aspect-ratio: 16 / 9;
+    max-height: 1080px;
+    margin: 0 auto;    
+    
     background-image: url('../img/main/background.webp');
-    background-size: cover;
     background-position: center;
-    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: center;  
@@ -456,3 +604,132 @@ body {
     color: #8A93A6;
 }
 
+/* FOOTER */
+
+.footer {
+    padding: 20px 0px;
+}
+
+.footer-cards {
+    display: grid;
+    grid-template-columns: minmax(0px, 425px) minmax(0px, 425px) minmax(0px, 346px) minmax(0px, 504px);
+    gap: 20px;
+}
+
+.footer-card {
+    background-color: var(--blue);
+    border-radius: 20px;
+    max-height: 340px;
+
+}
+
+.footer-card-top {
+    padding-bottom: 42px;
+}
+
+.footer-card-top-2 {
+    padding-bottom: 30px;
+}
+
+.footer-card-1 {
+    padding: 20px 42px 39px 42px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.footer-card-2 {
+    padding: 24px 32px 92px 32px
+}
+
+.footer-card-3 {
+    padding: 24px 32px 62px 32px
+}
+
+.footer-card-4 {
+    padding: 24px 32px 78px 32px
+}
+
+.footer-title {
+    font-size: 79.5px;
+    line-height: 110%;
+    font-family: 'Helvetica Neue Condensed Bold', sans-serif;
+    font-stretch: condensed;
+    letter-spacing: -0.04em;
+}
+
+.footer-info a {    
+    font-family: 'Helvetica Neue Regular', sans-serif;
+    font-size: 24px;
+    line-height: 110%;
+}
+
+.footer-number {
+    padding-bottom: 12px;
+}
+
+.footer-email {
+    padding-bottom: 20px;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 8px;
+}
+
+.footer-socials svg > *:first-child {
+  fill: white;
+  transition: fill 0.3s ease;
+}
+
+.footer-socials a:hover svg > *:first-child {
+  fill: var(--white-80); 
+}
+
+.footer-title-small {
+    font-size: 28px;
+    font-family: 'Helvetica Neue Bold', sans-serif;
+    line-height: 100%;
+    padding-bottom: 16px;
+}
+
+.footer-card nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-card nav ul li a {
+    font-size: 18px;
+    line-height: 110%;
+    font-family: 'Helvetica Neue Light', sans-serif;
+    color: var(--white-80);
+    transition: color 0.3s ease;
+}
+
+.footer-card nav ul li a:hover {
+    color: #fff;
+}
+
+.footer-nav {
+    max-width: 300px;
+    width: 100%;
+}
+
+.footer-copyright {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 20px;
+    padding: 12px 40px;
+    color: #8A93A6;
+    font-family: 'Helvetica Neue Light', sans-serif;
+    font-size: 16px;
+}
+
+.omni-logo {
+    transition: color 0.3s ease; 
+}
+
+.footer-copyright a:hover {
+  color: var(--blue);
+}
