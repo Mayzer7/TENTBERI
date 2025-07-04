@@ -84,6 +84,10 @@ h1, h2, h3, h4, h5, h6, p {
     margin: 0;
 }
 
+svg {
+    vertical-align: middle;
+}
+
 body {
     font-family: 'Helvetica Neue Medium', sans-serif;
     font-size: 20px;
@@ -99,6 +103,7 @@ body {
   --light-blue: #DAE7FC;
   --white-80: rgba(255, 255, 255, 0.8);
   --border-button: #CDD4DD;
+  --gray: #EEEEEE;
 }
 
 .container {
@@ -107,6 +112,20 @@ body {
     margin: 0 auto;
     position: relative;
     width: 100%;
+}
+
+/* Адаптив контейнера */
+
+@media (max-width: 1600px) {
+    .container {
+        padding: 0px 40px 0px 40px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .container {
+        padding: 0px 16px 0px 16px;
+    }
 }
 
 /* Страница "main.html" */
@@ -133,7 +152,8 @@ body {
     display: grid;
     grid-template-columns: 0.7fr 1fr auto;
     align-items: center;
-    transition: grid-template-columns 0.3s ease;
+    justify-content: space-between; 
+    transition: all 0.3s ease;
 }
 
 .header-container.scroll-up {
@@ -147,7 +167,6 @@ body {
     font-size: 40px;
     line-height: 110%;
     padding: 4px 40px;
-    
     border-radius: 16px;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -169,11 +188,11 @@ body {
   align-items: center;
   justify-content: center;
   gap: 40px;
+  padding: 0px 20px;
 }
 
 .header-nav ul.scroll-up-gap {
   gap: 12px;
-  
 }
 
 .header-nav ul li a {
@@ -196,6 +215,7 @@ body {
 }
 
 .header-contact {
+    margin-top: 2px;
     display: flex;
     align-items: center;
     gap: 12px;
@@ -207,7 +227,7 @@ body {
     border-radius: 16px;
     cursor: pointer;
     line-height: 0;
-    padding: 15px;
+    padding: 16px;
     margin: 0;
     transition: all 0.3s ease;
 }
@@ -222,6 +242,11 @@ body {
 
 .get-request-btn:hover svg rect {
   fill: var(--light-blue);
+}
+
+.get-request-icon {
+    width: 24px;
+    height: 24px;
 }
 
 .header-phone {
@@ -245,14 +270,105 @@ body {
     border: 1px solid var(--border-button);
 }
 
+.header-phone-mobile {
+    display: none;
+}
+
+.burger-menu-btn {
+    display: none;
+}
+
+/* Адаптив HEADER */
+
+@media (max-width: 1480px) {
+    .header-nav-scroll-up {
+        padding: 16px 16px;
+    }
+}
+
+@media (max-width: 1320px) {
+    .header-nav ul li a {
+        font-size: 16px;
+    }
+
+    .header-logo {
+        padding: 4px 20px;
+    }
+
+    .get-request-btn {
+        padding: 12px;
+    }
+
+    .header-phone {
+        padding: 16px 16px;
+    }
+
+    .header-contact {
+        margin-top: 5px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .header-nav ul li a,
+    .header-phone {
+        font-size: 14px;
+    }
+
+    .header-nav-scroll-up,
+    .header-phone {
+        padding: 16px 10px;
+    }
+
+    .get-request-btn {
+        padding: 11px;
+    }
+
+    .header-logo {
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 970px) {
+    .header-container,
+    .header-container.scroll-up {
+        grid-template-columns: auto auto;
+    }
+
+    .header-nav,
+    .header-phone {
+        display: none;
+    }
+
+    .header-phone-mobile {
+        display: flex;
+    }
+
+    .burger-menu-btn {
+        display: flex;
+    }
+
+    .get-request-btn {
+        padding: 14;
+    }
+
+    .header-logo {
+        font-size: 26px;
+        padding: 7px 16px;
+    }
+
+    .header-logo-container {
+        padding-right: 10px;
+    }
+}
+
 
 /* Главный баннер */
 
 .welcome-banner {
     width: 100%;
     max-width: 1920px;
-    aspect-ratio: 16 / 9;
-    max-height: 1080px;
+    /* aspect-ratio: 16 / 9; */
+    height: 1080px;
     margin: 0 auto;    
     
     background-image: url('../img/main/background.webp');
@@ -264,6 +380,7 @@ body {
     justify-content: center;  
     align-items: center;
     text-align: center;
+    padding: 0px 16px;
 }
 
 .welcome-banner h1 {
@@ -285,6 +402,7 @@ body {
 }
 
 .sign-up-button {
+    white-space: nowrap;
     font-family: 'Helvetica Neue Medium', sans-serif;
     font-weight: 500;
     border: none;
@@ -310,6 +428,49 @@ body {
 .sign-up-button-blue:hover {
     background-color: #3369D7;
     color: #fff;
+}
+
+/* Адаптив главного экрана */
+
+@media (max-width: 1150px) {
+    .welcome-banner h1 {
+        font-size: 80px;
+        max-width: 955px;
+    }
+
+    .welcome-text {
+        font-size: 20px;
+    }
+
+    .welcome-banner {
+        height: 700px;
+    }
+}
+
+@media (max-width: 960px) {
+    .welcome-banner h1 {
+        font-size: 70px;
+        max-width: 830px;
+    }
+}
+
+@media (max-width: 800px) {
+    .welcome-banner h1 {
+        font-size: 50px;
+        max-width: 600px;
+    }
+    
+    .welcome-text {
+        max-width: 343px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .welcome-banner h1 {
+        font-size: 40px;
+        max-width: 470px;
+    }
 }
 
 /* Секция "Услуги" */
@@ -359,16 +520,32 @@ body {
     background-color: #ffffff;
 }
 
+.plus-svg {
+    width: 5px;
+    height: 5px;
+}
+
 .service-top {
     display: flex;
     justify-content: space-between;
 }
 
 .service-title {
+    flex: 1 1 auto;
+    min-width: 0;
     font-size: 32px;
     font-family: 'Helvetica Neue Bold', sans-serif;
     max-width: 500px;
     width: 100%;
+    margin-right: 16px;
+}
+
+.service-title p {
+  display: -webkit-box;            
+  -webkit-box-orient: vertical;     
+  -webkit-line-clamp: 2;            
+  overflow: hidden;                 
+  text-overflow: ellipsis;          
 }
 
 .service-title-1 {
@@ -387,7 +564,7 @@ body {
 }
 
 .service-title-4 {
-    max-width: 445px;
+    max-width: 455px;
     width: 100%;
 }
 
@@ -423,27 +600,27 @@ body {
 }
 
 .service-img-1 {
-    top: 60px;
+    bottom: 0px;
     right: 50px;
 }
 
 .service-img-2 {
-    top: 40px;
+    bottom: 0px;
     right: 10px;
 }
 
 .service-img-3 {
-    top: 75px;
+    bottom: 0px;
     right: 0px;
 }
 
 .service-img-4 {
-    top: 110px;
+    bottom: 0px;
     right: 0px;
 }
 
 .service-img-5 {
-    top: 0px;
+    bottom: 0px;
     right: 0px;
 }
 
@@ -452,8 +629,67 @@ body {
 }
 
 .service-img-6 {
-    top: 15px;
+    bottom: 0px;
     right: 10px;
+}
+
+/* Адаптив "Услуги" */
+
+@media (max-width: 1500px) {
+    /* .service-card {
+        padding: 12px 16px;
+    }
+
+    .service-title {
+        font-size: 22px;
+    } */
+
+    .services-content {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .service-cards {
+        display: contents;
+    }
+
+    .service-row-1,
+    .service-row-2 {
+        grid-template-columns: none;
+        display: contents;
+    }
+}
+
+@media (max-width: 1300px) {
+    .service-card {
+        padding: 24px;
+    }
+
+    .service-title {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 1140px) {
+    .service-card {
+        padding: 12px 16px;
+        height: 320px;
+    }
+
+    .service-title {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 950px) {
+    .service-card {
+        height: 300px;
+    }
+
+    .service-title {
+        font-size: 22px;
+    }
 }
 
 /* Секция "Записаться на бесплтаный замер" */
@@ -465,6 +701,7 @@ body {
 
 .free-measurement-banner-1 {
     color: var(--dark-blue);
+    border: 1px solid var(--border-button);
 }
 
 .free-measurement-banners {
@@ -474,9 +711,14 @@ body {
 }
 
 .free-measurement-banner {
+    min-height: 562px;
+    height: 100%;
     background-color: var(--gray-bg);
     border-radius: 20px;
     padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .free-measurement-banner-2 {
@@ -495,10 +737,6 @@ body {
 .free-measurent-banner-info-text {
     padding-bottom: 24px;
     font-family: 'Helvetica Neue Regular', sans-serif;
-}
-
-.free-measurent-banner-icon {
-    padding-bottom: 148px;
 }
 
 /* Секция "Статистика" */
@@ -592,7 +830,6 @@ body {
     width: 100%;
 }
 
-
 .tentberi-case-name {
     min-height: 68px;
 }
@@ -615,6 +852,69 @@ body {
     color: #8A93A6;
 }
 
+/* Пагинация */
+
+.tentberi-pagination {
+    padding-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.pagination-arrow-btn {
+    border: none;
+    background-color: var(--gray);
+    border-radius: 100px;
+    padding: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--dark-blue);
+}
+
+.pagination-arrow-btn.disabled-arrow-btn {
+    background-color: var(--gray);
+    color: rgba(21, 40, 78, 0.5);
+}
+
+.pagination-arrow-btn:hover {
+    background-color: var(--blue);
+    color: white;
+}
+
+
+.pagination-pages {
+    display: flex;
+    gap: 8px;
+}
+
+.pagination-pages button {
+    border: none;
+    background-color: var(--light-blue);
+    font-size: 20px;
+    line-height: 110%;
+    font-family: 'Helvetica Neue Regular', sans-serif;
+    color: var(--dark-blue);
+    padding: 19px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pagination-pages button.active-page {
+    background-color: var(--blue);
+    color: #fff;
+}
+
+.pagination-pages button:hover {
+    background-color: var(--blue);
+    color: #fff;
+}
+
+.pagination-pages button.more-pages {
+  padding: 19px 21px;
+}
+
 /* FOOTER */
 
 .footer {
@@ -630,8 +930,7 @@ body {
 .footer-card {
     background-color: var(--blue);
     border-radius: 20px;
-    max-height: 340px;
-
+    min-height: 340px;
 }
 
 .footer-card-top {
@@ -737,6 +1036,11 @@ body {
     font-size: 16px;
 }
 
+.policy-text {
+    max-width: 580px;
+    width: 100%;
+}
+
 .omni-logo {
     transition: color 0.3s ease; 
 }
@@ -744,3 +1048,66 @@ body {
 .footer-copyright a:hover {
   color: var(--blue);
 }
+
+
+/* Адаптив FOOTER */
+
+@media (max-width: 1675px) {
+  .footer-cards {
+    grid-template-columns: 1fr 1fr;
+  }  
+}
+
+@media (max-width: 1445px) {
+    .footer-copyright {
+        padding: 12px 10px;
+        /* font-size: 14px; */
+    }
+
+    .policy-text {
+        max-width: 380px;
+    }
+}
+
+@media (max-width: 850px) {
+    .footer-cards {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .footer-card-3 {
+        padding: 0;
+        background-color: transparent;
+        display: flex;
+        justify-content: space-between;
+        gap: 13px;
+        min-height: 152px;
+    }
+
+    .footer-card-3 .footer-card-top,
+    .footer-card-3 .footer-card-bottom {
+        padding: 0;
+        background-color: var(--blue);
+        width: 100%;
+        min-height: 152px;
+        border-radius: 20px;
+        padding: 16px 24px;
+    }
+
+    .footer-copyright {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 12px 0px;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-card nav ul li a {
+        font-size: 14px;
+    }
+
+    .footer-title-small {
+        font-size: 20px;
+    }
+}
+
