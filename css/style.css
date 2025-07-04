@@ -131,8 +131,13 @@ body {
 
 .header-container {
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: 0.7fr 1fr auto;
     align-items: center;
+    transition: grid-template-columns 0.3s ease;
+}
+
+.header-container.scroll-up {
+    grid-template-columns: 0.4fr 1fr auto;
 }
 
 .header-logo {
@@ -159,14 +164,20 @@ body {
     color: var(--blue);
 }
 
-.header-nav ul  {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
+.header-nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.header-nav ul.scroll-up-gap {
+  gap: 12px;
+  
 }
 
 .header-nav ul li a {
+    font-size: 18px;
     border-radius: 16px;
     white-space: nowrap;
     transition: all 0.3s ease;
