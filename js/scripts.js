@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let lastScroll = window.pageYOffset;
   let ticking = false;
-  let resetTimeoutId = null;  // для хранения таймаута
+  let resetTimeoutId = null; 
 
   const clearResetTimeout = () => {
     if (resetTimeoutId) {

@@ -348,7 +348,7 @@ body {
     }
 
     .get-request-btn {
-        padding: 14;
+        padding: 14px;
     }
 
     .header-logo {
@@ -358,6 +358,28 @@ body {
 
     .header-logo-container {
         padding-right: 10px;
+    }
+
+    .header-logo {
+        padding: 0;
+    }
+
+    .header-logo-scroll-up {
+        padding: 4px 11px;
+    }
+
+    .get-request-btn {
+        width: 48px;
+        height: 48px;
+    }
+
+    .get-request-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .header-contact {
+        gap: 8px;
     }
 }
 
@@ -471,13 +493,30 @@ body {
         font-size: 40px;
         max-width: 470px;
     }
+
+    .sign-up-button {
+        font-size: 14px;
+        padding: 16px 32px;
+    }
+
+    .sign-up-button span {
+        display: none;
+    };
+}
+
+@media (max-width: 400px) {
+    .sign-up-button {
+        width: 100%;
+        padding: 16px 0px;
+    }
 }
 
 /* Секция "Услуги" */
 
 .services {
     color: var(--dark-blue);
-    margin: 120px 0px;
+    margin-top: 120px;
+    margin-bottom: 120px;
 }
 
 .services-content {
@@ -520,9 +559,9 @@ body {
     background-color: #ffffff;
 }
 
-.plus-svg {
-    width: 5px;
-    height: 5px;
+.plus-icon {
+    width: 32px;
+    height: 32px;
 }
 
 .service-top {
@@ -567,7 +606,6 @@ body {
     max-width: 455px;
     width: 100%;
 }
-
 
 .service-title-6 {
     max-width: 374px;
@@ -680,6 +718,13 @@ body {
     .service-title {
         font-size: 24px;
     }
+
+
+    .service-open-button {
+        width: 40px;
+        height: 40px;
+        padding: 10px;
+    }
 }
 
 @media (max-width: 950px) {
@@ -689,6 +734,22 @@ body {
 
     .service-title {
         font-size: 22px;
+    }
+}
+
+@media (max-width: 850px) {
+    .services-content {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .service-card {
+        height: 180px;
+    }
+
+    .service-img img {
+        max-width: 200px;
+        max-height: 200px;
     }
 }
 
@@ -732,12 +793,14 @@ body {
     padding-bottom: 16px;
     font-size: 70px;
     font-family: 'Helvetica Neue Bold', sans-serif;
+    line-height: 90%;  
 }
 
 .free-measurent-banner-info-text {
     padding-bottom: 24px;
     font-family: 'Helvetica Neue Regular', sans-serif;
 }
+
 
 /* Секция "Статистика" */
 
@@ -757,7 +820,6 @@ body {
     padding: 32px 40px;
 }
 
-/* убираем левую границу у всех карточек, которые идут после первой */
 .statistic-card + .statistic-card {
   border-left: none;
 }
@@ -766,13 +828,15 @@ body {
     color: var(--blue);
     font-size: 24px;
     line-height: 110%;
-    margin-bottom: 12px;
+    padding-bottom: 12px;
 }
 
 .statistic-number {
     font-size: 120px;
     line-height: 100%;
     font-family: 'Helvetica Neue Bold', sans-serif;
+    font-stretch: condensed;
+    letter-spacing: -0.04em;
 }
 
 .statistic-number span {
@@ -783,6 +847,106 @@ body {
     font-family: 'Helvetica Neue Regular', sans-serif;
     font-size: 20px;
     line-height: 110%;
+    padding-top: 8px;
+}
+
+.ruler-icon,
+.calculator-icon {
+    width: 120px;
+    height: 120px;
+}
+
+/* Адаптив секции "Записаться на бесплтаный замер" и "Статистика" */
+
+@media (max-width: 1350px) {
+    .free-measurement-banners {
+        grid-template-columns: minmax(0px, 1fr);
+        gap: 12px;
+    }
+
+    .free-measurement-banner {
+        min-height: 485px;
+    }
+
+    .statistic-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .statistic-card {
+        border: none;
+        border-bottom: 2px dashed #CDD4DD;
+        border-left: 2px dashed #CDD4DD;
+        border-right: 2px dashed #CDD4DD;
+    }
+
+    .statistic-card + .statistic-card {
+        border-left: 2px dashed #CDD4DD;
+    }
+
+    .statistic-card:first-child {
+        border-top: 2px dashed #CDD4DD;
+    }
+
+    .sign-up-free-measurement {
+        padding: 0;
+        margin-bottom: 80px;
+    }
+
+    .services {
+        margin-top: 60px;
+        margin-bottom: 80px;
+    }
+
+    .statistics {
+        margin-bottom: 80px;
+    }
+}
+
+@media (max-width: 850px) {
+    .free-measurement-banner {
+        padding: 16px;
+        min-height: 303px;
+        max-height: 303px;
+    }
+
+    .ruler-icon,
+    .calculator-icon {
+        width: 80px;
+        height: 80px;
+    }
+
+    .free-measurent-banner-info-title {
+        font-size: 32px;
+    }
+
+    .free-measurent-banner-info-text {
+        font-size: 14px;
+    }
+
+    .sign-up-button {
+        font-size: 14px;
+    }
+
+    .statistic-up-title {
+        font-size: 20px;
+    }
+
+    .statistic-number {
+        font-size: 80px;
+    }
+
+    .statistic-text {
+        font-size: 16px;
+    }
+
+    .statistic-card {
+        padding: 16px;
+        min-height: 174px;
+    }
+
+    .statistic-card:nth-child(2) {
+        min-height: 190px;
+    }
 }
 
 /* Секция "ТентБери в деле" */
@@ -793,19 +957,20 @@ body {
 }
 
 .tentberi-cases-header {
-    display: flex;
-    gap: 290px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
     margin-bottom: 40px;
-    padding: 0px 40px;
 }
 
 .tentberi-cases-title h2 {
     font-size: 70px;
     line-height: 100%;
+    padding-right: 30px;
 }
 
 .tentberi-cases-subtitle p {
-    max-width: 528px;
+    max-width: 609px;
     width: 100%;
     font-size: 24px;
     line-height: 110%;
@@ -839,10 +1004,10 @@ body {
     font-family: 'Helvetica Neue Bold', sans-serif;
     line-height: 100%;
     display: -webkit-box;          
-  -webkit-box-orient: vertical;  
-  -webkit-line-clamp: 2;        
-  overflow: hidden;              
-  text-overflow: ellipsis;
+    -webkit-box-orient: vertical;  
+    -webkit-line-clamp: 2;        
+    overflow: hidden;              
+    text-overflow: ellipsis;
 }
 
 .tentberi-case-data p {
@@ -859,10 +1024,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
     gap: 40px;
 }
 
 .pagination-arrow-btn {
+    width: 60px;
+    height: 60px;
     border: none;
     background-color: var(--gray);
     border-radius: 100px;
@@ -882,6 +1050,10 @@ body {
     color: white;
 }
 
+.pagination-arrow-icon {
+    width: 32px;
+    height: 32px;
+}
 
 .pagination-pages {
     display: flex;
@@ -889,6 +1061,8 @@ body {
 }
 
 .pagination-pages button {
+    width: 60px;
+    height: 60px;
     border: none;
     background-color: var(--light-blue);
     font-size: 20px;
@@ -915,6 +1089,143 @@ body {
   padding: 19px 21px;
 }
 
+/* Адаптив "ТентБери в деле" */
+
+@media (max-width: 1500px) {
+    .tentberi-case-name p {
+        font-size: 20px;
+    }
+    
+    .tentberi-case-data p {
+        font-size: 16px;
+    }
+
+    .tentberi-case-name {
+        min-height: 55px;
+    }
+
+    .tenberi-case-image {
+        padding-bottom: 12px;
+    }
+
+    .tentberi-cases-title h2 {
+        font-size: 60px;
+    }
+
+    .tentberi-cases-subtitle p {
+        max-width: 455px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 1350px) {
+    .tentberi-cases-section {
+        padding: 0;
+        padding-bottom: 60px;
+    }
+}
+
+@media (max-width: 1300px) {
+    .tentberi-cases {
+        grid-template-columns: minmax(0px, 425px) minmax(0px, 425px) minmax(0px, 425px);
+    }
+
+    .tentberi-cases-title h2 {
+        font-size: 50px;
+    }
+}
+
+@media (max-width: 950px) {
+    .tentberi-cases-title h2 {
+        font-size: 40px;
+    }
+
+    .tentberi-cases {
+        grid-template-columns: 1fr 1fr;
+        row-gap: 32px;
+    }    
+
+    .tenberi-case-image img {
+        max-width: 100%;
+    } 
+}
+
+@media (max-width: 850px) {
+    .tentberi-pagination {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 750px) {
+    .tentberi-cases-title h2 {
+        font-size: 32px;
+    }
+    
+    .tentberi-cases-header {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 700px) {
+    .tentberi-cases-header {
+        margin-bottom: 20px;
+    }
+
+    .tentberi-cases {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .pagination-pages button {
+        font-size: 16px;
+        padding: 11px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .pagination-pages button.more-pages,
+    .pagination-arrow-btn {
+        padding: 0;
+    }
+
+    .pagination-arrow-btn {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+    }
+
+    .pagination-arrow-icon {
+        width: 21px;
+        height: 21px;
+    }
+}
+
+@media (max-width: 370px) {
+    .pagination-pages button {
+        font-size: 14px;
+        padding: 0px;
+        width: 35px;
+        height: 35px;
+    }
+
+    .pagination-arrow-btn {
+        width: 35px;
+        height: 35px;
+        min-width: 35px;
+    }
+
+    .pagination-pages {
+        gap: 5px;
+    }
+
+    .tentberi-pagination {
+        gap: 10px;
+    }
+}
+
+
 /* FOOTER */
 
 .footer {
@@ -930,7 +1241,6 @@ body {
 .footer-card {
     background-color: var(--blue);
     border-radius: 20px;
-    min-height: 340px;
 }
 
 .footer-card-top {
@@ -961,7 +1271,7 @@ body {
 }
 
 .footer-title {
-    font-size: 79.5px;
+    font-size: 85px;
     line-height: 110%;
     font-family: 'Helvetica Neue Condensed Bold', sans-serif;
     font-stretch: condensed;
@@ -1052,7 +1362,7 @@ body {
 
 /* Адаптив FOOTER */
 
-@media (max-width: 1675px) {
+@media (max-width: 1815px) {
   .footer-cards {
     grid-template-columns: 1fr 1fr;
   }  
@@ -1061,7 +1371,6 @@ body {
 @media (max-width: 1445px) {
     .footer-copyright {
         padding: 12px 10px;
-        /* font-size: 14px; */
     }
 
     .policy-text {
@@ -1073,6 +1382,12 @@ body {
     .footer-cards {
         grid-template-columns: 1fr;
         gap: 12px;
+    }
+
+    .footer-card-1,
+    .footer-card-2,
+    .footer-card-4 {
+        padding: 24px 16px;
     }
 
     .footer-card-3 {
@@ -1091,13 +1406,42 @@ body {
         width: 100%;
         min-height: 152px;
         border-radius: 20px;
-        padding: 16px 24px;
+        padding: 24px 16px;
     }
 
     .footer-copyright {
-        grid-template-columns: 1fr;
-        gap: 12px;
+        grid-template-columns: 1.5fr 1fr;
+        font-size: 14px;
         padding: 12px 0px;
+    }
+
+    .footer-copyright a:last-child {
+        text-align: right;
+    }
+
+    .footer-info a,
+    .footer-title-small {
+        font-size: 20px;
+    }
+
+    .footer-card nav ul li a {
+        font-size: 14px;
+    }
+
+    .footer-card nav ul {
+        gap: 6px;
+    }
+
+    .footer-title-small {
+        padding-bottom: 12px;
+    }
+
+    .footer-card-1 {
+        min-height: 255px;
+    }
+
+    .footer-title {
+        font-size: 64px;
     }
 }
 
@@ -1110,4 +1454,16 @@ body {
         font-size: 20px;
     }
 }
+
+@media (max-width: 585px) {
+    .footer-copyright {
+        grid-template-columns: 1fr;   
+        gap: 12px;
+    }
+
+    .footer-copyright a:last-child {
+        text-align: left;
+    }
+}
+
 
