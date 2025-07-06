@@ -96,6 +96,11 @@ body {
     min-width: 320px;
 }
 
+html.no-scroll,
+body.no-scroll {
+  overflow: hidden;
+}
+
 :root {
   --dark-blue: #15284E;
   --blue: #2F5CB7;
@@ -112,6 +117,22 @@ body {
     margin: 0 auto;
     position: relative;
     width: 100%;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0);
+  z-index: 1001;                
+  display: none;
+}
+
+/* Показываем оверлей */
+.overlay.active {
+  display: block;
 }
 
 /* Адаптив контейнера */
@@ -137,7 +158,7 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 999;
+    z-index: 1001;
     padding: 20px 0px;
     background-color: transparent;
     transition: transform 0.5s ease;
@@ -215,19 +236,19 @@ body {
 }
 
 .header-contact {
-    margin-top: 2px;
     display: flex;
     align-items: center;
     gap: 12px;
 }
 
 .get-request-btn {
+    width: 50px;
+    height: 50px;
     background-color: #fff;
     border: none;
     border-radius: 16px;
     cursor: pointer;
     line-height: 0;
-    padding: 16px;
     margin: 0;
     transition: all 0.3s ease;
 }
@@ -272,10 +293,119 @@ body {
 
 .header-phone-mobile {
     display: none;
+    background-color: #fff;
+    border-radius: 16px;
+    cursor: pointer;
+    line-height: 0;
+    padding: 14px;
+    margin: 0;
+    transition: all 0.3s ease;
 }
 
+/* Открытие/закрытие бургер меню */
 .burger-menu-btn {
-    display: none;
+  position: relative;
+  z-index: 1002;
+  min-width: 20px;
+  background: none;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  overflow: visible;
+  background-color: #fff;
+}
+
+.burger-menu-btn span {
+  display: block;
+  width: 20px;      
+  height: 2px;
+  background-color: var(--blue);
+  border-radius: 2px;
+  transition: transform 0.4s ease, opacity 0.2s ease;
+  transform-origin: center center;
+}
+
+.burger-menu-btn.active span:nth-child(1) {
+  transform: translateY(6px) rotate(-45deg);
+}
+
+.burger-menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-menu-btn.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(45deg);
+}
+
+/* Боковое бургер меню */
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: 0; 
+  bottom: 0;      
+  width: 94vw;            
+  height: 99999px;
+  background: #fff;
+  z-index: 1000;
+  transform: translateX(100%); 
+  transition: transform 0.4s ease;
+  padding-top: 140px;
+  text-align: center;
+}
+
+.side-menu.open {
+    transform: translateX(0);
+}
+
+.side-menu-navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.side-menu-navigation ul li a {
+  font-size: 20px;
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.side-menu__logo a {
+    position: absolute;
+    top: 12px;
+    left: 16px;
+    padding: 7px 16px;
+    font-family: 'Helvetica Neue Condensed Bold', sans-serif;
+    font-stretch: condensed;
+    letter-spacing: -0.04em;
+    font-size: 26px;                  
+    color: var(--blue);
+    text-decoration: none;
+    display: inline-block;
+    border: 1px solid var(--border-button);
+    border-radius: 16px;
+}
+
+.side-menu__logo a:hover {
+  color: var(--dark-blue);
+}
+
+.side-menu-contact {
+    margin-top: 80px;
+    color: var(--blue);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.side-menu-socials {
+    margin-top: 16px;
 }
 
 /* Адаптив HEADER */
@@ -295,16 +425,8 @@ body {
         padding: 4px 20px;
     }
 
-    .get-request-btn {
-        padding: 12px;
-    }
-
     .header-phone {
         padding: 16px 16px;
-    }
-
-    .header-contact {
-        margin-top: 5px;
     }
 }
 
@@ -319,19 +441,23 @@ body {
         padding: 16px 10px;
     }
 
-    .get-request-btn {
-        padding: 11px;
-    }
-
     .header-logo {
         font-size: 35px;
     }
 }
 
 @media (max-width: 970px) {
+    .header {
+        padding: 12px 0px;
+    }
+
     .header-container,
     .header-container.scroll-up {
         grid-template-columns: auto auto;
+    }
+
+    .header-container {
+        display: flex;
     }
 
     .header-nav,
@@ -345,10 +471,8 @@ body {
 
     .burger-menu-btn {
         display: flex;
-    }
-
-    .get-request-btn {
-        padding: 14px;
+        position: relative;
+        z-index: 1002;
     }
 
     .header-logo {
@@ -380,6 +504,12 @@ body {
 
     .header-contact {
         gap: 8px;
+    }
+}
+
+@media (max-width: 320px) {
+    .side-menu {
+        width: 300px;
     }
 }
 

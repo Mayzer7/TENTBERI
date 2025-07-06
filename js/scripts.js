@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const navList = document.querySelector('.header-nav ul');
   const headerPhone = document.querySelector('.header-phone');
   const getRequestBtns = document.querySelectorAll('.get-request-btn');
+  const headerPhoneMobile = document.querySelector('.header-phone-mobile');
 
   let lastScroll = window.pageYOffset;
   let ticking = false;
@@ -28,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
       headerLogo.classList.remove('header-logo-scroll-up');
       headerPhone.classList.remove('add-border-scoll-up');
       getRequestBtns.forEach(btn => btn.classList.remove('add-border-scoll-up'));
+      headerPhoneMobile.classList.remove('add-border-scoll-up');
       navs.forEach(el => el.classList.remove('header-nav-scroll-up'));
       navList.classList.remove('scroll-up-gap');
       resetTimeoutId = null;
@@ -41,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     headerLogo.classList.add('header-logo-scroll-up');
     headerPhone.classList.add('add-border-scoll-up');
     getRequestBtns.forEach(btn => btn.classList.add('add-border-scoll-up'));
+    headerPhoneMobile.classList.add('add-border-scoll-up');
     navs.forEach(el => el.classList.add('header-nav-scroll-up'));
   };
 
@@ -54,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
       headerLogo.classList.remove('header-logo-scroll-up');
       headerPhone.classList.remove('add-border-scoll-up');
       getRequestBtns.forEach(btn => btn.classList.remove('add-border-scoll-up'));
+      headerPhoneMobile.classList.remove('add-border-scoll-up');
       navs.forEach(el => el.classList.remove('header-nav-scroll-up'));
       navList.classList.remove('scroll-up-gap');
       header.classList.remove('header-hidden');
@@ -88,4 +92,42 @@ document.addEventListener('DOMContentLoaded', () => {
       ticking = true;
     }
   }, { passive: true });
+  
+
+
+
+
+
+
+
+  const burger   = document.getElementById('burger');
+  const sideMenu = document.getElementById('sideMenu');
+  const overlay  = document.getElementById('overlay');
+  const htmlEl   = document.documentElement;
+  const bodyEl   = document.body;
+
+  function openMenu() {
+    burger.classList.add('active');
+    sideMenu.classList.add('open');
+    overlay.classList.add('active');
+    htmlEl.classList.add('no-scroll');
+    bodyEl.classList.add('no-scroll');
+  }
+
+  function closeMenu() {
+    burger.classList.remove('active');
+    sideMenu.classList.remove('open');
+    overlay.classList.remove('active');
+    htmlEl.classList.remove('no-scroll');
+    bodyEl.classList.remove('no-scroll');
+  }
+
+  // клик по бургеру — открываем/закрываем
+  burger.addEventListener('click', event => {
+    event.stopPropagation(); // чтобы не всплыло до overlay
+    sideMenu.classList.contains('open') ? closeMenu() : openMenu();
+  });
+
+  // клик по оверлею — закрываем меню
+  overlay.addEventListener('click', closeMenu);
 });
