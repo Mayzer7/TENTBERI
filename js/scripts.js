@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+
   // Отображение шапки
+
   const header = document.querySelector('.header');
   const headerContainer = document.querySelector('.header-container');
   const headerLogo = document.querySelector('.header-logo');
@@ -8,6 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const headerPhone = document.querySelector('.header-phone');
   const getRequestBtns = document.querySelectorAll('.get-request-btn');
   const headerPhoneMobile = document.querySelector('.header-phone-mobile');
+
+  // Сбрасываем стили шапки сверху экрана только на главной странице
+  const page = document.body.dataset.page;
+  
 
   let lastScroll = window.pageYOffset;
   let ticking = false;
@@ -38,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const applyScrollUpStyles = () => {
+    
     clearResetTimeout();  
     navList.classList.add('scroll-up-gap');
     headerContainer.classList.add('scroll-up');
@@ -52,16 +59,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentScroll = window.pageYOffset;
 
     if (currentScroll === 0) {
-      // на самом верху
-      clearResetTimeout();
-      headerContainer.classList.remove('scroll-up');
-      headerLogo.classList.remove('header-logo-scroll-up');
-      headerPhone.classList.remove('add-border-scoll-up');
-      getRequestBtns.forEach(btn => btn.classList.remove('add-border-scoll-up'));
-      headerPhoneMobile.classList.remove('add-border-scoll-up');
-      navs.forEach(el => el.classList.remove('header-nav-scroll-up'));
-      navList.classList.remove('scroll-up-gap');
-      header.classList.remove('header-hidden');
+      // Не сбрасываем стили если это не главная страница
+      if (page === 'main') {
+        // на самом верху
+        clearResetTimeout();
+        headerContainer.classList.remove('scroll-up');
+        headerLogo.classList.remove('header-logo-scroll-up');
+        headerPhone.classList.remove('add-border-scoll-up');
+        getRequestBtns.forEach(btn => btn.classList.remove('add-border-scoll-up'));
+        headerPhoneMobile.classList.remove('add-border-scoll-up');
+        navs.forEach(el => el.classList.remove('header-nav-scroll-up'));
+        navList.classList.remove('scroll-up-gap');
+        header.classList.remove('header-hidden');
+      };
     } else if (currentScroll > lastScroll) {
       // вниз — скрываем шапку
       header.classList.add('header-hidden');
@@ -83,8 +93,19 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     // если на верху — сразу сбрасываем без задержки
     clearResetTimeout();
+
     headerContainer.classList.remove('scroll-up');
     header.classList.remove('header-hidden');
+
+    if (page !== 'main') {
+      navList.classList.add('scroll-up-gap');
+      headerContainer.classList.add('scroll-up');
+      headerLogo.classList.add('header-logo-scroll-up');
+      headerPhone.classList.add('add-border-scoll-up');
+      getRequestBtns.forEach(btn => btn.classList.add('add-border-scoll-up'));
+      headerPhoneMobile.classList.add('add-border-scoll-up');
+      navs.forEach(el => el.classList.add('header-nav-scroll-up'));
+    }
   }
 
   window.addEventListener('scroll', () => {
@@ -94,7 +115,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, { passive: true });
   
+
+
+
   // Бургер меню
+
   const burger   = document.getElementById('burger');
 
   if (burger) {
@@ -131,7 +156,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+
     // Cookie banner
+
     const cookieBanner = document.getElementById('cookie-consent-banner');
     
     if (cookieBanner) {
@@ -165,5 +193,20 @@ document.addEventListener('DOMContentLoaded', () => {
           cookieBanner.classList.add('hidden');
         });
       }
+    }
+
+
+
+
+    // Swiper карточек
+    const tentForTrucksSwiper = document.querySelector('.tents-for-trucks-images');
+
+    if (tentForTrucksSwiper) {
+      const swiper = new Swiper(tentForTrucksSwiper, {
+        slidesPerView: 4,     
+        spaceBetween: 20,      
+        centeredSlides: false,     
+        grabCursor: false,           
+      });
     }
 });
