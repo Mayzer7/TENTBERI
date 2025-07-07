@@ -2126,14 +2126,14 @@ nav ul.nav-list li::marker {
 
 /* Нужна консультация */
 
-.need-consultation {
-    margin: 60px 0px;
-    background-image: url('../img/need-constultation-bg.png');
-    border-radius: 20px;
-    border: 1px solid var(--border-button);
-}
 
-.need-consultation-container {
+.need-consultation-content {
+    margin: 60px 0;
+    background-image: url('../img/need-constultation-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20px;
+    border: 1px solid var(--border-button); 
     display: flex;
     justify-content: space-between;
     align-items: center;
