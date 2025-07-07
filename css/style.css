@@ -1968,9 +1968,15 @@ body.no-scroll {
 }
 
 .tents-for-brand-trucks-card {
-    border: 2px dashed var(--border-button);
+    border-top: 2px dashed var(--border-button);
+    border-bottom: 2px dashed var(--border-button);
+    border-left: 2px dashed var(--border-button);
     padding: 32px 40px;
     min-height: 238px;
+}
+
+.tents-for-brand-trucks-card:last-child {
+    border-right: 2px dashed var(--border-button);
 }
 
 .tents-for-brand-trucks-card-title {
