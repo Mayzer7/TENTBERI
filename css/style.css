@@ -181,6 +181,7 @@ body.no-scroll {
 
 .header-container.scroll-up {
     grid-template-columns: 0.4fr 1fr auto;
+    height: 58px;
 }
 
 .header-logo {
@@ -451,6 +452,10 @@ body.no-scroll {
         padding: 16px 10px;
     }
 
+    .header-nav {
+        margin-bottom: 5px;
+    }
+
     .header-logo {
         font-size: 35px;
     }
@@ -458,7 +463,8 @@ body.no-scroll {
 
 @media (max-width: 970px) {
     .header {
-        padding: 12px 0px;
+        padding: 0;
+        padding-top: 12px;
     }
 
     .header-container,
@@ -499,7 +505,7 @@ body.no-scroll {
     }
 
     .header-logo-scroll-up {
-        padding: 4px 11px;
+        padding: 7px 16px;
     }
 
     .get-request-btn {
@@ -1232,6 +1238,12 @@ body.no-scroll {
 
 /* Адаптив "ТентБери в деле" */
 
+@media (Max-width: 1600px) {
+    .tentberi-cases-title h2 {
+        padding-left: 20px;
+    }
+}
+
 @media (max-width: 1500px) {
     .tentberi-case-name p {
         font-size: 20px;
@@ -1268,8 +1280,13 @@ body.no-scroll {
 
 @media (max-width: 1300px) {
     .tentberi-cases {
-        grid-template-columns: minmax(0px, 425px) minmax(0px, 425px) minmax(0px, 425px);
+        grid-template-columns: 1fr 1fr;
+        row-gap: 32px;
     }
+
+    .tenberi-case-image img {
+        max-width: 100%;
+    } 
 
     .tentberi-cases-title h2 {
         font-size: 50px;
@@ -1279,16 +1296,13 @@ body.no-scroll {
 @media (max-width: 1000px) {
     .tentberi-cases-title h2 {
         font-size: 40px;
+    }   
+}
+
+@media (max-width: 970px) {
+    .tentberi-cases-title h2 {
+        padding-left: 0px;
     }
-
-    .tentberi-cases {
-        grid-template-columns: 1fr 1fr;
-        row-gap: 32px;
-    }    
-
-    .tenberi-case-image img {
-        max-width: 100%;
-    } 
 }
 
 @media (max-width: 900px) {
@@ -1811,6 +1825,40 @@ body.no-scroll {
     cursor: default;
 }
 
+/* Адаптив Хлебные крошки */
+
+@media (Max-width: 1600px) {
+    .breadcrumb-container {
+        padding-left: 20px;
+    }
+}
+
+@media (Max-width: 1400px) {
+    .breadcrumb ul {
+        font-size: 18px;
+    }
+}
+
+@media (Max-width: 1200px) {
+    .breadcrumb ul {
+        font-size: 16px;
+    }
+
+    .breadcrumb-container {
+        padding-top: 110px;
+    }
+}
+
+@media (Max-width: 970px) {
+    .breadcrumb-container {
+        padding-left: 0;
+    }
+
+    .breadcrumb-container {
+        padding-top: 88px;
+    }
+}
+
 
 /* Тенты на грузовые автомобили */
 
@@ -1855,7 +1903,47 @@ body.no-scroll {
   overflow: visible !important;
 }
 
+/* Адаптив Тенты на грузовые автомобили */
 
+@media (Max-width: 1600px) {
+    .tents-for-trucks-title h1 {
+        padding-left: 20px;
+    }
+}
+
+@media (Max-width: 1400px) {
+    .tents-for-trucks-title h1 {
+        font-size: 60px;
+    }
+}
+
+@media (Max-width: 1200px) {
+    .tents-for-trucks-title h1 {
+        font-size: 50px;
+    }
+}
+
+@media (Max-width: 1100px) {
+    .tents-for-trucks-title h1 {
+        font-size: 40px;
+    }
+}
+
+@media (Max-width: 970px) {
+    .tents-for-trucks-title h1 {
+        padding-left: 0;
+    }
+
+    .tents-for-trucks-section {
+        padding-top: 20px;
+    }
+}
+
+@media (Max-width: 900px) {
+    .tents-for-trucks-title h1 {
+        font-size: 32px;
+    }
+}
 
 /* Плюсы тентованных автомобилей */
 
@@ -1905,7 +1993,19 @@ body.no-scroll {
     max-width: 710px;
 }
 
+/* Адаптив Плюсы тентованных автомобилей */
 
+@media (max-width: 1600px) {
+    .advantages-tents-cars {
+        padding-left: 20px;
+    }
+}
+
+@media (max-width: 970px) {
+    .advantages-tents-cars {
+        padding-left: 0;
+    }   
+}
 
 
 /* Информационные карточки */
@@ -1992,6 +2092,19 @@ body.no-scroll {
     font-family: 'Helvetica Neue Regular', sans-serif;
 }
 
+/* Адаптив Наша компания предоставляет услуги по изготовления тентов на грузовые машины */
+
+@media (Max-width: 1600px) {
+    .tents-for-brand-trucks-title h3 {
+        padding-left: 20px;
+    }
+}
+
+@media (Max-width: 970px) {
+    .tents-for-brand-trucks-title h3 {
+        padding-left: 0;
+    }
+}
 
 
 
@@ -2032,7 +2145,19 @@ body.no-scroll {
     line-height: 110%;
 }
 
+/* Адаптив Производство */
 
+@media (Max-width: 1600px) {
+    .production {
+        padding-left: 20px;
+    }
+}
+
+@media (Max-width: 970px) {
+    .production {
+        padding-left: 0;
+    }
+}
 
 
 /* Этапы работы */
@@ -2121,11 +2246,21 @@ nav ul.nav-list li::marker {
   font-size: 20px;
 }
 
+/* Адаптив Этапы работы */
 
+@media (max-width: 1600px) {
+    .stages-of-work-header {
+        padding-left: 20px;
+    }
+}
 
+@media (max-width: 970px) {
+    .stages-of-work-header {
+        padding-left: 0;
+    }
+}
 
 /* Нужна консультация */
-
 
 .need-consultation-content {
     margin: 60px 0;

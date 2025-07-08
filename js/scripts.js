@@ -203,11 +203,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (tentForTrucksSwiper) {
       const swiper = new Swiper(tentForTrucksSwiper, {
-        slidesPerView: 4,     
+        slidesPerView: 4,
+        slidesPierGroup: 1,     
         spaceBetween: 20,      
         centeredSlides: false,     
-        grabCursor: false,           
+        grabCursor: false,     
+        
+        breakpoints: {
+          1100: {
+            slidesPerView: 4,
+          },
+          1000: {
+            slidesPerView: 3,
+            spaceBetween: 12,
+          },
+          900: {
+            slidesPerView: 3.1,
+            spaceBetween: 12,
+          },
+          700: {
+            slidesPerView: 2.5,
+            spaceBetween: 12,
+          },
+          600: {
+            slidesPerView: 2.2,
+            spaceBetween: 12,
+          },
+          300: {
+            slidesPerView: 1.3,
+            spaceBetween: 12,
+          },
+        },
       });
     }
-
 });
