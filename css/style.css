@@ -1536,17 +1536,12 @@ body.no-scroll {
 /* Адаптив FOOTER */
 
 @media (max-width: 1815px) {
-  .footer-cards {
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-
   .footer-title-small {
     padding-bottom: 10px;
   }
   
   .footer-card-1 {
-    padding: 20px 42px 25px 42px;
+    padding: 20px 42px 25px 25px;
   }
 
   .footer-card-2 {
@@ -1567,6 +1562,39 @@ body.no-scroll {
   }
 }
 
+@media (max-width: 1600px) {
+    .footer-title {
+        font-size: 74px;
+    }
+}
+
+@media (max-width: 1500px) {
+    .footer-title-small {
+        font-size: 24px;
+    }
+
+    .footer-card nav ul li a {
+        font-size: 16px;
+    }
+
+    .footer-cards {
+        gap: 12px;
+    }
+    
+    .footer-title {
+        font-size: 64px;
+    }
+
+    .footer-info a {
+        font-size: 22px;
+    }
+
+    .footer-card {
+        padding: 24px 16px;
+    }
+
+}
+
 @media (max-width: 1445px) {
     .footer-copyright {
         padding: 12px 10px;
@@ -1574,6 +1602,30 @@ body.no-scroll {
 
     .policy-text {
         max-width: 380px;
+    }   
+}
+
+@media (max-width: 1250px) {
+    .footer-title-small {
+        font-size: 20px;
+    }
+
+    .footer-card nav ul li a {
+        font-size: 14px;
+    }
+
+    .footer-card nav ul {
+        gap: 4px;
+    }
+
+    .footer-info a {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .footer-cards {
+        grid-template-columns: 1fr 1fr;
     }
 }
 
