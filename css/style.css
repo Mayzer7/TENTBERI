@@ -1216,7 +1216,6 @@ body.no-scroll {
     line-height: 110%;
     font-family: 'Helvetica Neue Regular', sans-serif;
     color: var(--dark-blue);
-    padding: 19px;
     border-radius: 100px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -1234,6 +1233,14 @@ body.no-scroll {
 
 .pagination-pages button.more-pages {
   padding: 19px 21px;
+}
+
+.tentberi-pagination .pagination-pages button,
+.tentberi-pagination .pagination-arrow-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
 }
 
 /* Адаптив "ТентБери в деле" */
@@ -1331,12 +1338,15 @@ body.no-scroll {
     .tentberi-cases {
         grid-template-columns: 1fr;
     }
+
+    .tentberi-pagination {
+        padding-top: 32px;
+    }
 }
 
 @media (max-width: 600px) {
     .pagination-pages button {
         font-size: 16px;
-        padding: 11px;
         width: 40px;
         height: 40px;
     }
@@ -1361,7 +1371,6 @@ body.no-scroll {
 @media (max-width: 370px) {
     .pagination-pages button {
         font-size: 14px;
-        padding: 0px;
         width: 35px;
         height: 35px;
     }
@@ -1507,7 +1516,15 @@ body.no-scroll {
     width: 100%;
 }
 
+.made-in-omni {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
 .omni-logo {
+    margin-left: 8px;
+    margin-right: 6px;
     transition: color 0.3s ease; 
 }
 
@@ -1521,7 +1538,33 @@ body.no-scroll {
 @media (max-width: 1815px) {
   .footer-cards {
     grid-template-columns: 1fr 1fr;
-  }  
+    gap: 12px;
+  }
+
+  .footer-title-small {
+    padding-bottom: 10px;
+  }
+  
+  .footer-card-1 {
+    padding: 20px 42px 25px 42px;
+  }
+
+  .footer-card-2 {
+    padding: 24px 32px 60px 32px;
+  }
+
+  .footer-card-3 {
+    padding: 24px 32px 25px 32px;
+  }
+
+  .footer-card-4 {
+    padding: 24px 32px 30px 32px;
+  }
+
+  .footer-card-top,
+  .footer-card-top-2 {
+    padding-bottom: 25px;
+  }
 }
 
 @media (max-width: 1445px) {
@@ -1859,6 +1902,12 @@ body.no-scroll {
     }
 }
 
+@media (max-width: 360px) {
+    .breadcrumb ul {
+        font-size: 14px;
+    }
+}
+
 
 /* Тенты на грузовые автомобили */
 
@@ -1975,6 +2024,10 @@ body.no-scroll {
     border-bottom: 2px dashed var(--blue);
 }
 
+.advantages-tents-cars-list-left {
+    padding-right: 40px;
+}
+
 .advantages-tents-cars-list-left p {
     display: flex;
     gap: 12px;
@@ -2001,10 +2054,63 @@ body.no-scroll {
     }
 }
 
+@media (max-width: 1400px) {
+    .advantages-tents-cars-title h2 {
+        font-size: 44px;
+        max-width: 700px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .advantages-tents-cars-title h2 {
+        font-size: 34px;
+        max-width: 540px;
+    }
+
+    .advantages-tents-cars-list-left p {
+        font-size: 20px;
+    }
+
+    .advantages-tents-cars-list-rigth p {
+        font-size: 16px;
+    }
+
+    .advantages-tents-cars-list {
+        padding: 30px 0px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .advantages-tents-cars-title h2 {
+        font-size: 28px;
+        max-width: 430px;
+        padding-bottom: 16px;
+    }
+
+    .advantages-tents-cars {
+        padding-top: 32px;
+    }
+}
+
 @media (max-width: 970px) {
     .advantages-tents-cars {
         padding-left: 0;
     }   
+}
+
+@media (max-width: 800px) {
+    .advantages-tents-cars-list {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .advantages-tents-cars-list-rigth {
+        padding-left: 28px;
+    }
+
+    .advantages-tents-cars-list {
+        padding: 12px 0px;
+    }
 }
 
 
@@ -2022,6 +2128,7 @@ body.no-scroll {
     display: flex;
     flex-direction: column;
     background-color: var(--light-blue);
+    border: 1px solid var(--border-button);
     padding: 32px 40px;
     border-radius: 16px;
 }
@@ -2041,7 +2148,64 @@ body.no-scroll {
     line-height: 110%;
 }
 
+.information-card-icon {
+    width: 80px;
+    height: 80px;
+}
 
+/* Адаптив Информационные карточки */
+
+@media (max-width: 1200px) {
+    .information-card-title {
+        font-size: 22px;
+        padding-top: 26px;
+        padding-bottom: 8px;
+    }
+
+    .information-card-text {
+        font-size: 16px;
+    }
+
+    .information-card-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .information-cards {
+        padding-top: 80px;
+    }
+
+    .information-card {
+        padding: 26px;
+    }
+}
+
+@media (max-width: 800px) {
+    .information-cards {
+        gap: 12px;
+    }
+    
+    .information-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 700px) {
+    .information-cards {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .information-card {
+        flex-direction: row;
+        gap: 20px;
+        padding: 21px 16px;
+    }
+
+    .information-card-title {
+        padding-top: 5px;
+    }
+}
 
 
 /* Наша компания предоставляет услуги по изготовления тентов на грузовые машины */
@@ -2100,9 +2264,63 @@ body.no-scroll {
     }
 }
 
+@media (max-width: 1400px) {
+    .tents-for-brand-trucks-title h3 {
+        font-size: 28px;
+        max-width: 720px;
+    }
+}
+
+@media (Max-width: 1300px) {
+    .tents-for-brand-trucks-card {
+        padding: 26px 20px;
+    }
+}
+
+@media (Max-width: 1200px) {
+    .tents-for-brand-trucks-card-title {
+        font-size: 20px;
+        padding-bottom: 8px;
+    }
+
+    .tents-for-brand-trucks-card-text {
+        font-size: 16px;
+    }
+
+    .tents-for-brand-trucks-card {
+        padding: 16px;
+        min-height: 210px;
+    }
+
+    .tents-for-brand-trucks-title h3 {
+        font-size: 22px;
+        max-width: 450px;
+    }
+
+    .tents-for-brand-trucks {
+        padding-top: 80px;
+    }
+}
+
 @media (Max-width: 970px) {
     .tents-for-brand-trucks-title h3 {
         padding-left: 0;
+    }
+}
+
+@media (Max-width: 900px) {
+    .tents-for-brand-trucks-cards {
+        grid-template-columns: 1fr ;
+    }
+
+    .tents-for-brand-trucks-card {
+        min-height: 0px;
+        border-bottom: none;
+        border-right: 2px dashed var(--border-button);
+    }
+
+    .tents-for-brand-trucks-card:last-child {
+        border-bottom: 2px dashed var(--border-button);
     }
 }
 
@@ -2145,11 +2363,53 @@ body.no-scroll {
     line-height: 110%;
 }
 
+.read-more-btn {
+    border: none;
+    background-color: transparent;
+    display: none;
+    padding: 0;
+    color: var(--blue);
+    font-family: 'Helvetica Neue Medium', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    cursor: pointer;
+    max-width: 90px;
+    width: 100%;
+}
+
 /* Адаптив Производство */
 
 @media (Max-width: 1600px) {
     .production {
         padding-left: 20px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .production-title h2 {
+        font-size: 44px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .production-title h2 {
+        font-size: 34px;
+    }
+
+    .production {
+        padding-top: 80px;
+    }
+
+    .production-texts p {
+        font-size: 16px;
+    }
+
+    .production-left-texts, .production-right-texts {
+        gap: 12px;
+    }
+
+    .production-texts {
+        gap: 40px;
     }
 }
 
@@ -2159,6 +2419,39 @@ body.no-scroll {
     }
 }
 
+@media (Max-width: 900px) {
+    .production-texts {
+        grid-template-columns: 1fr;
+    }
+
+    .production-left-texts, .production-right-texts {
+        max-width: 100%;
+    }
+
+    .production-texts {
+        gap: 12px;
+    }
+
+    .production-title h2 {
+        padding-bottom: 16px;
+    }
+}
+
+@media (Max-width: 600px) {
+    .read-more-btn {
+        display: flex;
+    }
+
+    .production-right-texts {
+        max-height: 0;          
+        overflow: hidden;       
+        transition: max-height .5s ease;
+    }
+
+    .production-texts {
+        gap: 12px;
+    }
+}
 
 /* Этапы работы */
 
@@ -2170,6 +2463,7 @@ body.no-scroll {
 .stages-of-work-header {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    align-items: center;
     gap: 20px;
     padding-left: 40px;
     padding-bottom: 32px;
@@ -2190,6 +2484,7 @@ body.no-scroll {
 }
 
 .stages-of-work-cards {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
@@ -2202,6 +2497,7 @@ body.no-scroll {
     padding: 32px 40px;
     position: relative;
     min-height: 274px;
+    overflow: hidden;
 }
 
 .stages-of-work-card-title p {
@@ -2221,10 +2517,16 @@ nav ul.nav-list li p {
     width: 100%;
 }
 
+.stages-of-work-card-content {
+    position: relative;
+    z-index: 2;
+}
+
 .stages-of-work-card-number-image {
     position: absolute;
     right: 10px;
     bottom: 0;
+    z-index: 1;
 }
 
 .stages-of-work-card-number-image-1 {
@@ -2254,11 +2556,114 @@ nav ul.nav-list li::marker {
     }
 }
 
+@media (max-width: 1400px) {
+    .stages-of-work-title h2 {
+        font-size: 44px;
+    }
+
+    .stages-of-work-subtitle p {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .stages-of-work-title h2 {
+        font-size: 32px;
+    }
+
+    .stages-of-work {
+        padding-top: 80px;
+    }
+
+    .stages-of-work-card-title p {
+        font-size: 22px;
+        padding-bottom: 12px;
+    }
+
+    .stages-of-work-card-text p, nav ul.nav-list li p {
+        font-size: 16px;
+    }
+
+    .number-svg {
+        width: 145px;
+        height: 260px;
+    }
+
+    .stages-of-work-card {
+        min-height: 250px;
+        padding: 26px;
+    }
+
+    .stages-of-work-card-number-image {
+        bottom: -47px;
+    }
+
+    .stages-of-work-card-number-image-1 {
+        right: 50px;
+    }
+
+    .stages-of-work-card-number-image-1 svg {
+        width: 110px;
+        height: 210px;
+    }
+
+    .stages-of-work-cards {
+        gap: 12px;
+    }
+}
+
 @media (max-width: 970px) {
     .stages-of-work-header {
         padding-left: 0;
     }
+
+    .stages-of-work-card {
+        padding: 24px 16px;
+    }
 }
+
+@media (max-width: 900px) {
+    .stages-of-work-header {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .stages-of-work-subtitle p {
+        max-width: 455px;
+    }
+}
+
+@media (max-width: 700px) {
+    .stages-of-work-header {
+        padding-bottom: 20px;
+    }
+    
+    .stages-of-work-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .stages-of-work-card-number-image {
+        right: 0;
+        left: 16px;
+        top: -40px;
+    }
+
+    .stages-of-work-card-content {
+        padding-top: 150px;
+    }
+
+    .stages-of-work-card-number-image-1 svg {
+        width: 100px;
+        height: 210px;
+    }
+
+    .stages-of-work-card-number-image-1 {
+        top: 0px;
+    }
+}
+
+
+
 
 /* Нужна консультация */
 
@@ -2287,4 +2692,62 @@ nav ul.nav-list li::marker {
     font-family: 'Helvetica Neue Regular', sans-serif;
     font-size: 20px;
     line-height: 110%;
+}
+
+/* Адаптив "Нужна консультация" */
+
+@media (max-width: 1400px) {
+    .need-consultation-title h3 {
+        font-size: 44px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .need-consultation-title h3 {
+        font-size: 34px;
+    }
+
+    .need-consultation-text p {
+        font-size: 16px;
+    }
+
+    .sign-up-button {
+        padding: 16px 32px;
+        font-size: 16px;
+    }
+
+    .need-consultation-content {
+        padding: 26px;
+        margin: 0;
+        margin-top: 40px;
+        margin-bottom: 80px;
+    }
+}
+
+@media (max-width: 700px) {
+    .need-consultation-content {
+        display: block;
+        flex-direction: column;
+        padding: 16px;
+        background-position: -500px;
+    }
+
+    .need-consultation-title h3 {
+        font-size: 28px;
+        padding-bottom: 8px;
+    }
+
+    .need-consultation-right-side {
+        padding-top: 24px;
+    }
+}
+
+@media (max-width: 350px) {
+    .need-consultation-title h3 {
+        font-size: 24px;
+    }
+
+    .need-consultation-text p {
+        font-size: 14px;
+    }
 }

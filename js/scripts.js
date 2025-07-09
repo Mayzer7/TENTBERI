@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
         grabCursor: false,     
         
         breakpoints: {
-          1100: {
+          1200: {
             slidesPerView: 4,
           },
           1000: {
@@ -234,6 +234,32 @@ document.addEventListener('DOMContentLoaded', () => {
             spaceBetween: 12,
           },
         },
+      });
+    }
+
+
+    // Читать ещё
+
+    const readMoreButton = document.querySelector('.read-more-btn');
+
+    if (readMoreButton) {
+      const btn = document.querySelector('.read-more-btn');
+
+      btn.addEventListener('click', () => {
+        const container = btn.closest('.production-texts');
+        const rightCol  = container.querySelector('.production-right-texts');
+
+        if (!container.classList.contains('expanded')) {
+          const fullHeight = rightCol.scrollHeight + 10;
+
+          rightCol.style.maxHeight = fullHeight + 'px';
+          container.classList.add('expanded');
+          btn.textContent = 'скрыть';
+        } else {
+          rightCol.style.maxHeight = '';
+          container.classList.remove('expanded');
+          btn.textContent = 'читать ещё';
+        }
       });
     }
 });
