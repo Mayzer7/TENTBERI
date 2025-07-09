@@ -262,4 +262,35 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     }
+
+    
+    // Скелетон
+
+    const skeleton = document.querySelectorAll('.skeleton');
+
+    if (skeleton) {
+      const images = Array.from(document.querySelectorAll('.tenberi-case-image.skeleton img'));
+      let idx = 0;
+
+      function loadNext() {
+        if (idx >= images.length) return;
+
+        const img = images[idx];
+        const wrapper = img.closest('.skeleton');
+        const realSrc = img.dataset.src;
+        img.src = realSrc;
+
+        img.addEventListener('load', function onLoad() {
+          img.removeEventListener('load', onLoad);
+          img.style.opacity = 1;
+          wrapper.classList.remove('skeleton');
+          setTimeout(() => {
+            idx++;
+            loadNext();
+          }, 200); 
+        });
+      }
+
+      loadNext();
+    }
 });
