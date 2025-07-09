@@ -571,7 +571,6 @@ body.no-scroll {
 }
 
 .sign-up-button {
-    white-space: nowrap;
     font-family: 'Helvetica Neue Medium', sans-serif;
     font-weight: 500;
     border: none;
@@ -2801,11 +2800,6 @@ nav ul.nav-list li::marker {
     }
 
     .need-consultation-text p {
-        font-size: 16px;
-    }
-
-    .sign-up-button {
-        padding: 16px 32px;
         font-size: 16px;
     }
 
