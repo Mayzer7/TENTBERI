@@ -790,7 +790,7 @@ body.no-scroll {
 
 .service-img-2 {
     bottom: 0px;
-    right: 10px;
+    right: 50px;
 }
 
 .service-img-3 {
@@ -2233,6 +2233,7 @@ body.no-scroll {
 @media (Max-width: 970px) {
     .tents-for-trucks-title h1 {
         padding-left: 0;
+        padding-bottom: 16px;
     }
 
     .tents-for-trucks-section {
@@ -2996,5 +2997,214 @@ nav ul.nav-list li::marker {
 
     .need-consultation-text p {
         font-size: 14px;
+    }
+}
+
+
+/* Страница "tents.html" */
+
+/* Тенты */
+
+.tents {
+    color: var(--dark-blue);
+}
+
+.tents-title {
+    font-family: 'Helvetica Neue Bold', sans-serif;
+    font-size: 70px;
+    line-height: 100%;
+    letter-spacing: -0.04em;
+    padding-left: 40px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
+
+/* Адаптив "Тенты" */
+
+@media (max-width: 1600px) {
+    .tents-title {
+        padding-left: 20px;
+    }
+}
+
+@media (max-width: 1500px) {
+    .tents-title {
+        font-size: 60px;
+    }
+}
+
+@media (max-width: 1300px) {
+    .tents-title {
+        font-size: 50px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .tents-title {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 970px) {
+    .tents-title {
+        padding-left: 0;
+        padding-top: 20px;
+        padding-bottom: 16px;
+    }
+}
+
+@media (max-width: 900px) {
+    .tents-title {
+        font-size: 32px;
+    }
+}
+
+/* Услуги на странице Тенты */
+
+.services-tents {
+    margin: 0px;
+}
+
+.service-row-1-tents {
+    display: grid;
+    grid-template-columns: minmax(0px, 800px) minmax(0px, 940px);
+    gap: 20px;
+}
+
+.service-row-2-tents {
+    display: grid;
+    grid-template-columns: minmax(0px, 940px) minmax(0px, 800px);
+    gap: 20px;
+}
+
+.service-img-1-tents {
+    right: 120px;
+}
+
+.service-img-2-tents {
+    right: 180px;
+}
+
+.service-img-3-tents {
+    right: 40px;
+    bottom: 0px;
+    max-width: 625px;
+}
+
+.service-img-6-tents {
+    right: 100px;
+    bottom: 5px;
+} 
+
+/* Адаптив "Тенты" */
+
+@media (max-width: 1850px) {
+    .service-img-2-tents {
+        right: 110px;
+    }
+}
+
+@media (max-width: 1700px) {
+    .service-img-2-tents {
+        right: 75px;
+    }
+}
+
+@media (max-width: 1500px) {
+    .services-content-tents {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 1300px) {
+    .service-img-1-tents,
+    .service-img-2-tents,
+    .service-img-3-tents {
+        right: 0px;
+    }
+
+    .service-img-6-tents {
+        right: 20px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .service-img-6-tents {
+        max-width: 320px;
+    }
+}
+
+@media (max-width: 850px) {
+    .service-row-1-tents,
+    .service-row-2-tents {
+        grid-template-columns: 1fr;
+    }
+
+    .service-img-1-tents,
+    .service-img-2-tents {
+        right: 50px;
+    }
+}
+
+/* Текст тент страницы */
+
+.tents-text-section {
+    color: var(--dark-blue);
+    padding-left: 40px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    display: grid;
+    grid-template-columns: minmax(0px, 940px) minmax(0px, 800px);
+}
+
+.tents-text {
+    font-family: 'Helvetica Neue Regular', sans-serif;
+    font-size: 20px;
+    line-height: 110%;
+    max-width: 790px;
+    width: 100%;
+    padding-right: 60px;
+}
+
+/* Адаптив "Текст тент" */
+
+@media (max-width: 1600px) {
+    .tents-text-section {
+        padding-left: 20px;
+    }
+}
+
+@media (max-width: 1500px) {
+    .tents-text {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 1350px) {
+    .tents-text-section {
+        padding-top: 32px;
+        padding-bottom: 80px;
+    }
+}
+
+@media (max-width: 1300px) {
+    .tents-text {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 970px) {
+    .tents-text-section {
+        padding-left: 0px;
+    }
+}
+
+@media (max-width: 850px) {
+    .tents-text-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .tents-text {
+        padding-right: 20px;
     }
 }
