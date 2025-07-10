@@ -269,7 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const skeleton = document.querySelectorAll('.skeleton');
 
     if (skeleton) {
-      const images = Array.from(document.querySelectorAll('.tenberi-case-image.skeleton img'));
+      const images = Array.from(document.querySelectorAll('.skeleton img'));
       let idx = 0;
 
       function loadNext() {
@@ -282,13 +282,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         img.addEventListener('load', function onLoad() {
           img.removeEventListener('load', onLoad);
-          img.style.opacity = 1;
+          img.style.transition = 'opacity 0.3s ease';
+          img.style.opacity = '1';
           wrapper.classList.remove('skeleton');
           setTimeout(() => {
             idx++;
             loadNext();
-          }, 200); 
+          }, 200);
         });
+
+        img.style.opacity = '0';
       }
 
       loadNext();

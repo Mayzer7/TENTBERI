@@ -1141,8 +1141,16 @@ body.no-scroll {
     background-color: var(--gray-bg);
 }
 
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--light-blue); /* светло‑синий фон */
+  border-radius: 20px;
+  aspect-ratio: 425 / 300;
+}
+
 /* Скелетон-эффект */
-.tenberi-case-image.skeleton::before {
+.skeleton::before {
   content: '';
   position: absolute;
   inset: 0;
