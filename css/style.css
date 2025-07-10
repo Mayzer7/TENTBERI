@@ -246,8 +246,8 @@ body.no-scroll {
 }
 
 .get-request-btn {
-    width: 50px;
-    height: 50px;
+    width: 56px;
+    height: 56px;
     background-color: #fff;
     border: none;
     border-radius: 16px;
@@ -674,6 +674,14 @@ body.no-scroll {
 .service-cards {
     display: grid;
     gap: 20px;
+}
+
+.service-cards a {
+    color: var(--dark-blue);
+}
+
+.service-cards a:hover {
+    color: var(--dark-blue);
 }
 
 .service-row-1 {
@@ -3206,5 +3214,28 @@ nav ul.nav-list li::marker {
     
     .tents-text {
         padding-right: 20px;
+    }
+}
+
+
+
+
+/* Страница "products.html" */
+
+.service-row-1-products {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.products-image-5 {
+    max-width: 510px;
+}
+
+/* Адаптив страницы "products.html" */
+
+@media (max-width: 850px) {
+    .service-row-1-products {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 12px;
     }
 }
