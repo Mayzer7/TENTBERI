@@ -10,6 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const headerPhone = document.querySelector('.header-phone');
   const getRequestBtns = document.querySelectorAll('.get-request-btn');
   const headerPhoneMobile = document.querySelector('.header-phone-mobile');
+  const htmlEl   = document.documentElement;
+  const bodyEl   = document.body;
+
 
   // Сбрасываем стили шапки сверху экрана только на главной странице
   const page = document.body.dataset.page;
@@ -125,8 +128,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (burger) {
     const sideMenu = document.getElementById('sideMenu');
     const overlay  = document.getElementById('overlay');
-    const htmlEl   = document.documentElement;
-    const bodyEl   = document.body;
 
     function openMenu() {
       burger.classList.add('active');
@@ -379,5 +380,43 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       loadNext();
+    }
+
+
+
+
+
+
+
+
+
+
+    const getRequestModal = document.querySelector('.get-request-modal');
+
+    if (getRequestModal) {
+      console.log("Жа")
+
+      const openBtn = document.querySelector('.sign-up-button');
+      const modal   = document.getElementById('get-request-modal');
+      const overlay = document.getElementById('overlay');
+      const closeBtn = document.getElementById('closeModal');
+
+      function openModal() {
+        modal.classList.add('active');
+        overlay.classList.add('active', 'dim');
+        htmlEl.classList.add('no-scroll');
+        bodyEl.classList.add('no-scroll');
+      }
+
+      function closeModal() {
+        modal.classList.remove('active');
+        overlay.classList.remove('active', 'dim');
+        htmlEl.classList.remove('no-scroll');
+        bodyEl.classList.remove('no-scroll');
+      }
+
+      openBtn.addEventListener('click', openModal);
+      closeBtn.addEventListener('click', closeModal);
+      overlay.addEventListener('click', closeModal);
     }
 });
