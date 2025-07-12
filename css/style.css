@@ -3700,3 +3700,114 @@ nav ul.text-page-ul li p {
         padding-left: 0;
     }
 }
+
+
+
+
+/* Страница "clients.html" */
+
+/* Клиентам */
+
+.clients {
+    color: var(--dark-blue);
+    padding-bottom: 60px;
+}
+
+.clients-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.clients-card {
+    background-color: var(--gray-bg);
+    border-radius: 20px;
+    padding: 24px 40px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.clients-card:hover {
+  background-color: var(--light-blue);
+}
+
+.clients-card .clients-card-top svg rect {
+  transition: fill 0.3s ease;
+}
+
+.clients-card:hover .clients-card-top svg rect {
+  fill: #ffffff;
+}
+
+.clients-card:hover .service-open-button {
+  background-color: #ffffff;
+}
+
+.clients-card-top {
+    padding-bottom: 40px;
+}
+
+.clients-card-icon {
+    width: 80px;
+    height: 80px;
+}
+
+.clients-card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.clients-card-title {
+    font-family: 'Helvetica Neue Bold', sans-serif;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: -0.04em;
+    padding-right: 10px;
+}
+
+
+/* Адаптив "Клиентам" */
+
+@media (max-width: 1350px) {
+    .clients {
+        padding-bottom: 80px;
+    }
+}
+
+@media (max-width: 1140px) {
+    .clients-card-title {
+        font-size: 24px;
+    }
+
+    .clients-card-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .clients-card {
+        padding: 16px 20px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .clients-card-title {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 970px) {
+    .clients-cards {
+        gap: 12px;
+    }
+
+    .clients-card {
+        padding: 12px 16px;
+    }
+}
+
+@media (max-width: 700px) {
+    .clients-cards {
+        grid-template-columns: 1fr;
+    }
+}
