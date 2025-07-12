@@ -2819,7 +2819,6 @@ nav ul.nav-list li {
 }
 
 nav ul.nav-list li::marker {
-
   font-size: 20px;
 }
 
@@ -3588,4 +3587,116 @@ nav ul.nav-list li::marker {
     font-family: 'Helvetica Neue Regular', sans-serif;
     font-size: 18px;
     line-height: 110%;
+}
+
+
+
+
+/* Страница "text-page.html" */
+
+/* Текстовая страница */
+
+.text-page {
+    color: var(--dark-blue);
+    padding-bottom: 60px;
+}
+
+.text-page-content {
+    max-width: 831px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding-left: 40px;
+}
+
+.text-page-title {
+    font-family: 'Helvetica Neue Bold', sans-serif;
+    font-size: 28px;
+    line-height: 100%;
+    letter-spacing: -0.04em;
+    padding-bottom: 16px;
+}
+
+.text-page-subtitle {
+    font-family: 'Helvetica Neue Regular', sans-serif;
+    font-size: 20px;
+    line-height: 110%;
+}
+
+.text-page-subtitle-number {
+    font-family: 'Helvetica Neue Medium', sans-serif;
+    font-size: 24px;
+    line-height: 110%;
+    padding-bottom: 12px;
+}
+
+nav ul.text-page-ul li {
+  list-style-type: disc;     
+  list-style-position: outside;
+}
+
+nav ul.text-page-ul li::marker {
+  font-size: 20px;
+}
+
+nav ul.text-page-ul li p {
+    font-family: 'Helvetica Neue Regular', sans-serif;
+    font-size: 20px;
+    line-height: 110%;
+    width: 100%;
+}
+
+.text-page-ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 0px;
+    padding-left: 30px;
+}
+
+.text-page-nav {
+    padding-top: 20px;
+}
+
+.text-page-number-container {
+    padding-bottom: 24px;
+}
+
+.text-page-content-advantages {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Адаптив "Текстовая страница" */
+
+@media (max-width: 1600px) {
+    .text-page-content {
+        padding-left: 20px;
+    }
+}
+
+@media (max-width: 1350px) {
+    .text-page {
+        padding-bottom: 80px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .text-page-title,
+    .text-page-subtitle-number {
+        font-size: 20px;
+    }
+
+    .text-page-subtitle,
+    .text-page-ul li p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 970px) {
+    .text-page-content {
+        padding-left: 0;
+    }
 }
