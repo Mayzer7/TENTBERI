@@ -3729,6 +3729,7 @@ nav ul.text-page-ul li p {
 
 .clients-card:hover {
   background-color: var(--light-blue);
+  color: var(--dark-blue);
 }
 
 .clients-card .clients-card-top svg rect {
@@ -3808,6 +3809,95 @@ nav ul.text-page-ul li p {
 
 @media (max-width: 700px) {
     .clients-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+/* Страница "delivery-and-payment.html" */
+
+/* Доставка и оплата */
+
+.delivery-and-payment {
+    color: var(--dark-blue);
+}
+
+.delivery-and-payment-content {
+    padding-top: 8px;
+    padding-bottom: 60px;
+    padding-left: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.delivery-and-payment-left-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 60px;
+    max-width: 800px;
+    width: 100%;
+}
+
+.delivery-and-payment-right-side img {
+    border-radius: 20px;
+    width: 100%;
+}
+
+.delivery-and-payment-title {
+    font-family: 'Helvetica Neue Bold', sans-serif;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: -0.04em;
+    padding-bottom: 16px;
+}
+
+.delivery-and-payment-subtitle {
+    font-family: 'Helvetica Neue Regular', sans-serif;
+    font-size: 20px;
+    line-height: 110%;
+}
+
+/* Адаптив "Доставка и оплата" */
+
+@media (max-width: 1600px) {
+    .delivery-and-payment-content {
+        padding-left: 20px;
+    }
+}
+
+@media (max-width: 1350px) {
+    .delivery-and-payment-content {
+        padding-bottom: 80px;
+    }
+}
+
+@media (max-width: 1300px) {
+    .delivery-and-payment-title {
+        font-size: 22px;
+        padding-bottom: 12px;
+    }
+
+    .delivery-and-payment-subtitle {
+        font-size: 16px;
+    }
+
+    .delivery-and-payment-left-side {
+        gap: 32px;
+    }
+}
+
+@media (max-width: 970px) {
+    .delivery-and-payment-content {
+        padding-left: 0px;
+    }
+}
+
+@media (max-width: 700px) {
+    .delivery-and-payment-content {
         grid-template-columns: 1fr;
     }
 }
