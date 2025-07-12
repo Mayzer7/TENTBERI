@@ -361,7 +361,7 @@ body.no-scroll {
   right: 0; 
   bottom: 0;      
   width: 94vw;            
-  height: 99999px;
+  height: 100vh;
   background: #fff;
   z-index: 1000;
   transform: translateX(100%); 
@@ -561,7 +561,7 @@ body.no-scroll {
     padding: 0px 16px;
 }
 
-.welcome-banner h1 {
+.welcome-banner-title {
     font-family: 'Helvetica Neue Bold', sans-serif;
     max-width: 1000px;
     width: 100%;
@@ -610,7 +610,7 @@ body.no-scroll {
 /* Адаптив главного экрана */
 
 @media (max-width: 1150px) {
-    .welcome-banner h1 {
+    .welcome-banner-title {
         font-size: 80px;
         max-width: 955px;
     }
@@ -625,14 +625,14 @@ body.no-scroll {
 }
 
 @media (max-width: 960px) {
-    .welcome-banner h1 {
+    .welcome-banner-title {
         font-size: 70px;
         max-width: 830px;
     }
 }
 
 @media (max-width: 800px) {
-    .welcome-banner h1 {
+    .welcome-banner-title {
         font-size: 50px;
         max-width: 600px;
     }
@@ -644,7 +644,7 @@ body.no-scroll {
 }
 
 @media (max-width: 600px) {
-    .welcome-banner h1 {
+    .welcome-banner-title {
         font-size: 40px;
         max-width: 470px;
     }
@@ -742,7 +742,7 @@ body.no-scroll {
     margin-right: 16px;
 }
 
-.service-title p {
+.service-title {
   display: -webkit-box;            
   -webkit-box-orient: vertical;     
   -webkit-line-clamp: 2;            
@@ -1126,14 +1126,14 @@ body.no-scroll {
     margin-bottom: 40px;
 }
 
-.tentberi-cases-title h2 {
+.tentberi-cases-title {
     font-size: 70px;
     line-height: 100%;
     padding-right: 0px;
     padding-left: 40px;
 }
 
-.tentberi-cases-subtitle p {
+.tentberi-cases-subtitle {
     max-width: 609px;
     width: 100%;
     font-size: 24px;
@@ -1223,7 +1223,7 @@ body.no-scroll {
     padding-top: 16px;
 }
 
-.tentberi-case-name p {
+.tentberi-case-name {
     font-size: 28px;
     font-family: 'Helvetica Neue Bold', sans-serif;
     line-height: 100%;
@@ -1234,11 +1234,12 @@ body.no-scroll {
     text-overflow: ellipsis;
 }
 
-.tentberi-case-data p {
+.tentberi-case-data {
     font-family: 'Helvetica Neue Regular', sans-serif;
     font-size: 20px;
     line-height: 110%;
     color: var(--gray-text);
+    padding-top: 12px;
 }
 
 /* Пагинация */
@@ -1323,17 +1324,17 @@ body.no-scroll {
 /* Адаптив "ТентБери в деле" */
 
 @media (Max-width: 1600px) {
-    .tentberi-cases-title h2 {
+    .tentberi-cases-title {
         padding-left: 20px;
     }
 }
 
 @media (max-width: 1500px) {
-    .tentberi-case-name p {
+    .tentberi-case-name {
         font-size: 20px;
     }
     
-    .tentberi-case-data p {
+    .tentberi-case-data {
         font-size: 16px;
     }
 
@@ -1345,11 +1346,11 @@ body.no-scroll {
         padding-top: 12px;
     }
 
-    .tentberi-cases-title h2 {
+    .tentberi-cases-title {
         font-size: 60px;
     }
 
-    .tentberi-cases-subtitle p {
+    .tentberi-cases-subtitle {
         max-width: 455px;
         font-size: 20px;
     }
@@ -1372,25 +1373,25 @@ body.no-scroll {
         max-width: 100%;
     } 
 
-    .tentberi-cases-title h2 {
+    .tentberi-cases-title {
         font-size: 50px;
     }
 }
 
 @media (max-width: 1000px) {
-    .tentberi-cases-title h2 {
+    .tentberi-cases-title {
         font-size: 40px;
     }   
 }
 
 @media (max-width: 970px) {
-    .tentberi-cases-title h2 {
+    .tentberi-cases-title {
         padding-left: 0px;
     }
 }
 
 @media (max-width: 900px) {
-    .tentberi-cases-title h2 {
+    .tentberi-cases-title {
         font-size: 32px;
         padding-left: 0px;
     }
@@ -1418,6 +1419,10 @@ body.no-scroll {
 
     .tentberi-pagination {
         padding-top: 32px;
+    }
+
+    .tentberi-case-data {
+        padding-top: 8px;
     }
 }
 
@@ -1802,7 +1807,7 @@ body.no-scroll {
   bottom: 40px;
   left: 0;
   width: 100%;
-  z-index: 2000;
+  z-index: 99999;
   pointer-events: none;
 }
 
@@ -2045,7 +2050,7 @@ body.no-scroll {
     padding-top: 32px;
 }
 
-.tents-for-trucks-title h1 {
+.tents-for-trucks-title {
     font-family: 'Helvetica Neue Bold', sans-serif;
     font-size: 70px;
     line-height: 100%;
@@ -2096,7 +2101,7 @@ body.no-scroll {
   display: none;
   align-items: center;
   justify-content: center;
-  z-index: 9999;
+  z-index: 2000;
   min-width: 320px;
   padding: 0;
   margin: 0;
@@ -2224,31 +2229,31 @@ body.no-scroll {
 /* Адаптив Тенты на грузовые автомобили */
 
 @media (Max-width: 1600px) {
-    .tents-for-trucks-title h1 {
+    .tents-for-trucks-title {
         padding-left: 20px;
     }
 }
 
 @media (Max-width: 1400px) {
-    .tents-for-trucks-title h1 {
+    .tents-for-trucks-title {
         font-size: 60px;
     }
 }
 
 @media (Max-width: 1200px) {
-    .tents-for-trucks-title h1 {
+    .tents-for-trucks-title {
         font-size: 50px;
     }
 }
 
 @media (Max-width: 1100px) {
-    .tents-for-trucks-title h1 {
+    .tents-for-trucks-title {
         font-size: 40px;
     }
 }
 
 @media (Max-width: 970px) {
-    .tents-for-trucks-title h1 {
+    .tents-for-trucks-title {
         padding-left: 0;
         padding-bottom: 16px;
     }
@@ -2259,7 +2264,7 @@ body.no-scroll {
 }
 
 @media (Max-width: 900px) {
-    .tents-for-trucks-title h1 {
+    .tents-for-trucks-title {
         font-size: 32px;
     }
 }
@@ -2272,7 +2277,7 @@ body.no-scroll {
     padding-left: 40px;
 }
 
-.advantages-tents-cars-title h2 {
+.advantages-tents-cars-title {
     font-family: 'Helvetica Neue Bold', sans-serif;
     font-size: 54px;
     line-height: 100%;
@@ -2325,14 +2330,14 @@ body.no-scroll {
 }
 
 @media (max-width: 1400px) {
-    .advantages-tents-cars-title h2 {
+    .advantages-tents-cars-title {
         font-size: 44px;
         max-width: 700px;
     }
 }
 
 @media (max-width: 1200px) {
-    .advantages-tents-cars-title h2 {
+    .advantages-tents-cars-title {
         font-size: 34px;
         max-width: 540px;
     }
@@ -2351,7 +2356,7 @@ body.no-scroll {
 }
 
 @media (max-width: 1100px) {
-    .advantages-tents-cars-title h2 {
+    .advantages-tents-cars-title {
         font-size: 28px;
         max-width: 430px;
         padding-bottom: 16px;
@@ -2485,7 +2490,7 @@ body.no-scroll {
     padding-top: 130px;
 }
 
-.tents-for-brand-trucks-title h3 {
+.tents-for-brand-trucks-title {
     font-family: 'Helvetica Neue Bold', sans-serif;
     font-size: 32px;
     line-height: 100%;
@@ -2529,13 +2534,13 @@ body.no-scroll {
 /* Адаптив Наша компания предоставляет услуги по изготовления тентов на грузовые машины */
 
 @media (Max-width: 1600px) {
-    .tents-for-brand-trucks-title h3 {
+    .tents-for-brand-trucks-title {
         padding-left: 20px;
     }
 }
 
 @media (max-width: 1400px) {
-    .tents-for-brand-trucks-title h3 {
+    .tents-for-brand-trucks-title {
         font-size: 28px;
         max-width: 720px;
     }
@@ -2562,7 +2567,7 @@ body.no-scroll {
         min-height: 210px;
     }
 
-    .tents-for-brand-trucks-title h3 {
+    .tents-for-brand-trucks-title {
         font-size: 22px;
         max-width: 450px;
     }
@@ -2573,7 +2578,7 @@ body.no-scroll {
 }
 
 @media (Max-width: 970px) {
-    .tents-for-brand-trucks-title h3 {
+    .tents-for-brand-trucks-title {
         padding-left: 0;
     }
 }
@@ -2604,7 +2609,7 @@ body.no-scroll {
     padding-left: 40px;
 }
 
-.production-title h2 {
+.production-title {
     font-family: 'Helvetica Neue Bold', sans-serif;
     font-size: 54px;
     line-height: 100%;
@@ -2656,13 +2661,13 @@ body.no-scroll {
 }
 
 @media (max-width: 1400px) {
-    .production-title h2 {
+    .production-title {
         font-size: 44px;
     }
 }
 
 @media (max-width: 1200px) {
-    .production-title h2 {
+    .production-title {
         font-size: 34px;
     }
 
@@ -2702,7 +2707,7 @@ body.no-scroll {
         gap: 12px;
     }
 
-    .production-title h2 {
+    .production-title {
         padding-bottom: 16px;
     }
 }
@@ -2739,14 +2744,14 @@ body.no-scroll {
     padding-bottom: 32px;
 }
 
-.stages-of-work-title h2 {
+.stages-of-work-title {
     font-family: 'Helvetica Neue Bold', sans-serif;
     font-size: 54px;
     line-height: 100%;
     letter-spacing: -0.04em;
 }
 
-.stages-of-work-subtitle p {
+.stages-of-work-subtitle {
     font-size: 24px;
     line-height: 110%;
     max-width: 770px;
@@ -2770,7 +2775,7 @@ body.no-scroll {
     overflow: hidden;
 }
 
-.stages-of-work-card-title p {
+.stages-of-work-card-title {
     font-family: 'Helvetica Neue Bold', sans-serif;
     font-size: 32px;
     line-height: 100%;
@@ -2778,7 +2783,7 @@ body.no-scroll {
     padding-bottom: 24px;
 }
 
-.stages-of-work-card-text p,
+.stages-of-work-card-text,
 nav ul.nav-list li p {
     font-family: 'Helvetica Neue Regular', sans-serif;
     font-size: 20px;
@@ -2827,17 +2832,17 @@ nav ul.nav-list li::marker {
 }
 
 @media (max-width: 1400px) {
-    .stages-of-work-title h2 {
+    .stages-of-work-title {
         font-size: 44px;
     }
 
-    .stages-of-work-subtitle p {
+    .stages-of-work-subtitle {
         font-size: 20px;
     }
 }
 
 @media (max-width: 1200px) {
-    .stages-of-work-title h2 {
+    .stages-of-work-title {
         font-size: 32px;
     }
 
@@ -2845,12 +2850,12 @@ nav ul.nav-list li::marker {
         padding-top: 80px;
     }
 
-    .stages-of-work-card-title p {
+    .stages-of-work-card-title {
         font-size: 22px;
         padding-bottom: 12px;
     }
 
-    .stages-of-work-card-text p, nav ul.nav-list li p {
+    .stages-of-work-card-text, nav ul.nav-list li p {
         font-size: 16px;
     }
 
@@ -2898,7 +2903,7 @@ nav ul.nav-list li::marker {
         gap: 16px;
     }
 
-    .stages-of-work-subtitle p {
+    .stages-of-work-subtitle {
         max-width: 455px;
     }
 }
@@ -2950,7 +2955,7 @@ nav ul.nav-list li::marker {
     padding: 32px 40px;
 }
 
-.need-consultation-title h3 {
+.need-consultation-title {
     font-family: 'Helvetica Neue Bold', sans-serif;
     font-size: 54px;
     line-height: 100%;
@@ -2958,7 +2963,7 @@ nav ul.nav-list li::marker {
     padding-bottom: 16px;
 }
 
-.need-consultation-text p {
+.need-consultation-text {
     font-family: 'Helvetica Neue Regular', sans-serif;
     font-size: 20px;
     line-height: 110%;
@@ -2967,17 +2972,17 @@ nav ul.nav-list li::marker {
 /* Адаптив "Нужна консультация" */
 
 @media (max-width: 1400px) {
-    .need-consultation-title h3 {
+    .need-consultation-title {
         font-size: 44px;
     }
 }
 
 @media (max-width: 1200px) {
-    .need-consultation-title h3 {
+    .need-consultation-title {
         font-size: 34px;
     }
 
-    .need-consultation-text p {
+    .need-consultation-text {
         font-size: 16px;
     }
 
@@ -2997,7 +3002,7 @@ nav ul.nav-list li::marker {
         background-position: -500px;
     }
 
-    .need-consultation-title h3 {
+    .need-consultation-title {
         font-size: 28px;
         padding-bottom: 8px;
     }
@@ -3008,11 +3013,11 @@ nav ul.nav-list li::marker {
 }
 
 @media (max-width: 350px) {
-    .need-consultation-title h3 {
+    .need-consultation-title {
         font-size: 24px;
     }
 
-    .need-consultation-text p {
+    .need-consultation-text {
         font-size: 14px;
     }
 }
@@ -3248,8 +3253,6 @@ nav ul.nav-list li::marker {
         gap: 12px;
     }
 }
-
-
 
 /* Модальное окно "Оставить заявку" */
 
