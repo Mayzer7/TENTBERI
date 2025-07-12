@@ -419,4 +419,35 @@ document.addEventListener('DOMContentLoaded', () => {
       closeBtn.addEventListener('click', closeModal);
       overlay.addEventListener('click', closeModal);
     }
+
+
+
+
+
+    // Страница FAQ
+
+    // Раскрытие менюшек
+    const faq = document.querySelector('.faq');
+
+    if (faq) {
+      document.querySelectorAll('.faq-card').forEach(card => {
+        const bottom = card.querySelector('.faq-card-bottom');
+
+        card.addEventListener('click', () => {
+          card.classList.toggle('open');
+          if (card.classList.contains('open')) {
+            bottom.style.maxHeight = bottom.scrollHeight + 10 + 'px';
+          } else {
+            bottom.style.maxHeight = null;
+          }
+        }); 
+      });
+
+      window.addEventListener('resize', () => {
+        document.querySelectorAll('.faq-card.open .faq-card-bottom')
+          .forEach(bottom => {
+            bottom.style.maxHeight = bottom.scrollHeight + 10 + 'px';
+          });
+      });
+    }
 });
