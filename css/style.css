@@ -4024,3 +4024,160 @@ nav ul.text-page-ul li p {
         padding-top: 12px;
     }
 }
+
+
+
+
+/* Страница "contacts.html" */
+
+/* Контакты */
+
+.contacts {
+    padding-bottom: 60px;
+}
+
+/* Яндекс карта */
+
+.contact-maps {
+    position: relative;
+}
+
+.maps {
+    max-width: 1760px;
+    height: 560px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.map-info-card {
+    position: absolute;
+    top: 80px;          
+    left: 70px;  
+    z-index: 10;
+    color: var(--dark-blue);        
+    background: #fff;
+    border-radius: 10px;
+    max-width: 530px;
+    width: 100%;
+    padding: 40px 60px;
+}
+
+.map-info-card a {
+    color: var(--dark-blue);
+    transition: all 0.3s ease;
+}
+
+.map-info-card a:hover {
+    color: var(--blue);
+}
+
+.map-info-card-address {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.map-info-card-title {
+    font-family: 'Helvetica Neue Condensed Bold', sans-serif;
+    font-stretch: condensed;
+    letter-spacing: -0.04em;
+    font-size: 40px;
+    line-height: 110%;
+    color: var(--blue);
+    padding-bottom: 20px;
+}
+
+.map-info-card-address-title {
+    color: var(--gray-text);
+    font-family: 'Helvetica Neue Regular', sans-serif;
+    font-size: 20px;
+    line-height: 110%;
+    padding-bottom: 8px;
+}
+
+.map-info-card-address-text,
+.map-card-phone,
+.map-info-card-email-text {
+    color: var(--dark-blue);
+    font-family: 'Helvetica Neue Regular', sans-serif;
+    font-size: 20px;
+    line-height: 110%;
+}
+
+.map-info-card-phones,
+.map-info-card-email {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Отключаем стили Яндекс Карты */
+
+[class*="copyrights-pane"] {
+	display: none !important;
+}
+
+/* Темная Яндекс карта */
+[class*="ground-pane"] {
+	filter: grayscale(60%);
+}
+
+/* Сброс стилей дефолтного балуна */
+.ymaps-b-balloon, .ymaps-b-balloon__layout, .ymaps-b-balloon__tail {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+
+
+/* Адаптив "Контакты" */
+
+@media (max-width: 1530px) {
+    .map-info-card {
+        top: 100px;
+        left: 20px;
+        padding: 16px;
+        max-width: 440px;
+    }
+}
+
+@media (max-width: 1350px) {
+    .contacts {
+        padding-bottom: 80px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .maps {
+        height: 380px;
+    }
+
+    .map-info-card {
+        position: static;
+        top: auto;
+        left: 0px;
+        padding: 0;
+        padding-left: 20px;
+        padding-bottom: 12px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .map-info-card-title {
+        font-size: 26px;
+    }
+
+    .map-info-card-address-title,
+    .map-info-card-address-text,
+    .map-card-phone,
+    .map-info-card-email-text {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 970px) {
+    .map-info-card {
+        padding-left: 0px;
+    }
+}
+

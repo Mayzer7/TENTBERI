@@ -450,4 +450,55 @@ document.addEventListener('DOMContentLoaded', () => {
           });
       });
     }
+
+
+
+
+
+
+    // Яндекс карта
+
+    const maps = document.querySelector('.maps');
+
+    if (maps) {
+      let center = [56.33141300423818, 43.868606999999955];
+
+      function createMap(mapId) {
+        let map = new ymaps.Map(mapId, {
+          center: center,
+          zoom: 15.5,
+        });
+
+        let placemark = new ymaps.Placemark(center, {}, {
+          iconLayout: 'default#image',
+          iconImageHref: '/img/svg/marker.svg',
+          iconImageSize: [40, 40],
+          iconImageOffset: [-19, -44]
+        });
+
+        placemark.events.add('click', function () {
+          // Переход по ссылке адресса компании
+          const url = 'https://yandex.ru/maps/geo/ulitsa_krasnykh_zor_22_podyezd_4/2028698096/?ll=43.868635%2C56.331386&z=18.93';
+          window.open(url, '_blank');
+        });
+
+        
+
+        map.controls.remove('geolocationControl'); // удаляем геолокацию
+        map.controls.remove('searchControl'); // удаляем поиск
+        map.controls.remove('trafficControl'); // удаляем контроль трафика
+        map.controls.remove('typeSelector'); // удаляем тип
+        map.controls.remove('fullscreenControl'); // удаляем кнопку перехода в полноэкранный режим
+        map.controls.remove('zoomControl'); // удаляем контрол зуммирования
+        map.controls.remove('rulerControl'); // удаляем контрол правил
+
+        map.geoObjects.add(placemark);
+      }
+
+      ymaps.ready(() => {
+        if (maps) {
+          createMap('map');
+        }
+      });
+    }
 });
