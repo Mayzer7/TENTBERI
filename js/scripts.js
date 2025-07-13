@@ -520,15 +520,15 @@ document.addEventListener('DOMContentLoaded', () => {
         imgWrapper.classList.remove('zoomed');
         modalImg.style.transformOrigin = 'center center';
         modalImg.style.transform = 'scale(1)';
-        modal.classList.remove('hidden');
 
+        modal.classList.add('visible');       
         htmlEl.classList.add('no-scroll');
         bodyEl.classList.add('no-scroll');
         header.classList.add('header-hidden');
       }
 
       function closeModal() {
-        modal.classList.add('hidden');
+        modal.classList.remove('visible');    
 
         htmlEl.classList.remove('no-scroll');
         bodyEl.classList.remove('no-scroll');
