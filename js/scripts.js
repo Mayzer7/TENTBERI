@@ -394,8 +394,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const getRequestModal = document.querySelector('.get-request-modal');
 
     if (getRequestModal) {
-      console.log("Жа")
-
       const openBtn = document.querySelector('.sign-up-button');
       const modal   = document.getElementById('get-request-modal');
       const overlay = document.getElementById('overlay');
@@ -498,6 +496,79 @@ document.addEventListener('DOMContentLoaded', () => {
       ymaps.ready(() => {
         if (maps) {
           createMap('map');
+        }
+      });
+    }
+
+
+    
+
+    // Модальное окно для просмотра фоток в секции "ТентБери в деле"
+
+    const imageModal = document.querySelector('.image-modal');
+
+    if (imageModal) {
+      const modal = document.getElementById('image-modal');
+      const modalImg = document.getElementById('modal-img');
+      const imgWrapper = modal.querySelector('.modal-img-wrapper');
+      const closeBtn = modal.querySelector('.modal-close-button');
+      let zoomed = false;
+
+      function openModal(imgSrc) {
+        modalImg.src = imgSrc;
+        zoomed = false;
+        imgWrapper.classList.remove('zoomed');
+        modalImg.style.transformOrigin = 'center center';
+        modalImg.style.transform = 'scale(1)';
+        modal.classList.remove('hidden');
+
+        htmlEl.classList.add('no-scroll');
+        bodyEl.classList.add('no-scroll');
+        header.classList.add('header-hidden');
+      }
+
+      function closeModal() {
+        modal.classList.add('hidden');
+
+        htmlEl.classList.remove('no-scroll');
+        bodyEl.classList.remove('no-scroll');
+        header.classList.remove('header-hidden');
+      }
+
+      document.querySelectorAll('.tenberi-case-image img').forEach(img => {
+        img.addEventListener('click', () => {
+          openModal(img.dataset.src || img.src);
+        });
+      });
+
+      closeBtn.addEventListener('click', closeModal);
+
+      modal.addEventListener('click', e => {
+        if (e.target === modal) closeModal();
+      });
+
+      // Зум по клику
+      imgWrapper.addEventListener('click', e => {
+        const rect = modalImg.getBoundingClientRect();
+        const offsetX = e.clientX - rect.left;
+        const offsetY = e.clientY - rect.top;
+        const px = (offsetX / rect.width) * 100;
+        const py = (offsetY / rect.height) * 100;
+
+        if (!zoomed) {
+          modalImg.style.transformOrigin = `${px}% ${py}%`;
+          modalImg.style.transform = 'scale(2)';
+          imgWrapper.classList.add('zoomed');
+          zoomed = true;
+        } else {
+          modalImg.style.transform = 'scale(1)';
+          const onEnd = () => {
+            modalImg.style.transformOrigin = 'center center';
+            imgWrapper.classList.remove('zoomed');
+            modalImg.removeEventListener('transitionend', onEnd);
+          };
+          modalImg.addEventListener('transitionend', onEnd);
+          zoomed = false;
         }
       });
     }
