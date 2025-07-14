@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function openMenu() {
       burger.classList.add('active');
       sideMenu.classList.add('open');
-      overlay.classList.add('active');
+      overlay.classList.add('active', 'dim');
       htmlEl.classList.add('no-scroll');
       bodyEl.classList.add('no-scroll');
     }
@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function closeMenu() {
       burger.classList.remove('active');
       sideMenu.classList.remove('open');
-      overlay.classList.remove('active');
+      overlay.classList.remove('active', 'dim');
       htmlEl.classList.remove('no-scroll');
       bodyEl.classList.remove('no-scroll');
     }
@@ -396,87 +396,95 @@ document.addEventListener('DOMContentLoaded', () => {
     const getRequestModal = document.querySelector('.get-request-modal');
 
     if (getRequestModal) {
-      const openBtns = document.querySelectorAll('.sign-up-button');
-      const modal   = document.getElementById('get-request-modal');
-      const overlay = document.getElementById('overlay');
-      const closeBtn = document.getElementById('closeModal');
+      const header       = document.querySelector('header');     
+      const htmlEl       = document.documentElement;
+      const bodyEl       = document.body;
+      const overlay      = document.getElementById('overlay');
 
-      function openModal() {
+      // Окна
+      const modal        = document.getElementById('get-request-modal');
+      const successModal = document.getElementById('success-modal');
+
+      // Кнопки закрытия
+      const closeBtn        = document.getElementById('closeModal');
+      const closeSuccessBtn = document.getElementById('closeSuccessModal');
+
+      // Открытие
+      function openModal(modalEl) {
         header.classList.add('header-hidden');
-        modal.classList.add('active');
+        modalEl.classList.add('active');
         overlay.classList.add('active', 'dim');
         htmlEl.classList.add('no-scroll');
         bodyEl.classList.add('no-scroll');
       }
-
-      function closeModal() {
-        modal.classList.remove('active');
+      // Закрытие
+      function closeModal(modalEl) {
+        header.classList.remove('header-hidden');
+        modalEl.classList.remove('active');
         overlay.classList.remove('active', 'dim');
         htmlEl.classList.remove('no-scroll');
         bodyEl.classList.remove('no-scroll');
       }
 
-      openBtns.forEach(btn => {
-        btn.addEventListener('click', openModal);
+      document.querySelectorAll('.sign-up-button').forEach(btn => {
+        btn.addEventListener('click', () => openModal(modal));
       });
-      
-      closeBtn.addEventListener('click', closeModal);
-      overlay.addEventListener('click', closeModal);
 
-      
+      // Закрыть крестиком
+      closeBtn.addEventListener('click', () => closeModal(modal));
+      closeSuccessBtn.addEventListener('click', () => {
+        closeModal(modal);
+        closeModal(successModal);
+      });
+      overlay.addEventListener('click', () => {
+        closeModal(modal);
+        closeModal(successModal);
+      });
+
       // Валидация 
-
       const form = document.querySelector('.get-request-form');
-
       form.addEventListener('submit', function(e) {
         e.preventDefault();
         let valid = true;
 
-        // 1) Все .modal__input с "*" в плейсхолдере (input + textarea)
-        const placeholderFields = Array.from(
-          this.querySelectorAll('.modal__input[placeholder*="*"]')
-        );
-        placeholderFields.forEach(input => {
-          if (!input.value.trim()) {
+        this.querySelectorAll('.modal__input[placeholder*="*"]').forEach(inp => {
+          if (!inp.value.trim()) {
             valid = false;
-            input.classList.add('invalid');
+            inp.classList.add('invalid');
           } else {
-            input.classList.remove('invalid');
+            inp.classList.remove('invalid');
           }
         });
 
-        const checkbox = form.querySelector('#accept-politics');
-        const checkboxWrapper = checkbox.closest('.accept-politics');
-        const errorText = form.querySelector('.checkbox-error-message');
-        const formContent = form.querySelector('.get-request-form-content');
-
+        const checkbox = this.querySelector('#accept-politics');
+        const errorMsg = this.querySelector('.checkbox-error-message');
         if (!checkbox.checked) {
           valid = false;
           checkbox.classList.add('invalid');
-          errorText.classList.add('visible');
+          errorMsg.classList.add('visible');
         } else {
           checkbox.classList.remove('invalid');
-          errorText.classList.remove('visible');
+          errorMsg.classList.remove('visible');
         }
 
-        // Убираем красную рамку при нажатии на checkbox
-        checkbox.addEventListener('change', function () {
-          if (this.checked) {
-            this.classList.remove('invalid');
-            errorText.classList.remove('visible');
+        // Убираем ошибку по клику
+        checkbox.addEventListener('change', () => {
+          if (checkbox.checked) {
+            checkbox.classList.remove('invalid');
+            errorMsg.classList.remove('visible');
           }
         });
 
+        if (!valid) return;
 
-        if (valid) {
-          // Если все обязательные поля заполнены — отправляем форму
-          this.submit();
-        }
+        const data = {};
+        new FormData(this).forEach((val, key) => data[key] = val);
+        console.log('Заявка:', data);
+
+        closeModal(modal);
+        openModal(successModal);
       });
     }
-
-
-
 
 
     // Страница FAQ

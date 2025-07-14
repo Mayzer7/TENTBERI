@@ -683,9 +683,20 @@
                 <div class="scroll-wrapper">
                     <div class="get-request-form-content">
                         <div class="get-request-form-top">
-                            <input class="modal__input" type="text" placeholder="Ваше имя *" />
-                            <input class="modal__input" type="tel" placeholder="Телефон *" />
-                            <textarea class="modal__input" placeholder="Описание *" rows="4"></textarea>
+                            <input 
+                                class="modal__input" 
+                                name="name"
+                                type="text" 
+                                placeholder="Ваше имя *" />
+                            
+                            <input 
+                                class="modal__input" 
+                                name="phone"
+                                type="tel" 
+                                placeholder="Телефон *" 
+                            />
+                            
+                            <textarea class="modal__input" name="description" placeholder="Описание *" rows="4"></textarea>
                         </div>
 
                         <p class="get-request-form-text">
@@ -871,6 +882,24 @@
             </form>
         </div>
     </div>
+
+    <!-- Модальное окно "Спасибо за заявку" -->
+    <div class="get-request-modal success-modal" id="success-modal">
+        <div class="modal__header modal__header-success">
+            <div class="modal__header-top modal__header-top-success">
+                <p class="modal__title modal__title-success">
+                    Ваша заявка успешно оформлена
+                </p>
+            </div>
+
+            <p class="modal__subtitle modal__subtitle-success">
+                Наш менеджер свяжется с вами в течении дня
+            </p>
+
+            <button class="sign-up-button sign-up-button-blue" id="closeSuccessModal">
+                Закрыть
+            </button>
+        </div>
     </div>
 
     <!-- Модальное окно для просмотра фоток в секции "ТентБери в деле" -->
