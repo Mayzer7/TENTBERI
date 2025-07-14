@@ -394,12 +394,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const getRequestModal = document.querySelector('.get-request-modal');
 
     if (getRequestModal) {
-      const openBtn = document.querySelector('.sign-up-button');
+      const openBtns = document.querySelectorAll('.sign-up-button');
       const modal   = document.getElementById('get-request-modal');
       const overlay = document.getElementById('overlay');
       const closeBtn = document.getElementById('closeModal');
 
       function openModal() {
+        header.classList.add('header-hidden');
         modal.classList.add('active');
         overlay.classList.add('active', 'dim');
         htmlEl.classList.add('no-scroll');
@@ -413,7 +414,10 @@ document.addEventListener('DOMContentLoaded', () => {
         bodyEl.classList.remove('no-scroll');
       }
 
-      openBtn.addEventListener('click', openModal);
+      openBtns.forEach(btn => {
+        btn.addEventListener('click', openModal);
+      });
+      
       closeBtn.addEventListener('click', closeModal);
       overlay.addEventListener('click', closeModal);
     }
@@ -529,10 +533,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       function closeModal() {
         modal.classList.remove('visible');    
-
         htmlEl.classList.remove('no-scroll');
         bodyEl.classList.remove('no-scroll');
-        header.classList.remove('header-hidden');
       }
 
       document.querySelectorAll('.tenberi-case-image img').forEach(img => {
