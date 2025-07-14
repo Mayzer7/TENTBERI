@@ -4424,3 +4424,207 @@ nav ul.text-page-ul li p {
         padding: 0;
     }
 }
+
+
+
+
+/* Страница "about-company.html" */
+
+/* О компании */
+
+.about-company {
+    color: var(--dark-blue);
+}
+
+.about-company-main-banner {
+    background-color: var(--gray-bg);
+    border: 1px solid var(--border-button);
+    border-radius: 20px;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-company-main-banner-image {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    max-width: 935px;
+    width: 100%;
+    height: 100%;
+}
+
+.about-company-main-banner-image img {
+    width: 100%;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.about-company-main-banner-texts {
+    position: relative;
+    z-index: 3;
+    padding: 40px;
+    max-width: 780px;
+    width: 100%;
+}
+
+.about-company-main-banner-up-text {
+    font-family: 'Helvetica Neue Bold', sans-serif;
+    font-size: 28px;
+    line-height: 100%;
+    letter-spacing: -0.04em;
+    padding-bottom: 20px;
+}
+
+.about-company-main-banner-up-text span {
+    color: var(--gray-text);
+}
+
+.about-company-main-banner-down-text {
+    font-family: 'Helvetica Neue Regular', sans-serif;
+    font-size: 20px;
+    line-height: 110%;
+}
+
+.main-banner-down-text-first {
+    padding-bottom: 20px;
+}
+
+.our-clients {
+    padding-top: 130px;
+    padding-bottom: 52px;
+}
+
+.our-clients-title {
+    font-family: 'Helvetica Neue Bold', sans-serif;
+    font-size: 54px;
+    line-height: 100%;
+    letter-spacing: -0.04em;
+    padding-bottom: 35px;
+    max-width: 830px;
+    width: 100%;
+}
+
+.our-clients-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    gap: 0px;
+}
+
+.our-clients-card {
+    border: 1px dashed var(--border-button);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 162px;
+    padding: 0px 20px;
+}
+
+.our-clients-card-image-1 {
+    width: 253px;
+    height: 63px;
+}
+
+.our-clients-card-image-2 {
+    width: 116px;
+    height: 94px;
+}
+
+.our-clients-card-image-3 {
+    width: 280px;
+    height: 45px;
+}
+
+/* Адаптив "О компании" */
+
+@media (max-width: 1400px) {
+    .our-clients-title {
+        font-size: 44px;
+        max-width: 700px;
+    }
+}
+
+@media (max-width: 1350px) {
+    .our-clients {
+        padding-bottom: 80px;
+        padding-top: 80px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .our-clients-title {
+        font-size: 34px;
+        max-width: 540px;
+    }
+}
+
+@media (max-width: 970px) {
+    .about-company-main-banner-texts {
+        padding: 16px;
+    }
+
+    .about-company-main-banner-up-text {
+        font-size: 20px;
+    }
+
+    .about-company-main-banner-down-text {
+        font-size: 16px;
+    }
+    
+    .about-company-main-banner-image {
+        position: static;
+        width: 100%; 
+        height: 100%;   
+        transform: translate(0px, 5px);
+    }
+
+    .about-company-main-banner-image img {
+        border-top-right-radius: 0px;
+    }
+}
+
+@media (max-width: 900px) {
+    .our-clients-title {
+        padding-bottom: 16px;
+    }
+
+    .our-clients-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .our-clients-card {
+        padding: 0px 5px;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-company-main-banner {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 500px) {
+    .our-clients-card-image-1 {
+        width: 180px;
+        height: 48px;
+    }
+
+    .our-clients-card-image-2 {
+        width: 83px;
+        height: 67px;
+    }
+
+    .our-clients-card-image-3 {
+        width: 200px;
+        height: 32px;
+    }
+
+    .our-clients-card {
+        height: 102px;
+    }
+}
