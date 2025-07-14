@@ -3377,6 +3377,8 @@ nav ul.nav-list li::marker {
 
 /* Модальное окно "Оставить заявку" */
 
+/* Модальное окно "Оставить заявку" */
+
 .get-request-modal {
     position: fixed;
     top: 0;
@@ -3483,7 +3485,10 @@ nav ul.nav-list li::marker {
 .get-reques-form-content-bottom {
     border-top: 1px solid var(--border-button);
     padding: 32px 80px 40px 60px;
-    
+    position: sticky;
+    bottom: 0;
+    background-color: white;
+    z-index: 1;
 }
 
 .get-request-form-top {
@@ -3505,7 +3510,7 @@ nav ul.nav-list li::marker {
     line-height: 110%;
     border-radius: 16px;
     color: var(--dark-blue);
-    transition: all 0.3s ease;
+    transition: border-color 0.3s ease, color 0.3s ease;
     outline: none;
 }
 
@@ -3518,6 +3523,29 @@ nav ul.nav-list li::marker {
     font-size: 18px;
     line-height: 110%;
     color: var(--gray-text);
+}
+
+.modal__input.invalid::placeholder {
+  color: #e63946;
+}
+
+
+.checkbox-error-message {
+    color: #e63946;
+    font-size: 18px;
+    font-family: 'Helvetica Neue Regular', sans-serif;
+    padding-top: 4px;
+    padding-bottom: 16px;
+
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+.checkbox-error-message.visible {
+  opacity: 1;
+  max-height: 60px;
 }
 
 .get-request-form-text {
@@ -3677,7 +3705,6 @@ nav ul.nav-list li::marker {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding-bottom: 16px;
 }
 
 .accept-politics span {
@@ -3717,6 +3744,10 @@ nav ul.nav-list li::marker {
   background-image: url('../img/svg/check.svg');
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+.accept-politics input[type="checkbox"].invalid {
+  border-color: #e63946;
 }
 
 .accept-politics label {

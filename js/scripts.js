@@ -391,6 +391,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+    /* Модальное окно "Оставить заявку" */
+
     const getRequestModal = document.querySelector('.get-request-modal');
 
     if (getRequestModal) {
@@ -420,6 +422,57 @@ document.addEventListener('DOMContentLoaded', () => {
       
       closeBtn.addEventListener('click', closeModal);
       overlay.addEventListener('click', closeModal);
+
+      
+      // Валидация 
+
+      const form = document.querySelector('.get-request-form');
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        let valid = true;
+
+        // 1) Все .modal__input с "*" в плейсхолдере (input + textarea)
+        const placeholderFields = Array.from(
+          this.querySelectorAll('.modal__input[placeholder*="*"]')
+        );
+        placeholderFields.forEach(input => {
+          if (!input.value.trim()) {
+            valid = false;
+            input.classList.add('invalid');
+          } else {
+            input.classList.remove('invalid');
+          }
+        });
+
+        const checkbox = form.querySelector('#accept-politics');
+        const checkboxWrapper = checkbox.closest('.accept-politics');
+        const errorText = form.querySelector('.checkbox-error-message');
+        const formContent = form.querySelector('.get-request-form-content');
+
+        if (!checkbox.checked) {
+          valid = false;
+          checkbox.classList.add('invalid');
+          errorText.classList.add('visible');
+        } else {
+          checkbox.classList.remove('invalid');
+          errorText.classList.remove('visible');
+        }
+
+        // Убираем красную рамку при нажатии на checkbox
+        checkbox.addEventListener('change', function () {
+          if (this.checked) {
+            this.classList.remove('invalid');
+            errorText.classList.remove('visible');
+          }
+        });
+
+
+        if (valid) {
+          // Если все обязательные поля заполнены — отправляем форму
+          this.submit();
+        }
+      });
     }
 
 
