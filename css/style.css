@@ -3378,6 +3378,7 @@ nav ul.nav-list li::marker {
     top: 0;
     right: 0;
     max-width: 740px;
+    min-width: 320px;
     width: 100%;          
     height: 100%;
     background-color: #fff;
@@ -3390,6 +3391,14 @@ nav ul.nav-list li::marker {
     flex-direction: column;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
+    overflow-y: auto;
+
+    scrollbar-width: none;       
+    -ms-overflow-style: none;
+}
+
+.get-request-modal::-webkit-scrollbar {
+    display: none;           
 }
 
 .get-request-modal.active {
@@ -3398,7 +3407,7 @@ nav ul.nav-list li::marker {
 
 .modal__header {
     border-bottom: 1px solid var(--border-button);
-    padding: 40px 80px 25px 60px;
+    padding: 40px 50px 25px 60px;
 }
 
 .modal__header-top {
@@ -3433,13 +3442,18 @@ nav ul.nav-list li::marker {
     color: var(--blue);
 }
 
+.modal__close-icon {
+    width: 40px;
+    height: 40px;
+}
+
 .scroll-wrapper {
   position: relative;
   overflow: hidden;     
 }
 
 .get-request-form-content {
-  max-height: calc(100vh - 250px - 120px);
+  max-height: calc(100vh - 240px - 120px);
   overflow-y: auto;
   width: calc(100% - 50px);
   padding: 20px 11px 20px 60px;                              
@@ -3576,7 +3590,7 @@ nav ul.nav-list li::marker {
 
 .question-title {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 8px;
     padding-bottom: 12px;
 }
@@ -3673,8 +3687,8 @@ nav ul.nav-list li::marker {
 .accept-politics input[type="checkbox"] {
   appearance: none;
   -webkit-appearance: none;
-  width: 20px;
-  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
   border: 1px solid var(--border-button);
   border-radius: 6px;
   cursor: pointer;
@@ -3707,6 +3721,140 @@ nav ul.nav-list li::marker {
     line-height: 110%;
 }
 
+/* Адаптив модального окна "Оставить заявку" */
+
+@media (max-width: 1400px) {
+    .modal__title {
+        font-size: 44px;
+    }
+
+    .get-request-form-content {
+        max-height: calc(100vh - 220px - 120px);
+    }
+}
+
+@media (max-width: 1200px) {
+    .modal__title {
+        font-size: 34px;
+    }
+
+    .modal__subtitle,
+    .accept-politics label {
+        font-size: 16px;
+    }
+
+    .modal__header-top {
+        padding-bottom: 16px;
+    }
+
+    .modal__close-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .get-request-form-content {
+        max-height: calc(100vh - 195px - 120px);
+    }
+}
+
+@media (max-width: 740px) {
+    .size-input {
+        max-width: 100%;
+    }
+
+    .get-request-modal {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    .modal__header {
+        padding: 24px 16px 16px 16px;
+    }
+
+    .get-request-form-content {
+        padding: 16px;
+    }
+
+    .get-reques-form-content-bottom {
+        padding: 24px 16px;
+    }
+
+    .modal__header-top {
+        padding-bottom: 12px;
+    }
+
+    .modal__subtitle {
+        max-width: 430px;
+        padding-right: 50px;
+    }
+
+    .modal__close {
+        padding-right: 0px;
+    }
+
+    .modal__title {
+        font-size: 28px;
+    }
+
+    .get-request-form-content {
+        max-height: calc(100vh - 160px - 120px);
+        width: calc(100% - 10px);
+    }
+
+    .modal__input {
+        padding: 16px;
+    }
+
+    .modal__input::placeholder {
+        font-size: 14px;
+    }
+
+    .get-request-form-top {
+        gap: 8px;
+    }
+
+    .get-request-form-text {
+        padding-top: 16px;
+        padding-bottom: 12px;
+        font-size: 16px;
+    }
+
+    .size-title, .question-title {
+        font-size: 16px;
+        padding-bottom: 8px;
+    }
+
+    .radio label {
+        font-size: 14px;
+    }
+
+    .form-question-item {
+        padding-bottom: 12px;
+        padding-top: 12px;
+    }
+}
+
+@media (max-width: 600px) {
+    .size-items {
+        grid-template-columns: 1fr;
+    }
+
+    .get-request-form-bottom-size {
+        display: block;
+    }
+}
+
+@media (max-width: 500px) {
+    .form-question-item {
+        display: block;
+    }
+
+    .form-question-item-right {
+        margin-top: 12px;
+        padding-top: 12px;
+        border-top: 1px solid var(--border-button);
+    }
+}
 
 
 
