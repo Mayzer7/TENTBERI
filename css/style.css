@@ -2232,7 +2232,7 @@ input[type=number] {
   top: 0; 
   left: 0;
   width: 100vw; 
-  height: 100vh;
+  height: 100%;
   background: #ffffff;  
   display: none;
   align-items: center;
@@ -2249,15 +2249,14 @@ input[type=number] {
 
 .modal-content {
   position: relative;
-  width: calc(100vw - 140px); 
-  margin: 0 120px;           
+  width: calc(100vw - 140px);        
   overflow: hidden;          
 }
 
 .modal-close {
   position: absolute;
-  top: 47px; 
-  right: 80px;
+  top: 2.5rem;   /* примерно 40px при стандартном rem */
+  right: 5%;
   color: var(--gray-text);
   background: transparent;
   border: none;
@@ -2268,6 +2267,11 @@ input[type=number] {
 
 .modal-close:hover {
   color: var(--blue);
+}
+
+.modal-close-icon {
+  width: 40px;
+  height: 40px;
 }
 
 .modal-swiper {
@@ -2333,6 +2337,11 @@ input[type=number] {
   padding-top: 20px;
 }
 
+.modal-thumbs .swiper-wrapper.centered {
+  justify-content: center;
+}
+
+
 .modal-thumbs .swiper-slide {
   aspect-ratio: 4 / 3;        
   position: relative;
@@ -2359,6 +2368,39 @@ input[type=number] {
   transform: scale(1.05);   
 }
 
+
+/* Адаптив модального окна для изображений */
+
+@media (max-width: 1520px) {
+    .modal-content {
+        width: calc(100vw);
+    }
+}
+
+
+@media (max-width: 1000px) {
+    .arrow-modal-btn {
+        min-width: 50px;
+        min-height: 50px;
+    }
+
+    .arrow-modal-svg {
+        max-width: 24px;
+        max-height: 24px;
+    }
+}
+
+@media (max-width: 800px) {
+    .arrow-modal-btn,
+    .swiper-button-prev {
+        display: none !important;
+    }
+
+    .modal-close-icon {
+        width: 32px;
+        height: 32px;
+    }
+}
 
 
 

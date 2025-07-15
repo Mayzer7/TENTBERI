@@ -273,15 +273,46 @@ document.addEventListener('DOMContentLoaded', () => {
           thumbImg.alt = alt;
           thumbSlide.appendChild(thumbImg);
           thumbsWrapper.appendChild(thumbSlide);
-        });
+      });
+
+      // Центруем миниатюры если их мало
+      const thumbCount = thumbsWrapper.children.length;
+      if (thumbCount <= 8) {
+        thumbsWrapper.classList.add('centered');
+      } else {
+        thumbsWrapper.classList.remove('centered');
+      }
 
       // 2) Инициализируем Swiper для миниатюр
       const thumbsSwiper = new Swiper('.modal-thumbs', {
         spaceBetween: 20,
-        slidesPerView: 8,
+        slidesPerView: 9,
         slidesPerGroup: 1,
         freeMode: false,
         watchSlidesProgress: true,
+        breakpoints: {
+          1800: {
+            slidesPerView: 8,
+          },
+          1500: {
+            slidesPerView: 7.5,
+          },
+          1150: {
+            slidesPerView: 6.5,
+          },
+          800: {
+            slidesPerView: 5.5,
+            spaceBetween: 12,
+          },
+          601: {
+            slidesPerView: 4.5,
+            spaceBetween: 12,
+          },
+          0: {
+            slidesPerView: 3.3,
+            spaceBetween: 12,
+          },
+        },
       });
 
       // 3) Инициализируем основной Swiper и подключаем thumbs-модуль
