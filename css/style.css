@@ -2255,7 +2255,7 @@ input[type=number] {
 
 .modal-close {
   position: absolute;
-  top: 2.5rem;   /* примерно 40px при стандартном rem */
+  top: 2.5rem;   
   right: 5%;
   color: var(--gray-text);
   background: transparent;
@@ -2337,13 +2337,42 @@ input[type=number] {
   padding-top: 20px;
 }
 
-.modal-thumbs .swiper-wrapper.centered {
+.modal-thumbs .swiper-wrapper.centered,
+.modal-thumbs .swiper-wrapper.uncentered4,
+.modal-thumbs .swiper-wrapper.uncentered5,
+.modal-thumbs .swiper-wrapper.uncentered6,
+.modal-thumbs .swiper-wrapper.uncentered7 {
   justify-content: center;
+}
+
+@media (max-width: 1500px) {
+    .modal-thumbs .swiper-wrapper.uncentered7 {
+        justify-content: unset;
+    }
+}
+
+@media (max-width: 1150px) {
+    .modal-thumbs .swiper-wrapper.uncentered6 {
+        justify-content: unset;
+    }
+}
+
+@media (max-width: 800px) {
+    .modal-thumbs .swiper-wrapper.uncentered5 {
+        justify-content: unset;
+    }
+}
+
+@media (max-width: 600px) {
+    .modal-thumbs .swiper-wrapper.uncentered4 {
+        justify-content: unset;
+    }
 }
 
 
 .modal-thumbs .swiper-slide {
-  aspect-ratio: 4 / 3;        
+  aspect-ratio: 4 / 3;      
+    
   position: relative;
   overflow: hidden;
   flex: 0 0 auto;
@@ -2360,6 +2389,7 @@ input[type=number] {
   object-fit: cover;
   opacity: 0.5;                 
   transition: opacity 0.3s ease, transform 0.3s ease;
+  
 }
 
 /* Активная миниатюра */

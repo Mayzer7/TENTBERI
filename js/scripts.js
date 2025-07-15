@@ -249,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const mainWrapper = modal.querySelector('.modal-swiper .swiper-wrapper');
       const thumbsWrapper = modal.querySelector('.modal-thumbs .swiper-wrapper');
 
-      // 1) Клонируем изображения в оба контейнера
+      // Клонируем изображения в оба контейнера
       document
         .querySelectorAll('.tents-for-trucks-images .swiper-slide img')
         .forEach((img, idx) => {
@@ -275,15 +275,22 @@ document.addEventListener('DOMContentLoaded', () => {
           thumbsWrapper.appendChild(thumbSlide);
       });
 
-      // Центруем миниатюры если их мало
-      const thumbCount = thumbsWrapper.children.length;
-      if (thumbCount <= 8) {
-        thumbsWrapper.classList.add('centered');
-      } else {
-        thumbsWrapper.classList.remove('centered');
+      // Центрируем миниатюры если их мало
+      function checkCentered(thumbsWrapper) {
+        const thumbCount = thumbsWrapper.children.length;
+
+        thumbsWrapper.classList.remove('uncentered4', 'uncentered5', 'uncentered6', 'uncentered7');
+
+        if (thumbCount >= 4 && thumbCount <= 7) {
+          thumbsWrapper.classList.add(`uncentered${thumbCount}`);
+        }
+
+        thumbsWrapper.classList.toggle('centered', thumbCount < 8);
       }
 
-      // 2) Инициализируем Swiper для миниатюр
+      checkCentered(thumbsWrapper);
+
+      // Инициализируем Swiper для миниатюр
       const thumbsSwiper = new Swiper('.modal-thumbs', {
         spaceBetween: 20,
         slidesPerView: 9,
@@ -294,13 +301,13 @@ document.addEventListener('DOMContentLoaded', () => {
           1800: {
             slidesPerView: 8,
           },
-          1500: {
+          1501: {
             slidesPerView: 7.5,
           },
-          1150: {
+          1151: {
             slidesPerView: 6.5,
           },
-          800: {
+          801: {
             slidesPerView: 5.5,
             spaceBetween: 12,
           },
@@ -315,7 +322,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
       });
 
-      // 3) Инициализируем основной Swiper и подключаем thumbs-модуль
+      // Инициализируем основной Swiper и подключаем thumbs-модуль
       const modalSwiper = new Swiper('.modal-swiper', {
         loop: true,
         centeredSlides: true,
@@ -331,7 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
       });
 
-      // 4) Открытие модального окна по клику на исходную миниатюру
+      // Открытие модального окна по клику на исходную миниатюру
       document
         .querySelectorAll('.tents-for-trucks-images .swiper-slide img')
         .forEach((img, idx) => {
@@ -343,7 +350,7 @@ document.addEventListener('DOMContentLoaded', () => {
           });
         });
 
-      // 5) Кнопка закрытия
+      // Кнопка закрытия
       modal.querySelector('#modalClose').addEventListener('click', () => {
         modal.classList.remove('open');
         document.documentElement.classList.remove('no-scroll');
