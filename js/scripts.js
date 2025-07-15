@@ -404,10 +404,12 @@ document.addEventListener('DOMContentLoaded', () => {
       // Окна
       const modal        = document.getElementById('get-request-modal');
       const successModal = document.getElementById('success-modal');
+      const errorModal = document.getElementById('error-modal');
 
       // Кнопки закрытия
       const closeBtn        = document.getElementById('closeModal');
       const closeSuccessBtn = document.getElementById('closeSuccessModal');
+      const tryAgainModal = document.getElementById('try-again-modal');
 
       // Открытие
       function openModal(modalEl) {
@@ -436,13 +438,21 @@ document.addEventListener('DOMContentLoaded', () => {
         closeModal(modal);
         closeModal(successModal);
       });
+
+      tryAgainModal.addEventListener('click', () => {
+        closeModal(errorModal);
+        openModal(modal);
+      });
+
       overlay.addEventListener('click', () => {
         closeModal(modal);
         closeModal(successModal);
+        closeModal(errorModal);
       });
 
       // Валидация 
       const form = document.querySelector('.get-request-form');
+      
       form.addEventListener('submit', function(e) {
         e.preventDefault();
         let valid = true;
@@ -481,10 +491,19 @@ document.addEventListener('DOMContentLoaded', () => {
         new FormData(this).forEach((val, key) => data[key] = val);
         console.log('Заявка:', data);
 
+        // Закрываем модалку заявки и открываем «успех»
         closeModal(modal);
         openModal(successModal);
+
+        // Очищаем форму после успешной отправки
+        this.reset();
+        this.querySelectorAll('.invalid').forEach(el => el.classList.remove('invalid'));
+        this.querySelectorAll('.checkbox-error-message.visible')
+            .forEach(el => el.classList.remove('visible'));
       });
     }
+
+
 
 
     // Страница FAQ

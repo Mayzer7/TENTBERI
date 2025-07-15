@@ -696,7 +696,7 @@
                                 placeholder="Телефон *" 
                             />
                             
-                            <textarea class="modal__input" name="description" placeholder="Описание *" rows="4"></textarea>
+                            <textarea class="modal__input" name="description" placeholder="Описание" rows="4"></textarea>
                         </div>
 
                         <p class="get-request-form-text">
@@ -711,7 +711,11 @@
                                             Длина,см <span>*</span>
                                         </p>
 
-                                        <input class="size-input" type="text" placeholder="50">
+                                        <input 
+                                            class="size-input"
+                                            name="length" 
+                                            type="number" 
+                                            placeholder="50">
                                     </div>
 
                                     <div class="size-item">
@@ -719,7 +723,11 @@
                                             Ширина,см <span>*</span>
                                         </p>
 
-                                        <input class="size-input" type="text" placeholder="50">
+                                        <input 
+                                            class="size-input" 
+                                            name="width"
+                                            type="number" 
+                                            placeholder="50">
                                     </div>
 
                                     <div class="size-item">
@@ -727,7 +735,11 @@
                                             Высота,см <span>*</span>
                                         </p>
 
-                                        <input class="size-input" type="text" placeholder="50">
+                                        <input 
+                                            class="size-input"
+                                            name="height" 
+                                            type="number" 
+                                            placeholder="50">
                                     </div>
                                 </div>
                             </div>
@@ -748,11 +760,11 @@
 
                                             <div class="radio-group">
                                                 <div class="radio">
-                                                    <input type="radio" id="sliding-roof-yes" name="sliding-roof" value="yes" checked>
+                                                    <input type="radio" id="sliding-roof-yes" name="sdvizhnaya-krysha" value="yes" checked>
                                                     <label for="sliding-roof-yes">Да</label>
                                                 </div>
                                                 <div class="radio">
-                                                    <input type="radio" id="sliding-roof-no"  name="sliding-roof" value="no">
+                                                    <input type="radio" id="sliding-roof-no"  name="sdvizhnaya-krysha" value="no">
                                                     <label for="sliding-roof-no">Нет</label>
                                                 </div>
                                             </div>
@@ -771,11 +783,11 @@
 
                                             <div class="radio-group">
                                                 <div class="radio">
-                                                    <input type="radio" id="curtain-left"  name="curtain" value="left" checked>
+                                                    <input type="radio" id="curtain-left"  name="shtora" value="left" checked>
                                                     <label for="curtain-left">Левая</label>
                                                 </div>
                                                 <div class="radio">
-                                                    <input type="radio" id="curtain-right" name="curtain" value="right">
+                                                    <input type="radio" id="curtain-right" name="shtora" value="right">
                                                     <label for="curtain-right">Правая</label>
                                                 </div>
                                             </div>
@@ -796,11 +808,11 @@
 
                                             <div class="radio-group">
                                                 <div class="radio">
-                                                    <input type="radio" id="tensioners-one" name="tensioners" value="one" checked>
+                                                    <input type="radio" id="tensioners-one" name="natyazhiteli" value="one" checked>
                                                     <label for="tensioners-one">Один</label>
                                                 </div>
                                                 <div class="radio">
-                                                    <input type="radio" id="tensioners-two" name="tensioners" value="two">
+                                                    <input type="radio" id="tensioners-two" name="natyazhiteli" value="two">
                                                     <label for="tensioners-two">Две</label>
                                                 </div>
                                             </div>
@@ -819,11 +831,11 @@
 
                                             <div class="radio-group">
                                                 <div class="radio">
-                                                    <input type="radio" id="blind-tent-yes" name="blind-tent" value="yes" checked>
+                                                    <input type="radio" id="blind-tent-yes" name="glukhoy-tent" value="yes" checked>
                                                     <label for="blind-tent-yes">Да</label>
                                                 </div>
                                                 <div class="radio">
-                                                    <input type="radio" id="blind-tent-no"  name="blind-tent" value="no">
+                                                    <input type="radio" id="blind-tent-no"  name="glukhoy-tent" value="no">
                                                     <label for="blind-tent-no">Нет</label>
                                                 </div>
                                             </div>
@@ -844,11 +856,11 @@
 
                                             <div class="radio-group">
                                                 <div class="radio">
-                                                    <input type="radio" id="rear-tailgate-yes" name="rear-tailgate" value="yes" checked>
+                                                    <input type="radio" id="rear-tailgate-yes" name="raspashnoy-zadniy-bort" value="yes" checked>
                                                     <label for="rear-tailgate-yes">Да</label>
                                                 </div>
                                                 <div class="radio">
-                                                    <input type="radio" id="rear-tailgate-no"  name="rear-tailgate" value="no">
+                                                    <input type="radio" id="rear-tailgate-no"  name="raspashnoy-zadniy-bort" value="no">
                                                     <label for="rear-tailgate-no">Нет</label>
                                                 </div>
                                             </div>
@@ -898,6 +910,36 @@
 
             <button class="sign-up-button sign-up-button-blue" id="closeSuccessModal">
                 Закрыть
+            </button>
+        </div>
+    </div>
+
+    <!-- Модальное окно "Ошибки" -->
+    <div class="get-request-modal success-modal" id="error-modal">
+        <div class="modal__header modal__header-success">
+            <div class="modal__header-top modal__header-top-success">
+                <p class="modal__title modal__title-success modal__title-error">
+                    <svg class="error-modal-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_368_4305)">
+                        <path d="M39.635 22.135L31.77 30L39.635 37.865C39.8694 38.0997 40.0009 38.4179 40.0007 38.7496C40.0005 39.0813 39.8685 39.3994 39.6338 39.6338C39.5175 39.7498 39.3796 39.8418 39.2278 39.9046C39.076 39.9673 38.9134 39.9996 38.7491 39.9994C38.4174 39.9992 38.0994 39.8672 37.865 39.6325L30 31.7675L22.135 39.6325C22.0192 39.7495 21.8814 39.8424 21.7295 39.9058C21.5776 39.9692 21.4146 40.0018 21.25 40.0018C21.0854 40.0018 20.9224 39.9692 20.7705 39.9058C20.6186 39.8424 20.4808 39.7495 20.365 39.6325C20.1307 39.3981 19.999 39.0802 19.999 38.7487C19.999 38.4173 20.1307 38.0994 20.365 37.865L28.23 30L20.365 22.135C20.1373 21.8992 20.0113 21.5835 20.0142 21.2557C20.017 20.928 20.1485 20.6145 20.3802 20.3827C20.612 20.151 20.9255 20.0195 21.2533 20.0167C21.581 20.0138 21.8967 20.1398 22.1325 20.3675L29.9975 28.2325L37.8625 20.3675C38.0983 20.1398 38.414 20.0138 38.7418 20.0167C39.0695 20.0195 39.383 20.151 39.6148 20.3827C39.8465 20.6145 39.978 20.928 39.9808 21.2557C39.9837 21.5835 39.8577 21.8992 39.63 22.135H39.635ZM60 30C60 46.5425 46.5425 60 30 60C13.4575 60 0 46.5425 0 30C0 13.4575 13.4575 0 30 0C46.5425 0 60 13.4575 60 30ZM57.5 30C57.5 14.8375 45.1625 2.5 30 2.5C14.8375 2.5 2.5 14.8375 2.5 30C2.5 45.1625 14.8375 57.5 30 57.5C45.1625 57.5 57.5 45.1625 57.5 30Z" fill="#FE3B3B"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_368_4305">
+                        <rect width="60" height="60" fill="white"/>
+                        </clipPath>
+                        </defs>
+                    </svg>
+
+                    Ошибка
+                </p>
+            </div>
+
+            <p class="modal__subtitle modal__subtitle-success">
+                Не удалось отправить заявку, попробуйте снова
+            </p>
+
+            <button class="sign-up-button sign-up-button-blue" id="try-again-modal">
+                Повторить
             </button>
         </div>
     </div>
