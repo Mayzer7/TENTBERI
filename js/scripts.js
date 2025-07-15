@@ -503,7 +503,90 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
+    // Тултип с разъеснением в модальном оке "Оставить заявку"
+    function initTooltip() {
+      let currentTooltip = null;
+      let currentBtn     = null;
 
+      function removeTooltip() {
+        if (currentTooltip) {
+          currentTooltip.remove();
+          currentTooltip = null;
+        }
+        if (currentBtn) {
+          currentBtn.classList.remove('active');
+          currentBtn = null;
+        }
+      }
+
+      document.querySelectorAll('.tooltip-btn').forEach(btn => {
+        btn.addEventListener('click', e => {
+          e.stopPropagation();
+          removeTooltip();
+
+          btn.classList.add('active');
+          currentBtn = btn;
+
+          const container = btn.closest('.tooltip-container');
+          const text = container.dataset.tooltip;
+          if (!text) return;
+
+          const tip = document.createElement('div');
+          tip.className = 'tooltip-modal-body';
+
+          const svgIcon = `
+            <svg class="tooltip-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 9H12.01M11 12H12V16H13M3 12C3 13.1819 3.23279 14.3522 3.68508 15.4442C4.13738 16.5361 4.80031 17.5282 5.63604 18.364C6.47177 19.1997 7.46392 19.8626 8.55585 20.3149C9.64778 20.7672 10.8181 21 12 21C13.1819 21 14.3522 20.7672 15.4442 20.3149C16.5361 19.8626 17.5282 19.1997 18.364 18.364C19.1997 17.5282 19.8626 16.5361 20.3149 15.4442C20.7672 14.3522 21 13.1819 21 12C21 9.61305 20.0518 7.32387 18.364 5.63604C16.6761 3.94821 14.3869 3 12 3C9.61305 3 7.32387 3.94821 5.63604 5.63604C3.94821 7.32387 3 9.61305 3 12Z" stroke="#2F5CB7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          `;
+
+          const closeTooltipBtn = `
+            <svg class="close-tooltip-btn" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19.7075 5.69596L13.416 11.9926L19.7075 18.2893C19.895 18.4772 20.0002 18.7319 20 18.9975C19.9998 19.2631 19.8942 19.5177 19.7065 19.7053C19.6135 19.7982 19.5032 19.8719 19.3817 19.9221C19.2603 19.9724 19.1302 19.9982 18.9988 19.9981C18.7335 19.9979 18.4791 19.8922 18.2916 19.7043L12.0001 13.4077L5.70864 19.7043C5.61603 19.798 5.50578 19.8724 5.38426 19.9231C5.26274 19.9739 5.13238 20 5.0007 20C4.86903 20 4.73866 19.9739 4.61715 19.9231C4.49563 19.8724 4.38537 19.798 4.29276 19.7043C4.10531 19.5166 4 19.2622 4 18.9968C4 18.7314 4.10531 18.4769 4.29276 18.2893L10.5842 11.9926L4.29276 5.69596C4.11062 5.50722 4.00983 5.25443 4.01211 4.99204C4.01439 4.72965 4.11955 4.47865 4.30494 4.29311C4.49034 4.10756 4.74113 4.00232 5.0033 4.00004C5.26548 3.99776 5.51806 4.09863 5.70664 4.28092L11.9981 10.5776L18.2896 4.28092C18.4782 4.09863 18.7308 3.99776 18.9929 4.00004C19.2551 4.00232 19.5059 4.10756 19.6913 4.29311C19.8767 4.47865 19.9818 4.72965 19.9841 4.99204C19.9864 5.25443 19.8856 5.50722 19.7035 5.69596H19.7075Z" fill="#8A93A6"/>
+            </svg>
+          `;
+
+          // собираем HTML тултипа: сначала SVG, потом текст и кнопку закрытия на мобилке
+          tip.innerHTML = svgIcon + `<span class="tooltip-text">${text}</span>` + closeTooltipBtn;
+
+          document.body.append(tip);
+          currentTooltip = tip;
+
+          // получаем размеры и позицию кнопки
+
+          // Если мобилка тултип прижат вниз экрана
+          if (window.innerWidth <= 740) {
+            requestAnimationFrame(() => tip.classList.add('show'));
+            return;
+          }
+
+          // Если декстоп, то около кнопки
+          const rect = btn.getBoundingClientRect();
+          const scrollX = window.scrollX, scrollY = window.scrollY;
+          let left = scrollX + rect.left + rect.width/2;
+          let top  = scrollY + rect.bottom + 8;
+          document.body.append(tip); 
+          const tipWidth = tip.offsetWidth;
+          const vpWidth  = document.documentElement.clientWidth;
+          const minLeft = scrollX + 8 + tipWidth/2;
+          const maxLeft = scrollX + vpWidth - 8 - tipWidth/2;
+          left = Math.min(Math.max(left, minLeft), maxLeft);
+
+          tip.style.top       = `${top}px`;
+          tip.style.left      = `${left}px`;
+          tip.style.transform = 'translateX(-50%)';
+
+          requestAnimationFrame(() => tip.classList.add('show'));
+        });
+      });
+
+      document.addEventListener('click', removeTooltip);
+      window.addEventListener('resize', removeTooltip);
+      window.addEventListener('scroll', removeTooltip);
+    }
+
+    // Вызываем тултип
+    initTooltip();
 
 
     // Страница FAQ
