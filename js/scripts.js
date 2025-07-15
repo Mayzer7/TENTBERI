@@ -244,75 +244,76 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (modalGallery) {
       const modal = document.getElementById('modalGallery');
-      const modalCloseBtn = document.getElementById('modalClose');
-      const modalWrapper = modal.querySelector('.modal-swiper .swiper-wrapper');
-      const thumbsWrapper = document.querySelector('.tents-for-trucks-images .swiper-wrapper');
+      if (!modal) return;
 
-      thumbsWrapper.querySelectorAll('.swiper-slide').forEach(slide => {
-        const newSlide = document.createElement('div');
-        newSlide.classList.add('swiper-slide');
-        
-        const img = slide.querySelector('img');
-        const src = img.getAttribute('src') || img.getAttribute('data-src');
-        
-        const newImg = document.createElement('img');
-        newImg.src = src;
-        newImg.alt = img.alt || '';
-        
-        newSlide.appendChild(newImg);
-        modalWrapper.appendChild(newSlide);
+      const mainWrapper = modal.querySelector('.modal-swiper .swiper-wrapper');
+      const thumbsWrapper = modal.querySelector('.modal-thumbs .swiper-wrapper');
+
+      // 1) Клонируем изображения в оба контейнера
+      document
+        .querySelectorAll('.tents-for-trucks-images .swiper-slide img')
+        .forEach((img, idx) => {
+          const src = img.getAttribute('src') || img.dataset.src;
+          const alt = img.alt || '';
+
+          // Большой слайд
+          const bigSlide = document.createElement('div');
+          bigSlide.classList.add('swiper-slide');
+          const bigImg = new Image();
+          bigImg.src = src;
+          bigImg.alt = alt;
+          bigSlide.appendChild(bigImg);
+          mainWrapper.appendChild(bigSlide);
+
+          // Слайд для миниатюры
+          const thumbSlide = document.createElement('div');
+          thumbSlide.classList.add('swiper-slide');
+          const thumbImg = new Image();
+          thumbImg.src = src;
+          thumbImg.alt = alt;
+          thumbSlide.appendChild(thumbImg);
+          thumbsWrapper.appendChild(thumbSlide);
+        });
+
+      // 2) Инициализируем Swiper для миниатюр
+      const thumbsSwiper = new Swiper('.modal-thumbs', {
+        spaceBetween: 20,
+        slidesPerView: 8,
+        slidesPerGroup: 1,
+        freeMode: false,
+        watchSlidesProgress: true,
       });
 
+      // 3) Инициализируем основной Swiper и подключаем thumbs-модуль
       const modalSwiper = new Swiper('.modal-swiper', {
+        loop: true,
+        centeredSlides: true,
+        slidesPerView: 1,
+        spaceBetween: 0,
         zoom: { maxRatio: 2 },
         navigation: {
           prevEl: '.swiper-button-prev',
           nextEl: '.swiper-button-next',
         },
-        loop: true,
-        spaceBetween: 0,
-        slidesPerView: 1,
-        centeredSlides: true
+        thumbs: {
+          swiper: thumbsSwiper,
+        },
       });
 
-      // Нижний блок с миниатюрами
-      const thumbsContainer = modal.querySelector('.modal-thumbs');
-
-      modalWrapper.querySelectorAll('.swiper-slide').forEach((slide, idx) => {
-        const thumb = document.createElement('div');
-        thumb.classList.add('thumb');
-        const img = slide.querySelector('img').cloneNode();
-        thumb.appendChild(img);
-
-        thumb.addEventListener('click', () => {
-          modalSwiper.slideToLoop(idx);
+      // 4) Открытие модального окна по клику на исходную миниатюру
+      document
+        .querySelectorAll('.tents-for-trucks-images .swiper-slide img')
+        .forEach((img, idx) => {
+          img.addEventListener('click', () => {
+            modal.classList.add('open');
+            modalSwiper.slideToLoop(idx, 0);
+            document.documentElement.classList.add('no-scroll');
+            document.body.classList.add('no-scroll');
+          });
         });
 
-        thumbsContainer.appendChild(thumb);
-      });
-
-      function updateActiveThumb() {
-        // текущий индекс в рамках loop
-        const realIndex = modalSwiper.realIndex;
-        thumbsContainer.querySelectorAll('.thumb').forEach((thumb, idx) => {
-          thumb.classList.toggle('active', idx === realIndex);
-        });
-      }
-
-      updateActiveThumb();
-
-      modalSwiper.on('slideChange', updateActiveThumb);
-
-      document.querySelectorAll('.tents-for-trucks-images .swiper-slide img').forEach((img, idx) => {
-        img.addEventListener('click', () => {
-          modal.classList.add('open');
-          modalSwiper.slideToLoop(idx, 0);
-          document.documentElement.classList.add('no-scroll');
-          document.body.classList.add('no-scroll');
-        });
-      });
-
-      modalCloseBtn.addEventListener('click', () => {
+      // 5) Кнопка закрытия
+      modal.querySelector('#modalClose').addEventListener('click', () => {
         modal.classList.remove('open');
         document.documentElement.classList.remove('no-scroll');
         document.body.classList.remove('no-scroll');

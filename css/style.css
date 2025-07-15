@@ -2200,19 +2200,20 @@ input[type=number] {
 }
 
 .tents-for-trucks-images .swiper-slide {
-  max-width: 425px;
-  max-height: 300px;
+  aspect-ratio: 4 / 3;
+  position: relative;           
   width: 100%;
-  height: 100%;
 }
 
 .tents-for-trucks-images .swiper-slide img {
-  display: block;
+  position: absolute;
+  top: 0; 
+  left: 0;
   width: 100%;
-  height: auto;
-  object-fit: cover;
-  cursor: pointer;
+  height: 100%;
+  object-fit: cover;          
   border-radius: 20px;
+  cursor: pointer;
 }
 
 .tents-for-trucks-images,
@@ -2248,8 +2249,9 @@ input[type=number] {
 
 .modal-content {
   position: relative;
-  width: 100vw;
-  height: 100vh;
+  width: calc(100vw - 140px); 
+  margin: 0 120px;           
+  overflow: hidden;          
 }
 
 .modal-close {
@@ -2272,17 +2274,23 @@ input[type=number] {
   width: 100%;
   height: 100%;
 }
+
 .modal-swiper .swiper-slide {
   display: flex;
   align-items: center;
   justify-content: center;
+  align-self: center;
 }
+
 .modal-swiper .swiper-slide img {
   max-width: 100%;
-  max-height: 100%;
-  object-fit: fill;
+  max-height: calc(100vh - 200px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
   cursor: pointer;
 }
+
 
 .modal-swiper .swiper-button-prev::after,
 .modal-swiper .swiper-button-next::after {
@@ -2319,44 +2327,37 @@ input[type=number] {
 
 /* Панель миниатюр */
 
-.modal-thumbs {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: calc(100% - 40px);
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-  gap: 8px;
-  padding: 0 10px;
-  box-sizing: border-box;
-  z-index: 5;
+.modal-thumbs .swiper-wrapper {
+  display: flex;         
+  align-items: center;
+  padding-top: 20px;
 }
 
-.modal-thumbs .thumb {
-  cursor: pointer;
+.modal-thumbs .swiper-slide {
+  aspect-ratio: 4 / 3;        
+  position: relative;
   overflow: hidden;
-  border-radius: 4px;
+  flex: 0 0 auto;
+  width: auto;
+  border-radius: 14px;
+  cursor: pointer;
 }
 
-.modal-thumbs .thumb img {
+.modal-thumbs .swiper-slide img {
+  position: absolute;
+  top: 0; left: 0;
   width: 100%;
-  height: auto;
-  display: block;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;                 
   transition: opacity 0.3s ease, transform 0.3s ease;
-  opacity: 0.5;
 }
 
-.modal-thumbs .thumb.active img {
-  opacity: 1;
-  transform: scale(1.05);
+/* Активная миниатюра */
+.modal-thumbs .swiper-slide-thumb-active img {
+  opacity: 1;              
+  transform: scale(1.05);   
 }
-
-.modal-thumbs .thumb:not(.active):hover img {
-  opacity: 0.7;
-}
-
-
 
 
 
