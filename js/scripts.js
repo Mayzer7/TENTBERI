@@ -13,10 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const htmlEl   = document.documentElement;
   const bodyEl   = document.body;
 
-
   // Сбрасываем стили шапки сверху экрана только на главной странице
   const page = document.body.dataset.page;
-  
 
   let lastScroll = window.pageYOffset;
   let ticking = false;
@@ -47,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const applyScrollUpStyles = () => {
-    
     clearResetTimeout();  
     navList.classList.add('scroll-up-gap');
     headerContainer.classList.add('scroll-up');
@@ -117,9 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
       ticking = true;
     }
   }, { passive: true });
-  
-
-
 
   // Бургер меню
 
@@ -154,10 +148,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // клик по оверлею — закрываем меню
     overlay.addEventListener('click', closeMenu);
     }
-
-
-
-
 
     // Cookie banner
 
@@ -195,9 +185,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
     }
-
-
-
 
     // Swiper карточек
     const tentForTrucksSwiper = document.querySelector('.tents-for-trucks-images');
@@ -359,10 +346,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-
-
-
-    // Читать ещё
+    // Кнопка "Читать ещё" на странице "tents-for-trucks.html"
 
     const readMoreButton = document.querySelector('.read-more-btn');
 
@@ -388,7 +372,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     
-    // Скелетон
+    // Скелетон анимация для ожидания подгрузки изображений
 
     const skeleton = document.querySelectorAll('.skeleton');
 
@@ -425,9 +409,57 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+    // Форматирование номера телефона для модалки "Оставить заявку"
+    function initPhoneFormatter(selector) {
+      const phoneInput = document.querySelector(selector);
+      if (!phoneInput) return;
 
+      phoneInput.addEventListener('input', (e) => {
+        let value = phoneInput.value.replace(/\D/g, '');
 
+        if (e.inputType === 'deleteContentBackward' && value.length <= 1) {
+          phoneInput.value = '';
+          return;
+        }
 
+        let prefix = '';
+        if (value.startsWith('8')) {
+          prefix = '8 ';
+          value = value.slice(1);
+        } else if (value.startsWith('7')) {
+          prefix = '+7 ';
+          value = value.slice(1);
+        }
+
+        value = value.slice(0, 10);
+
+        let formatted = '';
+        if (value.length > 0) formatted += `(${value.slice(0, 3)}`;
+        if (value.length >= 4) formatted += `) ${value.slice(3, 6)}`;
+        if (value.length >= 7) formatted += `-${value.slice(6, 8)}`;
+        if (value.length >= 9) formatted += `-${value.slice(8, 10)}`;
+
+        const cursorPos = phoneInput.selectionStart;
+        const oldLen    = phoneInput.value.length;
+
+        phoneInput.value = prefix + formatted;
+
+        const newLen = phoneInput.value.length;
+        phoneInput.setSelectionRange(
+          cursorPos + (newLen - oldLen),
+          cursorPos + (newLen - oldLen)
+        );
+      });
+
+      phoneInput.isValidPhone = function() {
+        const digits = phoneInput.value.replace(/\D/g, '');
+        return (digits.startsWith('7') || digits.startsWith('8'))
+          ? digits.length >= 11
+          : digits.length >= 10;
+      };
+    }
+
+    initPhoneFormatter('.get-request-form input[name="phone"]');
 
 
     /* Модальное окно "Оставить заявку" */
@@ -496,6 +528,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         let valid = true;
 
+        // Проверяем обязательные поля
         this.querySelectorAll('.modal__input[placeholder*="*"]').forEach(inp => {
           if (!inp.value.trim()) {
             valid = false;
@@ -505,6 +538,30 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
 
+        // Валидация телефона
+        const phoneInput = this.querySelector('input[name="phone"]');
+        const rawDigits  = phoneInput.value.replace(/\D/g, '');
+
+        // Показываем ошибку только если пользователь начал вводить номер
+        if (rawDigits.length > 0) {
+          if (!phoneInput.isValidPhone()) {
+            valid = false;
+            phoneInput.classList.add('invalid');
+
+            if (!this.querySelector('.phone-error-message')) {
+              const msg = document.createElement('div');
+              msg.className = 'phone-error-message';
+              msg.textContent = 'Введите корректный номер телефона';
+              phoneInput.after(msg);
+            }
+          } else {
+            phoneInput.classList.remove('invalid');
+            const oldMsg = this.querySelector('.phone-error-message');
+            if (oldMsg) oldMsg.remove();
+          }
+        }
+
+        // Проверка чекбокса Политики
         const checkbox = this.querySelector('#accept-politics');
         const errorMsg = this.querySelector('.checkbox-error-message');
         if (!checkbox.checked) {
@@ -530,7 +587,7 @@ document.addEventListener('DOMContentLoaded', () => {
         new FormData(this).forEach((val, key) => data[key] = val);
         console.log('Заявка:', data);
 
-        // Закрываем модалку заявки и открываем «успех»
+        // Закрываем модалку заявки и открываем модалку успеха
         closeModal(modal);
         openModal(successModal);
 
@@ -542,7 +599,8 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Тултип с разъеснением в модальном оке "Оставить заявку"
+
+    // Тултип с разъеснением в модальном окне "Оставить заявку"
     function initTooltip() {
       let currentTooltip = null;
       let currentBtn     = null;
@@ -627,7 +685,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Вызываем тултип
     initTooltip();
 
-
     // Страница FAQ
 
     // Раскрытие менюшек
@@ -655,11 +712,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-
-
-
-
-
     // Яндекс карта
 
     const maps = document.querySelector('.maps');
@@ -681,12 +733,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         placemark.events.add('click', function () {
-          // Переход по ссылке адресса компании
+          // Переход по ссылке адреса компании
           const url = 'https://yandex.ru/maps/geo/ulitsa_krasnykh_zor_22_podyezd_4/2028698096/?ll=43.868635%2C56.331386&z=18.93';
           window.open(url, '_blank');
         });
-
-        
 
         map.controls.remove('geolocationControl'); // удаляем геолокацию
         map.controls.remove('searchControl'); // удаляем поиск
@@ -696,7 +746,7 @@ document.addEventListener('DOMContentLoaded', () => {
         map.controls.remove('zoomControl'); // удаляем контрол зуммирования
         map.controls.remove('rulerControl'); // удаляем контрол правил
 
-        map.geoObjects.add(placemark);
+        map.geoObjects.add(placemark); // добавляем метку на карту
       }
 
       ymaps.ready(() => {
@@ -705,9 +755,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     }
-
-
-    
 
     // Модальное окно для просмотра фоток в секции "ТентБери в деле"
 
@@ -776,9 +823,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     }
-
-
-
 
     // Подстветка поля Cookies в политике конфиденциальности
 

@@ -1215,6 +1215,11 @@ input[type=number] {
     row-gap: 40px;
 }
 
+.tentberi-case {
+    white-space: normal;         
+    word-break: break-word; 
+}
+
 .tenberi-case-image {
   position: relative;        
   width: 100%;               
@@ -1611,12 +1616,15 @@ input[type=number] {
 }
 
 .modal-img-wrapper img {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 90vw;
+  max-height: 90vh;
+  width: 100%;
+  height: 100%;
   transition: transform 0.3s ease;
   transform-origin: center center;
   border-radius: 20px;
 }
+
 
 .modal-close-button-icon {
     width: 40px;
@@ -1628,6 +1636,11 @@ input[type=number] {
 @media (max-width: 750px) {
     .modal-close-button {
         right: 30px;
+    }
+
+    .modal-img-wrapper img {
+        max-width: 100vw;
+        max-height: 100vh;
     }
 }
 
@@ -2127,7 +2140,6 @@ input[type=number] {
 .breadcrumb-container {
     padding-top: 127px;
     padding-left: 40px;
-    white-space: nowrap;
 }
 
 .breadcrumb {
@@ -2137,7 +2149,7 @@ input[type=number] {
 .breadcrumb ul {
     list-style: none;
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     padding: 0;
     margin: 0;
     gap: 0px;
@@ -2212,6 +2224,16 @@ input[type=number] {
     }
 }
 
+@media (Max-width: 1024px) {
+    .breadcrumb ul {
+        flex-wrap: nowrap;
+    }
+
+    .breadcrumb-container {
+        white-space: nowrap;
+    }
+}
+
 @media (Max-width: 970px) {
     .breadcrumb-container {
         padding-left: 0;
@@ -2280,22 +2302,28 @@ input[type=number] {
 
 .modal-gallery {
   position: fixed;
-  top: 0; 
-  left: 0;
-  width: 100vw; 
-  height: 100%;
-  background: #ffffff;  
-  display: none;
+  inset: 0;
+  background: #ffffff;
+  display: flex; 
   align-items: center;
   justify-content: center;
   z-index: 2000;
   min-width: 320px;
   padding: 0;
   margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0s linear 0.3s; 
 }
 
 .modal-gallery.open {
-  display: flex;
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.3s ease,
+    visibility 0s linear 0s;
 }
 
 .modal-content {
@@ -2654,7 +2682,7 @@ input[type=number] {
     padding-top: 130px;
     color: var(--dark-blue);
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: minmax(0px, 573px) minmax(0px, 573px) minmax(0px, 573px);
     gap: 20px;
 }
 
@@ -2665,6 +2693,8 @@ input[type=number] {
     border: 1px solid var(--border-button);
     padding: 32px 40px;
     border-radius: 16px;
+    white-space: normal;         
+    word-break: break-word; 
 }
 
 .information-card-title {
@@ -3032,6 +3062,8 @@ input[type=number] {
     position: relative;
     min-height: 274px;
     overflow: hidden;
+    white-space: normal;         
+    word-break: break-word;
 }
 
 .stages-of-work-card-title {
@@ -3297,6 +3329,8 @@ nav ul.nav-list li::marker {
     padding-left: 40px;
     padding-top: 32px;
     padding-bottom: 32px;
+    white-space: normal;         
+    word-break: break-word; 
 }
 
 /* Адаптив "Тенты" */
@@ -3654,6 +3688,7 @@ nav ul.nav-list li::marker {
 
 
 .checkbox-error-message {
+    padding-left: 3px;
     color: var(--error-text);
     font-size: 18px;
     font-family: 'Helvetica Neue Regular', sans-serif;
@@ -3669,6 +3704,13 @@ nav ul.nav-list li::marker {
 .checkbox-error-message.visible {
   opacity: 1;
   max-height: 60px;
+}
+
+.phone-error-message {
+    color: var(--error-text);
+    font-family: 'Helvetica Neue Regular', sans-serif;
+    font-size: 16px;
+    padding-left: 10px;
 }
 
 .get-request-form-text {
@@ -4202,6 +4244,11 @@ nav ul.nav-list li::marker {
     .close-tooltip-btn {
         display: flex;
     }
+
+    .checkbox-error-message,
+    .phone-error-message {
+        font-size: 14px;
+    }
 }
 
 @media (max-width: 600px) {
@@ -4489,6 +4536,8 @@ nav ul.text-page-ul li p {
     line-height: 100%;
     letter-spacing: -0.04em;
     padding-bottom: 16px;
+    white-space: normal;         
+    word-break: break-word;
 }
 
 .delivery-and-payment-subtitle {
@@ -4623,7 +4672,7 @@ nav ul.text-page-ul li p {
     font-size: 28px;
     line-height: 100%;
     letter-spacing: -0.04em;
-    padding-right: 15px;
+    padding-right: 20px;
 }
 
 .faq-card-text {
