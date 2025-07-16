@@ -413,6 +413,11 @@ input[type=number] {
   transition: transform 0.5s ease;
   padding-top: 140px;
   text-align: center;
+  overflow-y: auto;
+}
+
+.side-menu::-webkit-scrollbar {
+  width: 4px;
 }
 
 .side-menu.open {
@@ -426,6 +431,7 @@ input[type=number] {
     display: flex;
     flex-direction: column;
     gap: 24px;
+    padding: 0px 20px;
 }
 
 .side-menu-navigation ul li a {
@@ -472,6 +478,7 @@ input[type=number] {
 
 .side-menu-socials {
     margin-top: 16px;
+    padding-bottom: 40px;
 }
 
 /* Адаптив HEADER */
@@ -1031,13 +1038,15 @@ input[type=number] {
 
 .statistic-cards {
     display: grid;
-    grid-template-columns: minmax(420px, 568px) minmax(420px, 568px) minmax(420px, 568px);
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 0px;
 }
 
 .statistic-card {
     border: 2px dashed #CDD4DD;
     padding: 32px 40px;
+    white-space: normal;         
+    word-break: break-word; 
 }
 
 .statistic-card + .statistic-card {
@@ -1714,6 +1723,8 @@ input[type=number] {
     font-family: 'Helvetica Neue Bold', sans-serif;
     line-height: 100%;
     padding-bottom: 16px;
+    white-space: normal;         
+    word-break: break-word;
 }
 
 .footer-card nav ul {
@@ -3592,19 +3603,6 @@ nav ul.nav-list li::marker {
 
 .get-request-form-content::-webkit-scrollbar {
   width: 4px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--light-blue);
-  border-radius: 8px;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: var(--blue);
-  border-radius: 8px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background-color: var(--blue);
 }
 
 .get-reques-form-content-bottom {
