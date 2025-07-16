@@ -4373,7 +4373,9 @@ nav ul.text-page-ul li p {
     }
 
     .text-page-subtitle,
-    .text-page-ul li p {
+    .text-page-ul li p,
+    nav ul.text-page-ul li p,
+    .text-page-ul {
         font-size: 16px;
     }
 }
