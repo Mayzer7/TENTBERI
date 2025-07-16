@@ -776,4 +776,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     }
+
+
+
+
+    // Подстветка поля Cookies в политике конфиденциальности
+
+    if (location.hash === '#cookies') {
+      const el = document.getElementById('cookies');
+      if (el) {
+        const yOffset = -20; 
+        const yPos = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+        window.scrollTo({ top: yPos, behavior: 'smooth' });
+
+        setTimeout(() => {
+          el.classList.add('highlighted');
+        }, 500);
+
+        setTimeout(() => {
+          el.classList.remove('highlighted');
+        }, 3000);
+      }
+    }
 });

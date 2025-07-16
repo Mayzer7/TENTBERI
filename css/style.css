@@ -125,6 +125,35 @@ input[type=number] {
   --error-text: #FE3B3B;
 }
 
+
+/* Кастомный скролл на странице */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--light-blue);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--blue);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--blue);
+}
+
+/* Кастомный скролл для Firefox */
+
+@-moz-document url-prefix() {
+  * {
+    scrollbar-color: var(--blue) var(--light-blue); 
+    scrollbar-width: thin; 
+  }
+}
+
 .container {
     padding: 0px 80px 0px 80px;
     max-width: 1920px;
@@ -2006,6 +2035,17 @@ input[type=number] {
     transition: all 0.3s ease;
 }
 
+/* Подсветка пункта Cookie */
+
+.highlighted {
+  color: var(--blue);    
+  transition: color 0.5s ease;
+}
+
+#cookies {
+  scroll-margin-top: 200px; 
+}
+
 /* Адаптив Cookie banner */
 
 @media (max-width: 1600px) {
@@ -3554,16 +3594,16 @@ nav ul.nav-list li::marker {
   width: 4px;
 }
 
-.get-request-form-content::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   background: var(--light-blue);
   border-radius: 8px;
 }
 
-.get-request-form-content::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   background-color: var(--blue);
   border-radius: 8px;
 }
-.get-request-form-content::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
   background-color: var(--blue);
 }
 
@@ -4797,6 +4837,7 @@ nav ul.text-page-ul li p {
     line-height: 100%;
     letter-spacing: -0.04em;
     padding-bottom: 16px;
+    transition: color 0.4s ease;
 }
 
 .privacy-policy-uptitle {
