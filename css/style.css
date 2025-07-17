@@ -4147,11 +4147,7 @@ nav ul.nav-list li::marker {
     }
 
     .modal__header {
-        padding: 24px 16px 16px 16px;
-    }
-
-    .get-request-form-content {
-        padding: 16px;
+        padding: 16px 16px 10px 16px;
     }
 
     .get-reques-form-content-bottom {
@@ -4175,6 +4171,7 @@ nav ul.nav-list li::marker {
     .get-request-form-content {
         max-height: calc(100vh - 110px - 120px);
         width: calc(100% - 10px);
+        padding: 12px 16px 16px 16px;
     }
 
     .modal__input {
