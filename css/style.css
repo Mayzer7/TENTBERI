@@ -4035,6 +4035,7 @@ nav ul.nav-list li::marker {
 }
 
 .modal__subtitle-success {
+    padding-top: 20px;
     padding-bottom: 32px;
 }
 
@@ -4125,6 +4126,7 @@ nav ul.nav-list li::marker {
   }
 
   .modal__subtitle-success {
+    padding-top: 16px;
     padding-bottom: 24px;
   }
 
