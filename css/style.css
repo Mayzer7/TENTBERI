@@ -722,7 +722,7 @@ input[type=number] {
 
     .sign-up-button {
         font-size: 14px;
-        padding: 16px 32px;
+        padding: 16px 0px;
     }
 
     .sign-up-button span {
@@ -1026,6 +1026,10 @@ input[type=number] {
 .free-measurent-banner-info-text {
     padding-bottom: 24px;
     font-family: 'Helvetica Neue Regular', sans-serif;
+}
+
+.free-measurent-banner-icon {
+    padding-bottom: 5px;
 }
 
 
