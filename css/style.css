@@ -1746,7 +1746,20 @@ input[type=number] {
     gap: 8px;
 }
 
-.footer-card nav ul li a {
+.footer-card nav ul li button {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.footer-card nav ul li button:hover {
+    color: #fff;
+}
+
+.footer-card nav ul li a,
+.footer-card nav ul li button {
     font-size: 18px;
     line-height: 110%;
     font-family: 'Helvetica Neue Light', sans-serif;
@@ -1835,7 +1848,8 @@ input[type=number] {
         font-size: 24px;
     }
 
-    .footer-card nav ul li a {
+    .footer-card nav ul li a,
+    .footer-card nav ul li button {
         font-size: 16px;
     }
 
@@ -1872,7 +1886,8 @@ input[type=number] {
         font-size: 20px;
     }
 
-    .footer-card nav ul li a {
+    .footer-card nav ul li a,
+    .footer-card nav ul li button {
         font-size: 14px;
     }
 
@@ -1937,7 +1952,8 @@ input[type=number] {
         font-size: 20px;
     }
 
-    .footer-card nav ul li a {
+    .footer-card nav ul li a,
+    .footer-card nav ul li button {
         font-size: 14px;
     }
 
@@ -1959,7 +1975,8 @@ input[type=number] {
 }
 
 @media (max-width: 600px) {
-    .footer-card nav ul li a {
+    .footer-card nav ul li a,
+    .footer-card nav ul li button {
         font-size: 14px;
     }
 
@@ -3233,6 +3250,7 @@ nav ul.nav-list li::marker {
 /* Нужна консультация */
 
 .need-consultation-content {
+    position: relative;
     margin: 60px 0;
     background-image: url('../img/need-constultation-bg.png');
     background-repeat: no-repeat;
@@ -3259,7 +3277,36 @@ nav ul.nav-list li::marker {
     line-height: 110%;
 }
 
+.sign-up-button.fixed {
+  position: fixed;
+  bottom: 80px;     
+  right: 80px;      
+  z-index: 1000;
+  width: auto;     
+  background-color: var(--blue);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.sign-up-button.fixed:hover {
+    background-color: #3369D7;
+    color: #fff;
+}
+
+.sign-up-button.sticky {
+  position: sticky;
+  bottom: 32px;     
+  align-self: flex-end;
+}
+
 /* Адаптив "Нужна консультация" */
+
+@media (max-width: 1600px) {
+    .sign-up-button.fixed {
+        bottom: 60px;
+        right: 40px;
+    }
+}
 
 @media (max-width: 1400px) {
     .need-consultation-title {
@@ -3284,6 +3331,18 @@ nav ul.nav-list li::marker {
     }
 }
 
+@media (max-width: 1000px) {
+    .sign-up-button-sticky {
+        font-size: 16px;
+        padding: 16px;
+    }
+
+    .sign-up-button.fixed {
+        right: 17px;
+        bottom: 60px;
+    }
+}
+
 @media (max-width: 700px) {
     .need-consultation-content {
         display: block;
@@ -3299,6 +3358,14 @@ nav ul.nav-list li::marker {
 
     .need-consultation-right-side {
         padding-top: 24px;
+    }
+
+    .sign-up-button-sticky {
+        font-size: 14px;
+    }
+
+    .sign-up-button.fixed {
+        bottom: 40px;
     }
 }
 

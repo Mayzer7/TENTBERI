@@ -473,7 +473,7 @@
                         <nav>
                             <ul>
                                 <li><a href="delivery-and-payment.html">Доставка и оплата</a></li>
-                                <li><a href="">Оставить заявку</a></li>
+                                <li><button id="open-modal-link">Оставить заявку</button></li>
                                 <li><a href="faq.html">Частые вопросы</a></li>
                             </ul>
                         </nav>
@@ -532,6 +532,310 @@
             </div>
         </div>
     </footer>
+
+    <!-- Модальное окно "Оставить заявку" -->
+    <div class="get-request-modal" id="get-request-modal">
+        <div class="modal__header">
+            <div class="modal__header-top">
+                <p class="modal__title">Оставить заявку</p>
+                
+                <button class="modal__close" id="closeModal">
+                    <svg class="modal__close-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M32.8461 9.49311L22.3603 19.9875L32.8461 30.482C33.1586 30.7951 33.334 31.2197 33.3337 31.6623C33.3333 32.1049 33.1574 32.5293 32.8444 32.842C32.6895 32.9969 32.5056 33.1197 32.3032 33.2034C32.1009 33.2871 31.884 33.3301 31.665 33.33C31.2228 33.3297 30.7988 33.1535 30.4863 32.8404L20.0005 22.3459L9.51473 32.8404C9.36038 32.9965 9.17662 33.1204 8.97409 33.205C8.77156 33.2896 8.55429 33.3332 8.33483 33.3332C8.11537 33.3332 7.8981 33.2896 7.69557 33.205C7.49304 33.1204 7.30928 32.9965 7.15493 32.8404C6.8425 32.5276 6.66699 32.1034 6.66699 31.6612C6.66699 31.2189 6.8425 30.7947 7.15493 30.482L17.6407 19.9875L7.15493 9.49311C6.85136 9.17854 6.68338 8.75723 6.68718 8.31991C6.69098 7.88259 6.86624 7.46426 7.17523 7.15502C7.48422 6.84578 7.9022 6.67037 8.33916 6.66657C8.77612 6.66277 9.19709 6.83088 9.5114 7.1347L19.9972 17.6291L30.483 7.1347C30.7973 6.83088 31.2182 6.66277 31.6552 6.66657C32.0922 6.67037 32.5101 6.84578 32.8191 7.15502C33.1281 7.46426 33.3034 7.88259 33.3072 8.31991C33.311 8.75723 33.143 9.17854 32.8394 9.49311H32.8461Z" fill="currentColor"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="modal__body">
+            <form action="#" class="get-request-form">
+                <div class="scroll-wrapper">
+                    <div class="get-request-form-content">
+                        <p class="modal__subtitle">
+                            Гибкие цены и хорошие скидки для постоянные партнеров, 
+                            обсуждаются индивидуально.
+                        </p>
+                        <div class="get-request-form-top">
+                            <input 
+                                class="modal__input" 
+                                name="name"
+                                type="text" 
+                                placeholder="Ваше имя *" />
+                            
+                            <input 
+                                class="modal__input" 
+                                name="phone"
+                                type="tel" 
+                                placeholder="Телефон *" 
+                            />
+                            
+                            <textarea class="modal__input" name="description" placeholder="Описание" rows="4"></textarea>
+                        </div>
+
+                        <p class="get-request-form-text">
+                            Ваши размеры для расчёта, если известны.
+                        </p>
+
+                        <div class="get-request-form-bottom">
+                            <div class="get-request-form-bottom-size">
+                                <div class="size-items">
+                                    <div class="size-item">
+                                        <p class="size-title">
+                                            Длина,см 
+                                        </p>
+
+                                        <input 
+                                            class="size-input"
+                                            name="length" 
+                                            type="number" 
+                                            placeholder="50">
+                                    </div>
+
+                                    <div class="size-item">
+                                        <p class="size-title">
+                                            Ширина,см
+                                        </p>
+
+                                        <input 
+                                            class="size-input" 
+                                            name="width"
+                                            type="number" 
+                                            placeholder="50">
+                                    </div>
+
+                                    <div class="size-item">
+                                        <p class="size-title">
+                                            Высота,см
+                                        </p>
+
+                                        <input 
+                                            class="size-input"
+                                            name="height" 
+                                            type="number" 
+                                            placeholder="50">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="get-request-form-bottom-questions">
+                                <div class="form-question-items">
+                                    <div class="form-question-item">
+                                        <div class="form-question-item-left">
+                                            <div class="question-title">
+                                                <p>Сдвижная крыша</p>
+
+                                                <div class="tooltip-container" data-tooltip="Сдвижная крыша скользит вдоль основания каркаса, позволяя быстро открывать и закрывать тент для удобного доступа к грузу сверху.">
+                                                    <button type="button" class="tooltip-btn" aria-label="Информация">
+                                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M10 7.5H10.0083M9.16667 10H10V13.3333H10.8333M2.5 10C2.5 10.9849 2.69399 11.9602 3.0709 12.8701C3.44781 13.7801 4.00026 14.6069 4.6967 15.3033C5.39314 15.9997 6.21993 16.5522 7.12987 16.9291C8.03982 17.306 9.01509 17.5 10 17.5C10.9849 17.5 11.9602 17.306 12.8701 16.9291C13.7801 16.5522 14.6069 15.9997 15.3033 15.3033C15.9997 14.6069 16.5522 13.7801 16.9291 12.8701C17.306 11.9602 17.5 10.9849 17.5 10C17.5 8.01088 16.7098 6.10322 15.3033 4.6967C13.8968 3.29018 11.9891 2.5 10 2.5C8.01088 2.5 6.10322 3.29018 4.6967 4.6967C3.29018 6.10322 2.5 8.01088 2.5 10Z" stroke="#8A93A6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        </svg>
+                                                    </button>
+
+                                                    <!-- сюда будет вставляться мини-модалка "Тултип" -->
+                                                </div>
+                                            </div>
+
+                                            <div class="radio-group">
+                                                <div class="radio">
+                                                    <input type="radio" id="sliding-roof-yes" name="sdvizhnaya-krysha" value="yes" checked>
+                                                    <label for="sliding-roof-yes">Да</label>
+                                                </div>
+                                                <div class="radio">
+                                                    <input type="radio" id="sliding-roof-no"  name="sdvizhnaya-krysha" value="no">
+                                                    <label for="sliding-roof-no">Нет</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-question-item-right">
+                                            <div class="question-title">
+                                                <p>Штора</p>
+
+                                                <div class="tooltip-container" data-tooltip="Позволяет открывать и закрывать штору вручную.">
+                                                    <button type="button" class="tooltip-btn" aria-label="Информация">
+                                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M10 7.5H10.0083M9.16667 10H10V13.3333H10.8333M2.5 10C2.5 10.9849 2.69399 11.9602 3.0709 12.8701C3.44781 13.7801 4.00026 14.6069 4.6967 15.3033C5.39314 15.9997 6.21993 16.5522 7.12987 16.9291C8.03982 17.306 9.01509 17.5 10 17.5C10.9849 17.5 11.9602 17.306 12.8701 16.9291C13.7801 16.5522 14.6069 15.9997 15.3033 15.3033C15.9997 14.6069 16.5522 13.7801 16.9291 12.8701C17.306 11.9602 17.5 10.9849 17.5 10C17.5 8.01088 16.7098 6.10322 15.3033 4.6967C13.8968 3.29018 11.9891 2.5 10 2.5C8.01088 2.5 6.10322 3.29018 4.6967 4.6967C3.29018 6.10322 2.5 8.01088 2.5 10Z" stroke="#8A93A6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        </svg>
+                                                    </button>
+
+                                                    <!-- сюда будет вставляться мини-модалка "Тултип" -->
+                                                </div>
+                                            </div>
+
+                                            <div class="radio-group">
+                                                <div class="radio">
+                                                    <input type="radio" id="curtain-left"  name="shtora" value="left" checked>
+                                                    <label for="curtain-left">Левая</label>
+                                                </div>
+                                                <div class="radio">
+                                                    <input type="radio" id="curtain-right" name="shtora" value="right">
+                                                    <label for="curtain-right">Правая</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-question-item">
+                                        <div class="form-question-item-left">
+                                            <div class="question-title">
+                                                <p>Натяжители</p>
+
+                                                <div class="tooltip-container" data-tooltip="Механические натяжители равномерно натягивают тент и надёжно фиксируют груз.">
+                                                    <button type="button" class="tooltip-btn" aria-label="Информация">
+                                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M10 7.5H10.0083M9.16667 10H10V13.3333H10.8333M2.5 10C2.5 10.9849 2.69399 11.9602 3.0709 12.8701C3.44781 13.7801 4.00026 14.6069 4.6967 15.3033C5.39314 15.9997 6.21993 16.5522 7.12987 16.9291C8.03982 17.306 9.01509 17.5 10 17.5C10.9849 17.5 11.9602 17.306 12.8701 16.9291C13.7801 16.5522 14.6069 15.9997 15.3033 15.3033C15.9997 14.6069 16.5522 13.7801 16.9291 12.8701C17.306 11.9602 17.5 10.9849 17.5 10C17.5 8.01088 16.7098 6.10322 15.3033 4.6967C13.8968 3.29018 11.9891 2.5 10 2.5C8.01088 2.5 6.10322 3.29018 4.6967 4.6967C3.29018 6.10322 2.5 8.01088 2.5 10Z" stroke="#8A93A6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        </svg>
+                                                    </button>
+
+                                                    <!-- сюда будет вставляться мини-модалка "Тултип" -->
+                                                </div>
+                                            </div>
+
+                                            <div class="radio-group">
+                                                <div class="radio">
+                                                    <input type="radio" id="tensioners-one" name="natyazhiteli" value="one" checked>
+                                                    <label for="tensioners-one">Один</label>
+                                                </div>
+                                                <div class="radio">
+                                                    <input type="radio" id="tensioners-two" name="natyazhiteli" value="two">
+                                                    <label for="tensioners-two">Две</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-question-item-right">
+                                            <div class="question-title">
+                                                <p>Глухой тент</p>
+
+                                                <div class="tooltip-container" data-tooltip="Глухой тент — это сплошная, непрозрачная тканевая панель без окон или люков для максимальной защиты груза от непогоды.">
+                                                    <button type="button" class="tooltip-btn" aria-label="Информация">
+                                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M10 7.5H10.0083M9.16667 10H10V13.3333H10.8333M2.5 10C2.5 10.9849 2.69399 11.9602 3.0709 12.8701C3.44781 13.7801 4.00026 14.6069 4.6967 15.3033C5.39314 15.9997 6.21993 16.5522 7.12987 16.9291C8.03982 17.306 9.01509 17.5 10 17.5C10.9849 17.5 11.9602 17.306 12.8701 16.9291C13.7801 16.5522 14.6069 15.9997 15.3033 15.3033C15.9997 14.6069 16.5522 13.7801 16.9291 12.8701C17.306 11.9602 17.5 10.9849 17.5 10C17.5 8.01088 16.7098 6.10322 15.3033 4.6967C13.8968 3.29018 11.9891 2.5 10 2.5C8.01088 2.5 6.10322 3.29018 4.6967 4.6967C3.29018 6.10322 2.5 8.01088 2.5 10Z" stroke="#8A93A6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        </svg>
+                                                    </button>
+
+                                                    <!-- сюда будет вставляться мини-модалка "Тултип" -->
+                                                </div>
+                                            </div>
+
+                                            <div class="radio-group">
+                                                <div class="radio">
+                                                    <input type="radio" id="blind-tent-yes" name="glukhoy-tent" value="yes" checked>
+                                                    <label for="blind-tent-yes">Да</label>
+                                                </div>
+                                                <div class="radio">
+                                                    <input type="radio" id="blind-tent-no"  name="glukhoy-tent" value="no">
+                                                    <label for="blind-tent-no">Нет</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-question-item">
+                                        <div class="form-question-item-left">
+                                            <div class="question-title">
+                                                <p>Распашной задний борт</p>
+
+                                                <div class="tooltip-container" data-tooltip="Возможность распахивать задний борт тента для загрузки.">
+                                                    <button type="button" class="tooltip-btn" aria-label="Информация">
+                                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M10 7.5H10.0083M9.16667 10H10V13.3333H10.8333M2.5 10C2.5 10.9849 2.69399 11.9602 3.0709 12.8701C3.44781 13.7801 4.00026 14.6069 4.6967 15.3033C5.39314 15.9997 6.21993 16.5522 7.12987 16.9291C8.03982 17.306 9.01509 17.5 10 17.5C10.9849 17.5 11.9602 17.306 12.8701 16.9291C13.7801 16.5522 14.6069 15.9997 15.3033 15.3033C15.9997 14.6069 16.5522 13.7801 16.9291 12.8701C17.306 11.9602 17.5 10.9849 17.5 10C17.5 8.01088 16.7098 6.10322 15.3033 4.6967C13.8968 3.29018 11.9891 2.5 10 2.5C8.01088 2.5 6.10322 3.29018 4.6967 4.6967C3.29018 6.10322 2.5 8.01088 2.5 10Z" stroke="#8A93A6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        </svg>
+                                                    </button>
+
+                                                    <!-- сюда будет вставляться мини-модалка "Тултип" -->
+                                                </div>
+                                            </div>
+
+                                            <div class="radio-group">
+                                                <div class="radio">
+                                                    <input type="radio" id="rear-tailgate-yes" name="raspashnoy-zadniy-bort" value="yes" checked>
+                                                    <label for="rear-tailgate-yes">Да</label>
+                                                </div>
+                                                <div class="radio">
+                                                    <input type="radio" id="rear-tailgate-no"  name="raspashnoy-zadniy-bort" value="no">
+                                                    <label for="rear-tailgate-no">Нет</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="get-reques-form-content-bottom">
+                    <div class="accept-politics">
+                        <input type="checkbox" id="accept-politics">
+                        <label for="accept-politics">
+                            Я соглашаюсь с 
+                            <span>
+                                <a href="privacy-policy.html">
+                                    Политикой обработки персональных данных
+                                </a>
+                            </span>
+                        </label>
+                    </div>
+
+                    <div class="checkbox-error-message">Необходимо согласиться с Политикой обработки персональных данных</div>
+
+                    <button class="sign-up-button sign-up-button-blue" type="submit">
+                        Отправить
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Модальное окно "Спасибо за заявку" -->
+    <div class="get-request-modal success-modal" id="success-modal">
+        <div class="modal__header modal__header-success">
+            <div class="modal__header-top modal__header-top-success">
+                <p class="modal__title modal__title-success">
+                    Ваша заявка успешно оформлена
+                </p>
+            </div>
+
+            <p class="modal__subtitle modal__subtitle-success">
+                Наш менеджер свяжется с вами в течении дня
+            </p>
+
+            <button class="sign-up-button sign-up-button-blue" id="closeSuccessModal">
+                Закрыть
+            </button>
+        </div>
+    </div>
+
+    <!-- Модальное окно "Ошибки" -->
+    <div class="get-request-modal success-modal" id="error-modal">
+        <div class="modal__header modal__header-success">
+            <div class="modal__header-top modal__header-top-success">
+                <p class="modal__title modal__title-success modal__title-error">
+                    <svg class="error-modal-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_368_4305)">
+                        <path d="M39.635 22.135L31.77 30L39.635 37.865C39.8694 38.0997 40.0009 38.4179 40.0007 38.7496C40.0005 39.0813 39.8685 39.3994 39.6338 39.6338C39.5175 39.7498 39.3796 39.8418 39.2278 39.9046C39.076 39.9673 38.9134 39.9996 38.7491 39.9994C38.4174 39.9992 38.0994 39.8672 37.865 39.6325L30 31.7675L22.135 39.6325C22.0192 39.7495 21.8814 39.8424 21.7295 39.9058C21.5776 39.9692 21.4146 40.0018 21.25 40.0018C21.0854 40.0018 20.9224 39.9692 20.7705 39.9058C20.6186 39.8424 20.4808 39.7495 20.365 39.6325C20.1307 39.3981 19.999 39.0802 19.999 38.7487C19.999 38.4173 20.1307 38.0994 20.365 37.865L28.23 30L20.365 22.135C20.1373 21.8992 20.0113 21.5835 20.0142 21.2557C20.017 20.928 20.1485 20.6145 20.3802 20.3827C20.612 20.151 20.9255 20.0195 21.2533 20.0167C21.581 20.0138 21.8967 20.1398 22.1325 20.3675L29.9975 28.2325L37.8625 20.3675C38.0983 20.1398 38.414 20.0138 38.7418 20.0167C39.0695 20.0195 39.383 20.151 39.6148 20.3827C39.8465 20.6145 39.978 20.928 39.9808 21.2557C39.9837 21.5835 39.8577 21.8992 39.63 22.135H39.635ZM60 30C60 46.5425 46.5425 60 30 60C13.4575 60 0 46.5425 0 30C0 13.4575 13.4575 0 30 0C46.5425 0 60 13.4575 60 30ZM57.5 30C57.5 14.8375 45.1625 2.5 30 2.5C14.8375 2.5 2.5 14.8375 2.5 30C2.5 45.1625 14.8375 57.5 30 57.5C45.1625 57.5 57.5 45.1625 57.5 30Z" fill="#FE3B3B"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_368_4305">
+                        <rect width="60" height="60" fill="white"/>
+                        </clipPath>
+                        </defs>
+                    </svg>
+
+                    Ошибка
+                </p>
+            </div>
+
+            <p class="modal__subtitle modal__subtitle-success">
+                Не удалось отправить заявку, попробуйте снова
+            </p>
+
+            <button class="sign-up-button sign-up-button-blue" id="try-again-modal">
+                Повторить
+            </button>
+        </div>
+    </div>
 
     <!-- Модальное окно для просмотра фоток в секции "ТентБери в деле" -->
     <div id="image-modal" class="image-modal hidden">

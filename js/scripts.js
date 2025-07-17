@@ -477,6 +477,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const successModal = document.getElementById('success-modal');
       const errorModal = document.getElementById('error-modal');
 
+      // Открытие модального окна при переходе по ссылке в footer
+      const openModalLink = document.getElementById('open-modal-link');
+
       // Кнопки закрытия
       const closeBtn        = document.getElementById('closeModal');
       const closeSuccessBtn = document.getElementById('closeSuccessModal');
@@ -509,6 +512,12 @@ document.addEventListener('DOMContentLoaded', () => {
         closeModal(modal);
         closeModal(successModal);
       });
+
+      if (openModalLink) {
+        openModalLink.addEventListener('click', () => {
+          openModal(modal);
+        });
+      }
 
       tryAgainModal.addEventListener('click', () => {
         closeModal(errorModal);
@@ -601,7 +610,6 @@ document.addEventListener('DOMContentLoaded', () => {
             .forEach(el => el.classList.remove('visible'));
       });
     }
-
 
     // Тултип с разъеснением в модальном окне "Оставить заявку"
     function initTooltip() {
@@ -845,5 +853,42 @@ document.addEventListener('DOMContentLoaded', () => {
           el.classList.remove('highlighted');
         }, 3000);
       }
+    }
+
+
+
+    // Фиксирование кнопки "Оставить заявку" на странице "tents-for-trucks.html"
+    const needConsultation = document.querySelector('.need-consultation'); 
+
+    if (needConsultation) {
+      const section = document.querySelector('.need-consultation-content');
+      const button  = document.querySelector('.sign-up-button');
+
+      // границы секции относительно документа
+      const sectionRect = () => section.getBoundingClientRect();
+      const viewportH   = () => window.innerHeight;
+
+      function onScroll() {
+        const rect = sectionRect();
+
+        // Если сверху секции ещё не дошли до низа viewport — фиксируем кнопку 
+        if (rect.top > viewportH() - button.offsetHeight - 20) {
+          button.classList.add('fixed');
+          button.classList.remove('sticky');
+        }
+        // Если секция уже ушла полностью за верх экрана — снова фиксируем
+        else if (rect.bottom < button.offsetHeight + 20) {
+          button.classList.add('fixed');
+          button.classList.remove('sticky');
+        }
+        // В остальных случаях — внутри секции
+        else {
+          button.classList.remove('fixed');
+          button.classList.add('sticky');
+        }
+      }
+
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
     }
 });
