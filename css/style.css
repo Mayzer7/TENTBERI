@@ -3590,7 +3590,6 @@ nav ul.nav-list li::marker {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 20px;
 }
 
 .modal__title {
@@ -3603,6 +3602,7 @@ nav ul.nav-list li::marker {
     font-family: 'Helvetica Neue Regular', sans-serif;
     font-size: 20px;
     line-height: 110%;
+    padding-bottom: 12px;
 }
 
 .modal__close {
@@ -3629,7 +3629,7 @@ nav ul.nav-list li::marker {
 }
 
 .get-request-form-content {
-  max-height: calc(100vh - 240px - 120px);
+  max-height: calc(100vh - 200px - 120px);
   overflow-y: auto;
   width: calc(100% - 50px);
   padding: 20px 11px 20px 60px;                              
@@ -3707,10 +3707,19 @@ nav ul.nav-list li::marker {
 }
 
 .phone-error-message {
-    color: var(--error-text);
-    font-family: 'Helvetica Neue Regular', sans-serif;
-    font-size: 16px;
-    padding-left: 10px;
+  color: var(--error-text);
+  font-family: 'Helvetica Neue Regular', sans-serif;
+  font-size: 16px;
+  padding-left: 10px;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+.phone-error-message.visible {
+  opacity: 1;
+  max-height: 60px; 
 }
 
 .get-request-form-text {
@@ -4052,7 +4061,7 @@ nav ul.nav-list li::marker {
     }
 
     .get-request-form-content {
-        max-height: calc(100vh - 220px - 120px);
+        max-height: calc(100vh - 100px - 120px);
     }
 }
 
@@ -4070,17 +4079,13 @@ nav ul.nav-list li::marker {
         font-size: 16px;
     }
 
-    .modal__header-top {
-        padding-bottom: 16px;
-    }
-
     .modal__close-icon {
         width: 32px;
         height: 32px;
     }
 
     .get-request-form-content {
-        max-height: calc(100vh - 195px - 120px);
+        max-height: calc(100vh - 50px - 120px);
     }
 
     .checkbox-error-message {
@@ -4151,13 +4156,10 @@ nav ul.nav-list li::marker {
         padding: 24px 16px;
     }
 
-    .modal__header-top {
-        padding-bottom: 12px;
-    }
-
     .modal__subtitle {
         max-width: 430px;
         padding-right: 50px;
+        padding-bottom: 8px;
     }
 
     .modal__close {
@@ -4169,7 +4171,7 @@ nav ul.nav-list li::marker {
     }
 
     .get-request-form-content {
-        max-height: calc(100vh - 160px - 120px);
+        max-height: calc(100vh - 110px - 120px);
         width: calc(100% - 10px);
     }
 

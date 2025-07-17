@@ -553,6 +553,9 @@ document.addEventListener('DOMContentLoaded', () => {
               msg.className = 'phone-error-message';
               msg.textContent = 'Введите корректный номер телефона';
               phoneInput.after(msg);
+              requestAnimationFrame(() => {
+                msg.classList.add('visible');
+              });
             }
           } else {
             phoneInput.classList.remove('invalid');
