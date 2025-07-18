@@ -1569,10 +1569,6 @@ input[type=number] {
   visibility: visible;
 }
 
-.modal-content-tentberi {
-  transform: scale(0.9);
-  transition: transform 0.3s ease;
-}
 
 .image-modal.visible .modal-content-tentberi {
   transform: scale(1);
@@ -1585,9 +1581,17 @@ input[type=number] {
   max-width: 100vw;
   max-height: 100vh;
   background: transparent;
-  display: inline-block; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
   padding: 0px 16px;
   min-width: 320px;
+
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
 }
 
 .modal-img-wrapper {
@@ -1629,12 +1633,16 @@ input[type=number] {
   border-radius: 20px;
 }
 
-
 .modal-close-button-icon {
     width: 40px;
     height: 40px;
 }
 
+.modal-case-name {
+    max-width: 700px;
+    width: 100%;
+    font-size: 18px;
+}
 
 
 @media (max-width: 750px) {
@@ -1646,11 +1654,21 @@ input[type=number] {
         max-width: 100vw;
         max-height: 100vh;
     }
+
+    .modal-case-name {
+        font-size: 16px;
+    }
 }
 
 @media (max-width: 650px) {
     .modal-close-button {
         right: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .modal-case-name {
+        font-size: 14px;
     }
 }
 

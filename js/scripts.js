@@ -774,12 +774,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (imageModal) {
       const modal = document.getElementById('image-modal');
       const modalImg = document.getElementById('modal-img');
+      const modalCaseName = document.getElementById('modal-case-name');
       const imgWrapper = modal.querySelector('.modal-img-wrapper');
       const closeBtn = modal.querySelector('.modal-close-button');
       let zoomed = false;
 
-      function openModal(imgSrc) {
+      function openModal(imgSrc, title) {
         modalImg.src = imgSrc;
+        modalCaseName.textContent = title;
         zoomed = false;
         imgWrapper.classList.remove('zoomed');
         modalImg.style.transformOrigin = 'center center';
@@ -797,16 +799,16 @@ document.addEventListener('DOMContentLoaded', () => {
         bodyEl.classList.remove('no-scroll');
       }
 
+      // привязываем к каждому изображению и передаём title
       document.querySelectorAll('.tenberi-case-image img').forEach(img => {
         img.addEventListener('click', () => {
-          openModal(img.dataset.src || img.src);
+          const caseEl = img.closest('.tentberi-case');
+          const title = caseEl
+            .querySelector('.tentberi-case-name')
+            .textContent.trim();
+          const src = img.dataset.src || img.src;
+          openModal(src, title);
         });
-      });
-
-      closeBtn.addEventListener('click', closeModal);
-
-      modal.addEventListener('click', e => {
-        if (e.target === modal) closeModal();
       });
 
       // Зум по клику
@@ -833,6 +835,15 @@ document.addEventListener('DOMContentLoaded', () => {
           zoomed = false;
         }
       });
+
+      // Закрытие модалки
+      closeBtn.addEventListener('click', closeModal);
+
+      modal.addEventListener('click', e => {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
     }
 
     // Подстветка поля Cookies в политике конфиденциальности
@@ -855,8 +866,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-
-
     // Фиксирование кнопки "Оставить заявку" на странице "tents-for-trucks.html"
     const needConsultation = document.querySelector('.need-consultation'); 
 
@@ -864,31 +873,29 @@ document.addEventListener('DOMContentLoaded', () => {
       const section = document.querySelector('.need-consultation-content');
       const button  = document.querySelector('.sign-up-button');
 
-      // границы секции относительно документа
-      const sectionRect = () => section.getBoundingClientRect();
-      const viewportH   = () => window.innerHeight;
-
       function onScroll() {
-        const rect = sectionRect();
+        const rect = section.getBoundingClientRect();
+        const btnH = button.offsetHeight;
+        const vh   = window.innerHeight;
 
-        // Если сверху секции ещё не дошли до низа viewport — фиксируем кнопку 
-        if (rect.top > viewportH() - button.offsetHeight - 20) {
+        // Перед секцией "Нужна консультация" кнопка фиксируется на экарне
+        if (rect.top > vh - btnH - 20) {
           button.classList.add('fixed');
           button.classList.remove('sticky');
         }
-        // Если секция уже ушла полностью за верх экрана — снова фиксируем
-        else if (rect.bottom < button.offsetHeight + 20) {
-          button.classList.add('fixed');
-          button.classList.remove('sticky');
-        }
-        // В остальных случаях — внутри секции
-        else {
+        // Внутри секции "Нужна консультация" оставляем кнопку на месте
+        else if (rect.bottom > btnH + 20) {
           button.classList.remove('fixed');
           button.classList.add('sticky');
         }
+        // После секции ""Нужна консультация"" кнопка не фиксируется, пропадает
+        else {
+          button.classList.remove('fixed');
+          button.classList.remove('sticky');
+        }
       }
 
-      onScroll();
       window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
     }
 });
