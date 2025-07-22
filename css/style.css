@@ -4377,13 +4377,10 @@ nav ul.nav-list li::marker {
 .text-page-content {
     max-width: 831px;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
     padding-left: 40px;
 }
 
-.text-page-title {
+.text-page-content h2 {
     font-family: 'Helvetica Neue Bold', sans-serif;
     font-size: 28px;
     line-height: 100%;
@@ -4391,55 +4388,41 @@ nav ul.nav-list li::marker {
     padding-bottom: 16px;
 }
 
-.text-page-subtitle {
+.text-page-content p {
     font-family: 'Helvetica Neue Regular', sans-serif;
     font-size: 20px;
     line-height: 110%;
+    padding-bottom: 20px;
 }
 
-.text-page-subtitle-number {
+.text-page-content h3 {
     font-family: 'Helvetica Neue Medium', sans-serif;
+    font-weight: 500;
     font-size: 24px;
     line-height: 110%;
-    padding-bottom: 12px;
+    padding-bottom: 10px;
 }
 
-nav ul.text-page-ul li {
-  list-style-type: disc;     
-  list-style-position: outside;
-}
-
-nav ul.text-page-ul li::marker {
-  font-size: 20px;
-}
-
-nav ul.text-page-ul li p {
+.text-page-content ul li {
+    list-style-type: disc;     
+    list-style-position: outside;
     font-family: 'Helvetica Neue Regular', sans-serif;
     font-size: 20px;
     line-height: 110%;
     width: 100%;
 }
 
-.text-page-ul {
+.text-page-content ul li::marker {
+  font-size: 20px;
+}
+
+.text-page-content ul {
     display: flex;
     flex-direction: column;
     gap: 20px;
     padding-top: 0px;
     padding-left: 30px;
-}
-
-.text-page-nav {
-    padding-top: 20px;
-}
-
-.text-page-number-container {
-    padding-bottom: 24px;
-}
-
-.text-page-content-advantages {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    margin-bottom: 20px;
 }
 
 /* Адаптив "Текстовая страница" */
@@ -4457,14 +4440,14 @@ nav ul.text-page-ul li p {
 }
 
 @media (max-width: 1000px) {
-    .text-page-title,
-    .text-page-subtitle-number {
+    .text-page-content h2,
+    .text-page-content h3 {
         font-size: 20px;
     }
 
-    .text-page-subtitle,
-    .text-page-ul li p,
-    nav ul.text-page-ul li p,
+    .text-page-content p,
+    .text-page-content ul li,
+    .text-page-content ul li,
     .text-page-ul {
         font-size: 16px;
     }
@@ -4608,21 +4591,17 @@ nav ul.text-page-ul li p {
     gap: 20px;
 }
 
-.delivery-and-payment-left-side {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 30px;
-    max-width: 800px;
-    width: 100%;
-}
-
 .delivery-and-payment-right-side img {
     border-radius: 20px;
     width: 100%;
 }
 
-.delivery-and-payment-title {
+.delivery-and-payment-texts {
+    max-width: 790px;
+    width: 100%;
+}
+
+.delivery-and-payment-texts h2 {
     font-family: 'Helvetica Neue Bold', sans-serif;
     font-size: 32px;
     line-height: 100%;
@@ -4632,10 +4611,11 @@ nav ul.text-page-ul li p {
     word-break: break-word;
 }
 
-.delivery-and-payment-subtitle {
+.delivery-and-payment-texts p {
     font-family: 'Helvetica Neue Regular', sans-serif;
     font-size: 20px;
     line-height: 110%;
+    padding-bottom: 40px;
 }
 
 /* Адаптив "Доставка и оплата" */
@@ -4653,12 +4633,12 @@ nav ul.text-page-ul li p {
 }
 
 @media (max-width: 1300px) {
-    .delivery-and-payment-title {
+    .delivery-and-payment-texts h2 {
         font-size: 22px;
         padding-bottom: 12px;
     }
 
-    .delivery-and-payment-subtitle {
+    .delivery-and-payment-texts p {
         font-size: 16px;
     }
 
@@ -4676,7 +4656,11 @@ nav ul.text-page-ul li p {
 @media (max-width: 700px) {
     .delivery-and-payment-content {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 0px;
+    }
+
+    .delivery-and-payment-texts p {
+        padding-bottom: 32px;
     }
 }
 
