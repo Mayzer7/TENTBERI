@@ -2951,15 +2951,6 @@ input[type=number] {
     gap: 60px;
 }
 
-.production-left-texts,
-.production-right-texts {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 790px;
-    width: 100%;
-}
-
 .production-texts p {
     font-family: 'Helvetica Neue Regular', sans-serif;
     font-size: 20px;
@@ -3007,10 +2998,6 @@ input[type=number] {
         font-size: 16px;
     }
 
-    .production-left-texts, .production-right-texts {
-        gap: 12px;
-    }
-
     .production-texts {
         gap: 40px;
     }
@@ -3027,10 +3014,6 @@ input[type=number] {
         grid-template-columns: 1fr;
     }
 
-    .production-left-texts, .production-right-texts {
-        max-width: 100%;
-    }
-
     .production-texts {
         gap: 12px;
     }
@@ -3045,7 +3028,7 @@ input[type=number] {
         display: flex;
     }
 
-    .production-right-texts {
+    .production-right-text {
         max-height: 0;          
         overflow: hidden;       
         transition: max-height .5s ease;
@@ -4451,6 +4434,11 @@ nav ul.nav-list li::marker {
     .text-page-ul {
         font-size: 16px;
     }
+
+
+    .text-page-content ul {
+        gap: 14px;
+    }
 }
 
 @media (max-width: 970px) {
@@ -4954,41 +4942,28 @@ nav ul.nav-list li::marker {
     padding-bottom: 60px;
 }
 
-.privacy-policy-title {
+.privacy-policy-texts h2 {
     font-family: 'Helvetica Neue Bold', sans-serif;
     font-size: 28px;
     line-height: 100%;
     letter-spacing: -0.04em;
     padding-bottom: 16px;
     transition: color 0.4s ease;
+    padding-top: 32px;
 }
 
-.privacy-policy-uptitle {
-    padding-bottom: 32px;
-}
-
-.privacy-policy-uptitle,
-.privacy-policy-text {
+.privacy-policy-texts p {
     font-family: 'Helvetica Neue Regular', sans-serif;
     font-size: 20px;
     line-height: 110%; 
 }
 
-.privacy-policy-text {
-    padding-bottom: 32px;
-}
-
-.privacy-policy-nav-up {
-    padding-bottom: 0;
-}
-
-.privacy-policy-texts nav {
+.privacy-policy-texts ul {
     padding-top: 20px;
     padding-left: 30px;
-    padding-bottom: 32px;
 }
 
-.privacy-policy-list li {
+.privacy-policy-texts ul li {
     font-family: 'Helvetica Neue Regular', sans-serif;
     font-size: 20px;
     line-height: 110%;
@@ -4996,26 +4971,13 @@ nav ul.nav-list li::marker {
     list-style-position: outside;
 }
 
-.privacy-policy-contacts {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    font-family: 'Helvetica Neue Regular', sans-serif;
-    font-size: 20px;
-    line-height: 110%; 
-}
-
-.privacy-policy-contacts a {
+.privacy-policy-texts a {
     color: var(--dark-blue);
     transition: all 0.3s ease;
 }
 
-.privacy-policy-contacts a:hover {
+.privacy-policy-texts a:hover {
     color: var(--blue);
-}
-
-.privacy-policy-contacts-text {
-    padding-bottom: 20px;
 }
 
 /* Адаптив "Политика обработки персональных данных" */
@@ -5039,33 +5001,22 @@ nav ul.nav-list li::marker {
 }
 
 @media (max-width: 900px) {
-    .privacy-policy-uptitle, 
-    .privacy-policy-text,
-    .privacy-policy-list li,
-    .privacy-policy-contacts {
+    .privacy-policy-texts p,
+    .privacy-policy-texts ul li {
         font-size: 16px;
     }    
     
-    .privacy-policy-title {
+    .privacy-policy-texts h2 {
         font-size: 20px;
     }
 
-    .privacy-policy-uptitle {
-        padding-bottom: 16px;
+    .privacy-policy-texts h2 {
+        padding-top: 20px;
     }
 
-    .privacy-policy-text {
-        padding-bottom: 20px;
-    }
-
-    .privacy-policy-texts nav {
+    .privacy-policy-texts ul {
         padding-top: 10px;
-        padding-bottom: 20px;
         padding-left: 20px;
-    }
-    
-    .privacy-policy-nav-up {
-        padding: 0;
     }
 }
 
@@ -5132,7 +5083,8 @@ nav ul.nav-list li::marker {
     width: 100%;
 }
 
-.about-company-main-banner-up-text {
+.about-company-main-banner-texts h2,
+.about-company-main-banner-texts h3 {
     font-family: 'Helvetica Neue Bold', sans-serif;
     font-size: 28px;
     line-height: 100%;
@@ -5140,14 +5092,10 @@ nav ul.nav-list li::marker {
     padding-bottom: 20px;
 }
 
-.about-company-main-banner-down-text {
+.about-company-main-banner-texts p {
     font-family: 'Helvetica Neue Regular', sans-serif;
     font-size: 20px;
     line-height: 110%;
-}
-
-.main-banner-down-text-first {
-    padding-bottom: 20px;
 }
 
 .our-clients {
@@ -5224,11 +5172,12 @@ nav ul.nav-list li::marker {
         padding: 16px;
     }
 
-    .about-company-main-banner-up-text {
+    .about-company-main-banner-texts h2,
+    .about-company-main-banner-texts h3 {
         font-size: 20px;
     }
 
-    .about-company-main-banner-down-text {
+    .about-company-main-banner-texts p {
         font-size: 16px;
     }
     

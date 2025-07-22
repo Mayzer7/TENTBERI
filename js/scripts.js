@@ -355,7 +355,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       btn.addEventListener('click', () => {
         const container = btn.closest('.production-texts');
-        const rightCol  = container.querySelector('.production-right-texts');
+        const rightCol  = container.querySelector('.production-right-text');
 
         if (!container.classList.contains('expanded')) {
           const fullHeight = rightCol.scrollHeight + 10;
