@@ -3088,7 +3088,7 @@ input[type=number] {
     word-break: break-word;
 }
 
-.stages-of-work-card-title {
+.stages-of-work-card-content h3 {
     font-family: 'Helvetica Neue Bold', sans-serif;
     font-size: 32px;
     line-height: 100%;
@@ -3096,8 +3096,8 @@ input[type=number] {
     padding-bottom: 24px;
 }
 
-.stages-of-work-card-text,
-nav ul.nav-list li p {
+.stages-of-work-card-content p,
+.stages-of-work-card-content ul li {
     font-family: 'Helvetica Neue Regular', sans-serif;
     font-size: 20px;
     line-height: 110%;
@@ -3121,17 +3121,17 @@ nav ul.nav-list li p {
     right: 70px;
 }
 
-.nav-list {
+.stages-of-work-card-content ul {
     padding-top: 10px;
     padding-left: 30px;
 }
 
-nav ul.nav-list li {
+.stages-of-work-card-content ul li {
   list-style-type: disc;     
   list-style-position: outside;
 }
 
-nav ul.nav-list li::marker {
+.stages-of-work-card-content ul li::marker {
   font-size: 20px;
 }
 
@@ -3162,12 +3162,13 @@ nav ul.nav-list li::marker {
         padding-top: 80px;
     }
 
-    .stages-of-work-card-title {
+    .stages-of-work-card-content h3 {
         font-size: 22px;
         padding-bottom: 12px;
     }
 
-    .stages-of-work-card-text, nav ul.nav-list li p {
+    .stages-of-work-card-content p, 
+    .stages-of-work-card-content ul li {
         font-size: 16px;
     }
 

@@ -378,14 +378,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (skeleton) {
       const images = Array.from(document.querySelectorAll('.skeleton img'));
-      let idx = 0;
 
-      function loadNext() {
-        if (idx >= images.length) return;
-
-        const img = images[idx];
+      images.forEach(img => {
         const wrapper = img.closest('.skeleton');
         const realSrc = img.dataset.src;
+
+        img.style.opacity = '0';
+
         img.src = realSrc;
 
         img.addEventListener('load', function onLoad() {
@@ -393,16 +392,8 @@ document.addEventListener('DOMContentLoaded', () => {
           img.style.transition = 'opacity 0.3s ease';
           img.style.opacity = '1';
           wrapper.classList.remove('skeleton');
-          setTimeout(() => {
-            idx++;
-            loadNext();
-          }, 200);
         });
-
-        img.style.opacity = '0';
-      }
-
-      loadNext();
+      });
     }
 
 
@@ -800,15 +791,17 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       // привязываем к каждому изображению и передаём title
-      document.querySelectorAll('.tenberi-case-image img').forEach(img => {
-        img.addEventListener('click', () => {
+      // способ через родителя (ajax должен работать)
+      const casesContainer = document.querySelector('.tentberi-cases');
+        casesContainer.addEventListener('click', e => {
+          const img = e.target.closest('.tenberi-case-image img');
+          if (!img) return;
+
           const caseEl = img.closest('.tentberi-case');
-          const title = caseEl
-            .querySelector('.tentberi-case-name')
-            .textContent.trim();
-          const src = img.dataset.src || img.src;
+          const title  = caseEl.querySelector('.tentberi-case-name').textContent.trim();
+          const src    = img.dataset.src || img.src;
+
           openModal(src, title);
-        });
       });
 
       // Зум по клику
