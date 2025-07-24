@@ -460,6 +460,10 @@ initPhoneFormatter('.get-request-form input[name="phone"]');
 
 /* Модальное окно "Оставить заявку" */
 
+const getRequestModal = document.querySelector(".get-request-modal");
+const successModal = document.getElementById("success-modal");
+const errorModal = document.getElementById("error-modal");
+
 function openModalContact(modalEl) {
   header.classList.add("header-hidden");
   modalEl.classList.add("active");
@@ -478,13 +482,11 @@ function closeModalContact(modalEl) {
 
 // openSuccessMod
 function openSuccessMod() {
-  const successModal = document.getElementById("success-modal");
   openModalContact(successModal);
 }
 
 // openErrorMod
 function openErrorMod() {
-  const errorModal = document.getElementById("error-modal");
   openModalContact(errorModal);
 }
 
@@ -497,8 +499,6 @@ function formReset(formEl) {
   formEl.querySelectorAll('.invalid').forEach(el => el.classList.remove('invalid'));
   formEl.querySelectorAll('.checkbox-error-message.visible').forEach(el => el.classList.remove('visible'));
 }
-
-const getRequestModal = document.querySelector(".get-request-modal");
 
 if (getRequestModal) {
   // Окна
