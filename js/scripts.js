@@ -612,11 +612,11 @@ if (getRequestModal) {
     console.log("Заявка:", data);
 
     // Закрываем модалку заявки и открываем модалку успеха
-    closeModalContact(modal);
-    openModalContact(successModal);
+    // closeModalContact(modal);
+    // openModalContact(successModal);
 
     // Очищаем форму после успешной отправки
-    formReset(this);
+    // formReset(this);
   });
 }
 
