@@ -3407,24 +3407,7 @@ input[type=number] {
     gap: 20px;
 }
 
-.service-img-6-tents {
-    right: 100px;
-    bottom: 5px;
-} 
-
 /* Адаптив "Тенты" */
-
-@media (max-width: 1850px) {
-    .service-img-2-tents {
-        right: 110px;
-    }
-}
-
-@media (max-width: 1700px) {
-    .service-img-2-tents {
-        right: 75px;
-    }
-}
 
 @media (max-width: 1500px) {
     .services-content-tents {
@@ -3432,33 +3415,10 @@ input[type=number] {
     }
 }
 
-@media (max-width: 1300px) {
-    .service-img-1-tents,
-    .service-img-2-tents,
-    .service-img-3-tents {
-        right: 0px;
-    }
-
-    .service-img-6-tents {
-        right: 20px;
-    }
-}
-
-@media (max-width: 1200px) {
-    .service-img-6-tents {
-        max-width: 320px;
-    }
-}
-
 @media (max-width: 850px) {
     .service-row-1-tents,
     .service-row-2-tents {
         grid-template-columns: 1fr;
-    }
-
-    .service-img-1-tents,
-    .service-img-2-tents {
-        right: 50px;
     }
 }
 
@@ -5055,19 +5015,11 @@ input[type=number] {
     padding: 0px 20px;
 }
 
-.our-clients-card-image-1 {
-    width: 253px;
-    height: 63px;
-}
-
-.our-clients-card-image-2 {
-    width: 116px;
-    height: 94px;
-}
-
-.our-clients-card-image-3 {
-    width: 280px;
-    height: 45px;
+.our-clients-card img {
+    max-width: 377px;
+    max-height: 98px;
+    width: 100%;
+    height: 100%;
 }
 
 /* Адаптив "О компании" */
@@ -5140,21 +5092,6 @@ input[type=number] {
 }
 
 @media (max-width: 500px) {
-    .our-clients-card-image-1 {
-        width: 180px;
-        height: 48px;
-    }
-
-    .our-clients-card-image-2 {
-        width: 83px;
-        height: 67px;
-    }
-
-    .our-clients-card-image-3 {
-        width: 200px;
-        height: 32px;
-    }
-
     .our-clients-card {
         height: 102px;
     }
