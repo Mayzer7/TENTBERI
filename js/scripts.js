@@ -11,6 +11,7 @@ const headerPhoneMobile = document.querySelector(".header-phone-mobile");
 const htmlEl = document.documentElement;
 const bodyEl = document.body;
 const overlay = document.getElementById("overlay");
+let modalOpen = false;
 
 // Сбрасываем стили шапки сверху экрана только на главной странице
 const page = document.body.dataset.page;
@@ -57,7 +58,12 @@ const applyScrollUpStyles = () => {
 };
 
 const updateHeader = () => {
-  const currentScroll = window.pageYOffset;
+  if (modalOpen) {
+    return;
+  }
+
+  let currentScroll = window.pageYOffset || window.scrollY;
+  if (currentScroll < 0) return;
 
   if (currentScroll === 0) {
     // Не сбрасываем стили если это не главная страница
@@ -794,6 +800,18 @@ const closeBtn = modal.querySelector(".modal-close-button");
 let zoomed = false;
 
 function openModalImage(imgSrc, title) {
+  scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+  
+  htmlEl.classList.add("no-scroll");
+  bodyEl.classList.add("no-scroll");
+  Object.assign(bodyEl.style, {
+    position: "fixed",
+    top: `-${scrollPosition}px`,
+    left: "0",
+    right: "0",
+    width: "100%",
+  });
+
   modalImg.src = imgSrc;
   modalCaseName.textContent = title;
   zoomed = false;
@@ -804,13 +822,26 @@ function openModalImage(imgSrc, title) {
   modal.classList.add("visible");
   htmlEl.classList.add("no-scroll");
   bodyEl.classList.add("no-scroll");
+  modalOpen = true;
   header.classList.add("header-hidden");
 }
 
 function closeModalImage() {
   modal.classList.remove("visible");
+
   htmlEl.classList.remove("no-scroll");
   bodyEl.classList.remove("no-scroll");
+  bodyEl.style.position = "";
+  bodyEl.style.top = "";
+  bodyEl.style.left = "";
+  bodyEl.style.right = "";
+  bodyEl.style.width = "";
+  window.scrollTo(0, scrollPosition);
+
+  htmlEl.classList.remove("no-scroll");
+  bodyEl.classList.remove("no-scroll");
+  modalOpen = false;
+  header.classList.remove("header-hidden");
 }
 
 const imageModal = document.querySelector(".image-modal");
