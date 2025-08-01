@@ -828,20 +828,20 @@ function openModalImage(imgSrc, title) {
 
 function closeModalImage() {
   modal.classList.remove("visible");
-
   htmlEl.classList.remove("no-scroll");
   bodyEl.classList.remove("no-scroll");
-  bodyEl.style.position = "";
-  bodyEl.style.top = "";
-  bodyEl.style.left = "";
-  bodyEl.style.right = "";
-  bodyEl.style.width = "";
+  Object.assign(bodyEl.style, {
+    position: "",
+    top: "",
+    left: "",
+    right: "",
+    width: "",
+  });
+
   window.scrollTo(0, scrollPosition);
-
-  htmlEl.classList.remove("no-scroll");
-  bodyEl.classList.remove("no-scroll");
+  lastScroll = scrollPosition;
   modalOpen = false;
-  header.classList.remove("header-hidden");
+  updateHeader();
 }
 
 const imageModal = document.querySelector(".image-modal");

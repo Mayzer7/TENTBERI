@@ -80,6 +80,10 @@ li {
     list-style: none;
 }
 
+ul li {
+    font-family: 'Helvetica Neue Regular', sans-serif;
+}
+
 h1, h2, h3, h4, h5, h6, p {
     margin: 0;
 }
@@ -2901,6 +2905,16 @@ input[type=number] {
     gap: 60px;
 }
 
+.production-texts ul {
+    padding-top: 10px;
+    padding-left: 30px;
+}
+
+.production-texts ul li {
+  list-style-type: disc;     
+  list-style-position: outside;
+}
+
 .production-texts p {
     font-family: 'Helvetica Neue Regular', sans-serif;
     font-size: 20px;
@@ -3074,6 +3088,11 @@ input[type=number] {
 .stages-of-work-card-content ul {
     padding-top: 10px;
     padding-left: 30px;
+}
+
+.stages-of-work-card-content ul li {
+  list-style-type: disc;     
+  list-style-position: outside;
 }
 
 .stages-of-work-card-content ul li {
